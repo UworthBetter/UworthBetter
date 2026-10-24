@@ -350,7 +350,7 @@ textarea.input { resize: none; font-family: var(--font-body); line-height: 1.7; 
 .badge-live { background: var(--paper); color: var(--gold-deep); }
 
 .hero {
-  height: 210px;
+  height: 230px;
   border-radius: var(--radius-l);
   position: relative;
   overflow: hidden;
@@ -370,19 +370,8 @@ html[data-style="cyber"] .hero { background: linear-gradient(180deg, #0c1c28 0%,
   animation: drift 14s ease-in-out infinite alternate;
 }
 @keyframes drift { from { transform: translateX(-2%); } to { transform: translateX(2%); } }
-.boat-wrap { position: absolute; bottom: 28px; left: 22px; width: 46px; height: 28px; color: #f3eee2; }
-.lighthouse-wrap { position: absolute; bottom: 26px; right: 28px; width: 54px; height: 64px; color: #f3eee2; }
-.water-line { position: absolute; bottom: 0; left: 0; right: 0; height: 52px; background: linear-gradient(180deg, transparent, rgba(60, 78, 88, 0.55) 70%); }
-.beam-glow {
-  position: absolute;
-  top: 42px;
-  right: 70px;
-  width: 70px;
-  height: 3px;
-  background: radial-gradient(circle, rgba(255, 244, 210, 0.95), transparent 75%);
-  animation: beam 3.2s ease-in-out infinite;
-}
-@keyframes beam { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+/* hero 底部融入纸面 */
+.hero-fade { position: absolute; inset: auto 0 0 0; height: 52px; background: linear-gradient(180deg, transparent, rgba(243, 238, 226, 0.72)); }
 
 .slide-card { min-height: 132px; }
 .dots { display: flex; gap: 6px; justify-content: center; margin-top: 8px; }

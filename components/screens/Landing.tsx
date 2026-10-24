@@ -63,11 +63,10 @@ export function Landing() {
       <p className="muted">未来的你先走一步。你负责这一周的灯，故事负责把雾掀开。</p>
 
       <div className="hero" aria-hidden>
+        <Image src="/landing/hero.jpg" alt="" fill sizes="480px" priority
+          style={{ objectFit: "cover", objectPosition: "50% 45%" }} />
         <div className="fog-layer" />
-        <div className="boat-wrap"><Icon name="boat" size="lg" /></div>
-        <div className="lighthouse-wrap"><Icon name="lighthouse" size="lg" /></div>
-        <div className="water-line" />
-        <div className="beam-glow" />
+        <div className="hero-fade" />
       </div>
 
       <div className="card slide-card">

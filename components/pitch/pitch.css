@@ -1,0 +1,65 @@
+/* 路演页样式：只作用于 .pitch-canvas 内部。画布固定 1920×1080，像素即设计稿像素。 */
+
+.pitch-canvas {
+  --p-ink: #14110d;
+  --p-ink-2: #1f1a14;
+  --p-gold: #e3b866;
+  --p-gold-deep: #a8822f;
+  --p-paper: #f3eee2;
+  --p-text: #f4ecdc;
+  --p-dim: rgba(244, 236, 220, 0.55);
+  font-family: var(--font-serif, "Noto Serif SC"), serif;
+  color: var(--p-text);
+  background: radial-gradient(ellipse 1400px 900px at 50% 40%, var(--p-ink-2), var(--p-ink));
+  transition: background 0.5s;
+}
+.pitch-canvas[data-dark="0"] {
+  --p-text: #1c1a16;
+  --p-dim: rgba(28, 26, 22, 0.55);
+  --p-gold: #a8822f;
+  background:
+    radial-gradient(ellipse 1200px 640px at 10% -10%, rgba(168, 130, 47, 0.16), transparent 60%),
+    radial-gradient(ellipse 900px 560px at 100% 0%, rgba(72, 96, 107, 0.12), transparent 55%),
+    var(--p-paper);
+}
+
+.pitch-scene { position: absolute; inset: 0; }
+.pitch-center {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; gap: 40px; padding: 0 160px;
+}
+
+/* 字号下限：主张 ≥72，正文 ≥32，注脚 ≥20 */
+.pitch-kicker { font-size: 24px; letter-spacing: 0.4em; color: var(--p-gold); }
+.pitch-claim { font-size: 84px; font-weight: 700; line-height: 1.25; letter-spacing: 0.02em; }
+.pitch-claim-sm { font-size: 72px; font-weight: 700; line-height: 1.3; }
+.pitch-body { font-size: 36px; line-height: 1.6; color: var(--p-dim); }
+.pitch-foot { font-size: 22px; color: var(--p-dim); }
+.pitch-gold { color: var(--p-gold); }
+.pitch-num { font-size: 220px; font-weight: 700; line-height: 1; color: var(--p-gold); font-variant-numeric: tabular-nums; }
+
+.pitch-card {
+  border: 1px solid color-mix(in srgb, var(--p-text) 18%, transparent);
+  background: color-mix(in srgb, var(--p-text) 5%, transparent);
+  border-radius: 24px; padding: 40px;
+}
+
+.pitch-ph {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #e7d2a0, #a8822f 55%, #48606b);
+  color: rgba(255, 255, 255, 0.85); font-size: 28px; font-weight: 700;
+}
+
+/* 底部进度条 */
+.pitch-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; z-index: 40; }
+.pitch-progress:hover { height: 64px; }
+.pitch-progress-bar { position: absolute; left: 0; bottom: 0; height: 6px; background: var(--p-gold); opacity: 0.6; transition: width 0.3s; }
+.pitch-progress-toc {
+  position: absolute; inset: 0 0 6px; display: none; gap: 4px; align-items: center; padding: 0 16px;
+  background: rgba(0, 0, 0, 0.6); overflow-x: auto;
+}
+.pitch-progress:hover .pitch-progress-toc { display: flex; }
+.pitch-progress-toc button {
+  flex: none; font-size: 18px; color: #ddd; padding: 8px 12px; border-radius: 8px; white-space: nowrap;
+}
+.pitch-progress-toc button[data-on="1"] { background: var(--p-gold-deep); color: #fff; }

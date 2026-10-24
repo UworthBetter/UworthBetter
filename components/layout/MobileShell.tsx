@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 
 function DeviceStatus() {
@@ -22,6 +23,8 @@ function DeviceStatus() {
 }
 
 export function MobileShell({ children }: { children: ReactNode }) {
+  // 路演页自带 1920×1080 舞台，不套手机外框
+  if (usePathname()?.startsWith("/pitch")) return <>{children}</>;
   return (
     <div className="desk">
       <div className="device">

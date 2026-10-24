@@ -9,7 +9,8 @@ import { useSeason } from "@/hooks/useSeason";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 
-const COVERS = ["/stub/cover-1.png", "/stub/cover-3.png", "/stub/cover-5.png", "/stub/cover-8.png"];
+// 示例章节用预生成演示季的真实封面（高光开场 → 低谷 → 幕终 → 终章）
+const COVERS = ["/demo/cover-1.jpg", "/demo/cover-3.jpg", "/demo/cover-9.jpg", "/demo/cover-13.jpg"];
 
 export function Landing() {
   const { me, loading } = useMe();
@@ -71,7 +72,7 @@ export function Landing() {
 
       <div className="card slide-card">
         <div className="faint">示例章节</div>
-        <Image src={COVERS[slide]!} alt="" width={640} height={360} style={{ width: "100%", height: 148, objectFit: "cover", borderRadius: 12, marginTop: 8 }} />
+        <Image src={COVERS[slide]!} alt="" width={640} height={960} style={{ width: "100%", height: 148, objectFit: "cover", objectPosition: "50% 30%", borderRadius: 12, marginTop: 8 }} />
         <div className="dots">
           {COVERS.map((src, index) => (
             <button key={src} type="button" className={index === slide ? "on" : ""} aria-label={`第 ${index + 1} 张`} onClick={() => setSlide(index)} />

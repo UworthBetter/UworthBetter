@@ -37,6 +37,12 @@ function pickStops(snapshots: PitchSnapshot[]): number[] {
 
 function Tree({ tree, beat, data }: { tree: FateTree; beat: number; data: PitchData }) {
   const byId = useMemo(() => new Map(tree.nodes.map((n) => [n.id, n])), [tree]);
+  const coreEdges = useMemo(() => tree.edges.filter((e) => !e.decorative), [tree]);
+  const decorD = useMemo(() => tree.edges.filter((e) => e.decorative).map((e) => {
+    const a = byId.get(e.from)!;
+    const b = byId.get(e.to)!;
+    return curve(a.x, a.y, b.x, b.y);
+  }).join(""), [tree, byId]);
   const grown = beat >= 2;
   const lit = beat >= 3;
   const realD = tree.realPath.map((id, i) => {
@@ -52,7 +58,17 @@ function Tree({ tree, beat, data }: { tree: FateTree; beat: number; data: PitchD
   return (
     <div style={{ position: "absolute", left: TX, top: TY, width: TW, height: TH }}>
       <svg width={TW} height={TH} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
-        {tree.edges.map((e) => {
+        {/* 装饰分支合并成一条路径、只做淡入（几百条独立 motion.path 会拖慢拉远阶段的帧率） */}
+        <motion.path
+          d={decorD}
+          fill="none"
+          stroke="rgba(244,236,220,.16)"
+          strokeWidth={1.2}
+          initial={false}
+          animate={{ opacity: beat >= 5 ? 1 : 0 }}
+          transition={{ duration: 0.6 }}
+        />
+        {coreEdges.map((e) => {
           const a = byId.get(e.from)!;
           const b = byId.get(e.to)!;
           return (
@@ -61,9 +77,9 @@ function Tree({ tree, beat, data }: { tree: FateTree; beat: number; data: PitchD
               d={curve(a.x, a.y, b.x, b.y)}
               fill="none"
               stroke={e.real && lit ? "rgba(227,184,102,.35)" : "rgba(244,236,220,.16)"}
-              strokeWidth={e.decorative ? 1.2 : 2}
+              strokeWidth={2}
               initial={false}
-              animate={{ pathLength: grown ? 1 : 0, opacity: grown ? (e.decorative ? (beat >= 5 ? 1 : 0) : 1) : 0 }}
+              animate={{ pathLength: grown ? 1 : 0, opacity: grown ? 1 : 0 }}
               transition={{ duration: 0.5, delay: grown ? a.depth * 0.11 : 0 }}
             />
           );

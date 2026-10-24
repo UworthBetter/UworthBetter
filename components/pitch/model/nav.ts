@@ -40,7 +40,7 @@ export function parseHash(h: string, beats: readonly number[]): Pos {
   return clamp(beats, { scene: Number(m[1]), beat: Number(m[2] ?? 0) });
 }
 
-export type KeyCommand = "next" | "prev" | "home" | "end" | "fullscreen" | "black" | "video" | "notes" | null;
+export type KeyCommand = "next" | "prev" | "home" | "end" | "fullscreen" | "black" | "video" | "notes" | "digit" | null;
 
 const KEYMAP: Record<string, KeyCommand> = {
   ArrowRight: "next", ArrowDown: "next", " ": "next", PageDown: "next", Enter: "next",
@@ -50,14 +50,26 @@ const KEYMAP: Record<string, KeyCommand> = {
 };
 
 export function keyToCommand(key: string): KeyCommand {
+  if (/^[0-9]$/.test(key)) return "digit";
   return KEYMAP[key] ?? KEYMAP[key.toLowerCase()] ?? null;
+}
+
+/** 数字键 + 回车跳转场景：有数字缓冲时回车 = 跳转，否则回车仍是「下一步」（由调用方处理） */
+export function applyDigit(buffer: string, key: string): { buffer: string; goto: number | null } {
+  if (/^[0-9]$/.test(key)) return { buffer: (buffer + key).slice(-2), goto: null };
+  if (key === "Enter" && buffer) return { buffer: "", goto: Number(buffer) };
+  return { buffer: "", goto: null };
+}
+
+/** 上一次换拍后、动画还没稳定就再次换拍 → 直接渲染终态 */
+export function shouldSnap(prevAt: number | null, now: number, settleMs: number): boolean {
+  return prevAt !== null && now - prevAt < settleMs;
 }
 
 const EDITABLE = new Set(["INPUT", "TEXTAREA", "SELECT"]);
 
-/** iframe 内的按键是否转发给路演页：只转发翻页类，且不在输入控件中 */
+/** iframe 内的按键是否转发给路演页：所有路演命令都转发（焦点在 App 里时也能切备用视频、黑屏），输入控件中除外 */
 export function shouldForwardKey(key: string, target: { tagName: string; isContentEditable: boolean } | null): boolean {
-  const cmd = keyToCommand(key);
-  if (cmd !== "next" && cmd !== "prev") return false;
+  if (!keyToCommand(key)) return false;
   return !target || (!EDITABLE.has(target.tagName) && !target.isContentEditable);
 }

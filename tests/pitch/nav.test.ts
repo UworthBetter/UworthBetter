@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatHash, keyToCommand, navReducer, parseHash, shouldForwardKey, type Pos } from "@/components/pitch/model/nav";
+import { applyDigit, formatHash, keyToCommand, navReducer, parseHash, shouldForwardKey, shouldSnap, type Pos } from "@/components/pitch/model/nav";
 
 const B = [1, 3, 2];
 const at = (scene: number, beat: number): Pos => ({ scene, beat });
@@ -65,6 +65,33 @@ describe("按键", () => {
     expect(shouldForwardKey("ArrowRight", t("DIV", true))).toBe(false);
     expect(shouldForwardKey("ArrowRight", t("BUTTON"))).toBe(true);
     expect(shouldForwardKey("PageUp", null)).toBe(true);
-    expect(shouldForwardKey("f", t("BUTTON"))).toBe(false);
+    // 焦点在 iframe（非输入框）时，备用视频 / 黑屏 / 全屏也必须能用
+    expect(shouldForwardKey("v", t("BUTTON"))).toBe(true);
+    expect(shouldForwardKey("b", t("DIV"))).toBe(true);
+    expect(shouldForwardKey("f", t("BUTTON"))).toBe(true);
+    expect(shouldForwardKey("7", t("DIV"))).toBe(true);
+    expect(shouldForwardKey("v", t("TEXTAREA"))).toBe(false);
+    expect(shouldForwardKey("x", t("DIV"))).toBe(false);
   });
+});
+
+describe("数字跳转", () => {
+  it("数字键映射为 digit", () => {
+    expect(keyToCommand("0")).toBe("digit");
+    expect(keyToCommand("9")).toBe("digit");
+  });
+  it("累积数字，回车跳到该场景；无缓冲时回车仍是下一步", () => {
+    expect(applyDigit("", "1")).toEqual({ buffer: "1", goto: null });
+    expect(applyDigit("1", "1")).toEqual({ buffer: "11", goto: null });
+    expect(applyDigit("11", "Enter")).toEqual({ buffer: "", goto: 11 });
+    expect(applyDigit("", "Enter")).toEqual({ buffer: "", goto: null });
+  });
+  it("缓冲最多两位", () => expect(applyDigit("12", "3")).toEqual({ buffer: "23", goto: null }));
+  it("其他键清空缓冲", () => expect(applyDigit("4", "ArrowRight")).toEqual({ buffer: "", goto: null }));
+});
+
+describe("shouldSnap：上一拍动画未结束就再按，直接跳终态", () => {
+  it("在稳定时间内再按 → 跳终态", () => expect(shouldSnap(1000, 1500, 900)).toBe(true));
+  it("超过稳定时间 → 正常播放", () => expect(shouldSnap(1000, 2000, 900)).toBe(false));
+  it("首次（无上次时间）→ 正常播放", () => expect(shouldSnap(null, 1500, 900)).toBe(false));
 });

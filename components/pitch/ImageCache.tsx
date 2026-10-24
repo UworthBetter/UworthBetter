@@ -1,8 +1,9 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { loadBlobs } from "@/components/pitch/model/blobLoader";
 
-// 路演页图片内存缓存：加载时把全部图片取成 Blob，之后用 object URL 渲染。
+// 路演页资源内存缓存（图片 + 备用视频）：加载时取成 Blob，之后用 object URL 渲染。
 // public/ 下的文件是 max-age=0，HTTP 缓存在断网时无法重新验证；Blob 缓存不依赖网络。
 
 const ImageCacheContext = createContext<ReadonlyMap<string, string>>(new Map());
@@ -12,20 +13,12 @@ export function ImageCacheProvider({ urls, children }: { urls: string[]; childre
   useEffect(() => {
     let alive = true;
     const created: string[] = [];
-    void Promise.all(
-      urls.map(async (url) => {
-        try {
-          const res = await fetch(url);
-          if (!res.ok) return null;
-          const obj = URL.createObjectURL(await res.blob());
-          created.push(obj);
-          return [url, obj] as const;
-        } catch {
-          return null; // 取不到就退回原始 URL
-        }
-      }),
-    ).then((pairs) => {
-      if (alive) setCache(new Map(pairs.filter((p): p is readonly [string, string] => !!p)));
+    // 每取到一张就生效；单个请求卡住按超时放弃，不拖累其他图片
+    void loadBlobs(urls, (url, blob) => {
+      const obj = URL.createObjectURL(blob);
+      if (!alive) return URL.revokeObjectURL(obj); // 已卸载后晚到的结果立即释放
+      created.push(obj);
+      setCache((prev) => new Map(prev).set(url, obj));
     });
     return () => {
       alive = false;

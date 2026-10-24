@@ -2,18 +2,21 @@
 
 import { useRef, useState } from "react";
 import { api } from "@/lib/client/api";
+import { useCachedSrc } from "@/components/pitch/ImageCache";
 import { Reveal } from "@/components/pitch/ui/Reveal";
 
 // 场景 10：现场演示。iframe 嵌入真实 App（同源，部署到哪个域名都适用）。
 // 演示流程定稿后，只需调整下面两个常量。
 
 export const DEMO_START_CHAPTER = 4;
+// 备用视频（D 轨道录制）；页面加载时预取到内存，现场断网也能播
+export const BACKUP_VIDEO_URL = "/pitch/backup-demo.mp4";
 const CAPTIONS = [
   { head: `她的第 ${DEMO_START_CHAPTER} 周`, sub: "这是真实运行的 App，不是录屏。" },
   { head: "勾选最后的任务", sub: "每完成一个任务，下一章封面的迷雾就散去一点。" },
   { head: "迷雾散开", sub: "完成度越高，越早看清下一章。" },
   { head: "回答一个采访问题", sub: "可以请评委替她回答。" },
-  { head: "故事流式写出，插画逐格出现", sub: "她的真实回答，会出现在「来自未来的信」里。" },
+  { head: "故事流式写出，插画逐格出现", sub: "每一章都由她这一周的真实记录写成。" },
 ];
 
 const PHONE_W = 430;
@@ -27,6 +30,7 @@ export function LiveDemo({ beat, visible, video, onFrame }: {
   const frame = useRef<HTMLIFrameElement>(null);
   const [resetNote, setResetNote] = useState("");
   const [videoMissing, setVideoMissing] = useState(false);
+  const videoSrc = useCachedSrc(BACKUP_VIDEO_URL);
 
   async function reset() {
     setResetNote("重置中…");
@@ -55,10 +59,10 @@ export function LiveDemo({ beat, visible, video, onFrame }: {
         {video ? (
           videoMissing ? (
             <div className="pitch-ph" style={{ width: PHONE_W, height: PHONE_H, borderRadius: 50, fontSize: 22, padding: 40, textAlign: "center" }}>
-              备用视频未放置：public/pitch/backup-demo.mp4
+              备用视频加载失败：未放置 public/pitch/backup-demo.mp4，或页面加载时网络不可用
             </div>
           ) : (
-            <video src="/pitch/backup-demo.mp4" controls autoPlay onError={() => setVideoMissing(true)}
+            <video src={videoSrc ?? BACKUP_VIDEO_URL} controls autoPlay onError={() => setVideoMissing(true)}
               style={{ width: PHONE_W, height: PHONE_H, borderRadius: 50, background: "#000", objectFit: "cover" }} />
           )
         ) : null}

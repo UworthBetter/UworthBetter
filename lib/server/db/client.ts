@@ -2,6 +2,7 @@ import Database from "better-sqlite3";
 import { drizzle, type BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
 import fs from "node:fs";
 import path from "node:path";
+import { migrate } from "drizzle-orm/better-sqlite3/migrator";
 import { env } from "@/lib/env";
 import * as schema from "./schema";
 
@@ -13,7 +14,9 @@ function open(): DB {
   const sqlite = new Database(file);
   sqlite.pragma("journal_mode = WAL");
   sqlite.pragma("foreign_keys = ON");
-  return drizzle(sqlite, { schema });
+  const db = drizzle(sqlite, { schema });
+  migrate(db, { migrationsFolder: path.join(process.cwd(), "drizzle") });
+  return db;
 }
 
 // 开发模式热更新时复用同一个连接

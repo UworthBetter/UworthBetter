@@ -3,6 +3,7 @@
  */
 import { z } from "zod";
 import type { ErrorCode } from "@/lib/contracts/api";
+import { env } from "@/lib/env";
 
 export class HttpError extends Error {
   constructor(
@@ -18,7 +19,7 @@ export const fail = (code: ErrorCode, message: string, status: number) => new Ht
 
 /** 返回 JSON；开发/测试环境下先用契约 schema 自检，契约不一致时立刻暴露。 */
 export function ok<T>(schema: z.ZodType<T>, data: T, init?: ResponseInit): Response {
-  const body = process.env.NODE_ENV === "production" ? data : schema.parse(data);
+  const body = env.NODE_ENV === "production" ? data : schema.parse(data);
   return Response.json(body, init);
 }
 
@@ -40,7 +41,12 @@ export async function readMultipart<T>(
   schema: z.ZodType<T>,
   fileField: string,
 ): Promise<{ data: T; file: File | null }> {
-  const form = await req.formData();
+  let form: FormData;
+  try {
+    form = await req.formData();
+  } catch {
+    throw fail("VALIDATION", "请求体不是合法表单", 400);
+  }
   const rawData = form.get("data");
   if (typeof rawData !== "string") throw fail("VALIDATION", "缺少 data 字段", 400);
   let parsed: unknown;

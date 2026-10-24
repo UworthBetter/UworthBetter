@@ -5,6 +5,7 @@
 import { z } from "zod";
 
 const Env = z.object({
+  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   DATABASE_URL: z.string().default("file:./data/app.db"),
   STORAGE_DRIVER: z.enum(["local", "s3"]).default("local"),
   PUBLIC_BASE_URL: z.string().default("http://localhost:3000"),

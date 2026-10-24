@@ -66,12 +66,19 @@ export function NextChapterTeaser({
             />
           ))}
           {error ? <p className="field-error">{error}</p> : null}
-          <Button size="sm" disabled={busy} onClick={() => void save()}>保存下周任务</Button>
+          <div className="row" style={{ justifyContent: "flex-start", gap: 10 }}>
+            <Button size="sm" disabled={busy} onClick={() => void save()}>保存下周任务</Button>
+            <Button variant="ghost" size="sm" disabled={busy} onClick={() => { setRows(next.quests); setEditing(false); setError(""); }}>不改了</Button>
+          </div>
         </div>
       ) : (
-        <Button className="btn-secondary" variant="secondary" size="sm" style={{ marginTop: 12 }} onClick={() => setEditing(true)}>
-          第 {next.no} 章任务已就绪
-        </Button>
+        <div className="row" style={{ marginTop: 12, justifyContent: "center" }}>
+          {/* 已就绪 = 跳到下一章开始新一周；改任务是次级入口（勾过任务后服务端拒绝替换，直接隐藏）。 */}
+          <Button size="sm" href={`/chapter/${next.no}`}>第 {next.no} 章任务已就绪 · 去新的一周</Button>
+          {next.quests.some((q) => q.done) ? null : (
+            <Button variant="ghost" size="sm" onClick={() => { setRows(next.quests); setEditing(true); }}>改任务</Button>
+          )}
+        </div>
       )}
     </div>
   );

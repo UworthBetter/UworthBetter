@@ -1,0 +1,2057 @@
+{
+  "seasonTitle": "雾港颜色修补师",
+  "logline": "在被灰雾吞没颜色的港口小镇，一个普通女孩用画笔一点点把世界涂回原来的样子。",
+  "sheets": {
+    "future": "/demo/sheet-future.jpg",
+    "present": "/demo/sheet-present.jpg"
+  },
+  "chapters": [
+    {
+      "no": 1,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "第一扇亮起来的窗",
+      "questions": [
+        "小夏，第0天手不抖了那一刻，是画到哪一笔才稳下来的？",
+        "街边捡到的配色是哪个场景的？现在还记得颜色吗？",
+        "如果这周是一幅速写，最想留在纸上的线条是哪一条？"
+      ],
+      "answers": [
+        "应该是画到头发那一串细线吧，前面手一直在抖，画到第三四笔突然发现稳了，停下来看了好几秒，有点不敢信。",
+        "是傍晚卖水果的摊子，橙子堆在那儿，橙黄配着深绿的叶子，旁边还有点蓝紫色的塑料布。都记本子上了，那个橙子黄我现在闭眼都能想起来。",
+        "想留第4天提前半小时开始画的那一笔吧，起手很轻但特别顺，就……终于不用跟自己较劲的那种线条，希望以后每天都能画出这样的。"
+      ],
+      "quests": [
+        {
+          "text": "每天早上 7 点画 20 分钟速写，共 5 天",
+          "difficulty": 2,
+          "isKey": true,
+          "storyHook": "完成后：修复第一扇窗"
+        },
+        {
+          "text": "整理一个专门放练习稿的文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：找到修补工具箱"
+        },
+        {
+          "text": "收集 10 张喜欢的插画作为参考",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：镇上的颜色图鉴多了一页"
+        },
+        {
+          "text": "把手机放在另一个房间画一次画",
+          "difficulty": 2,
+          "isKey": false,
+          "storyHook": "完成后：灰雾退后了一步"
+        }
+      ],
+      "logs": [
+        {
+          "day": 0,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 2,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 4,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第一扇亮起来的窗",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "每天早上 7 点画 20 分钟速写，共 5 天（完成）",
+            "story": "林夏连续五个清晨修补面包店那扇褪色的窗，窗框的颜色一格一格亮回来，阿婆第一次注意到她"
+          },
+          {
+            "real": "整理一个专门放练习稿的文件夹（完成）",
+            "story": "她把藏起来的画装订成第一本「颜色图鉴」，图鉴出现后，灰雾的低语第一次被挡在纸外"
+          },
+          {
+            "real": "收集 10 张喜欢的插画作为参考（完成）",
+            "story": "她在港口捡到十张随风飘来的彩色画片，拼出通往灯塔方向的路标"
+          },
+          {
+            "real": "把手机放在另一个房间画一次画（完成）",
+            "story": "她把发着光的「雾镜」（手机）锁进抽屉，灰雾失去了最亮眼的诱饵，第一次被击退"
+          }
+        ],
+        "beats": [
+          "[object Object]",
+          "[object Object]",
+          "[object Object]",
+          "[object Object]"
+        ],
+        "panels": [
+          {
+            "scene": "Wide establishing shot of a foggy harbor town at dawn, desaturated grey-blue palette. Lin Xia (short black bob hair, round glasses, grey hoodie) walks to work, sketchbook strap visible in her bag, small figures in background, a distant lighthouse barely visible through fog.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾港的清晨总是灰的。林夏的速写本压在包底，和这个镇子一样，等着一点颜色。",
+            "dialogues": []
+          },
+          {
+            "scene": "Close-up on Lin Xia's hand sketching at a windowsill at 7am, warm lamp light. Her hand trembles in a faint motion line; on the paper, a strand of fine hair lines comes out clean and steady. Her round glasses reflect the page, grey hoodie sleeve pushed up.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "画到头发那一串细线时，手突然不抖了。那一秒，纸上第一次有了真正属于她的线条。",
+            "dialogues": []
+          },
+          {
+            "scene": "Medium shot at the fogged window: a translucent older woman version of Lin Xia (same short black bob hair, round glasses, grey hoodie but worn like a traveler's coat, sketchbook at her hip) stands half-visible in drifting grey fog outside, smiling, pointing at the window frame where a sliver of orange color has returned.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灯塔方向闪了一下光。雾里站着的人，穿着和她一模一样的灰色连帽衫。",
+            "dialogues": []
+          },
+          {
+            "scene": "Dynamic panel: grey fog shaped like a giant glowing smartphone screen looms over Lin Xia's desk, its light brighter than her colors, whispering tendrils curling toward her wrist. Lin Xia (short black bob hair, round glasses, grey hoodie) grits her teeth and slams the phone into a drawer, wooden drawer half-closed, papers scattering.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾最亮的诱饵，是那块比颜色更亮的屏幕。她第一次亲手把它关进黑暗里。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "A misty harbor town cover: young woman with short black bob hair, round glasses, grey hoodie, holding a glowing sketchbook, repainting color onto a fogged bakery window, orange and green bleeding into grey fog, distant lighthouse flashing faintly, black cat silhouette beside her",
+        "interviewQuote": "应该是画到头发那一串细线吧，前面手一直在抖，画到第三四笔突然发现稳了，停下来看了好几秒，有点不敢信。",
+        "cliffhanger": "阿婆端出热面包时低声说：「这手艺……我年轻时候，也见过一个这样的人。」而灯塔的闪光，比昨晚多亮了一秒。",
+        "foreshadowingAdd": [],
+        "foreshadowingResolve": [],
+        "summary": "第1幕第1章：平凡世界里，林夏在清晨速写中手突然稳住，未来的自己首次现身并承认她的修补师身份。她锁起灰雾化作的发光手机，用收集的彩色画片补亮面包店的窗，获得新道具「颜色图鉴」，阿婆与黑猫墨点登场，埋下阿婆旧识与图鉴神秘旧稿的伏笔。",
+        "nextCoverPrompt": "Lin Xia (short black bob hair, round glasses, grey hoodie) hanging small colorful paintings on a clothesline by the harbor at dusk, fog creeping back with faint whispering shapes, a fruit stall glowing orange in the distance, black cat watching",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "雾港的清晨总是灰的。灰蓝的天，灰蓝的海，连面包店的招牌都褪成了一种疲惫的米色。你背着包走过湿漉漉的石板路，速写本压在包底，像一块不敢出声的小石头。空气里有海水咸咸的凉，混着一点昨夜炉火的余味。远处的灯塔藏在雾里，只偶尔闪一下，仿佛快要睡着了。\n\n<!--panel:0-->\n\n第一天早晨七点，你在面包店门口坐下，翻开速写本。笔尖落在纸上，手有点抖，线条歪歪扭扭，像雾里打滑的脚步。你没有合上本子。你画了第二笔，第三笔——画到阿婆鬓角那一串细头发时，手忽然稳了。一条细线，干干净净地落在纸上。你停下来，看了好几秒，有点不敢相信。然后你把那一页轻轻压平，继续画下去。\n\n<!--panel:1-->\n\n第五天清晨，窗框上褪色的橘子橙，一格一格地亮了回来。你蹲在窗边补最后一块颜色，指尖蹭到了一点点朱红，暖烘烘的。就在这时，灯塔方向闪了一下光。雾里站着一个人——短头发，圆眼镜，灰色的连帽衫，和你一模一样，只是穿得像个走了很远路的旅人。她朝你笑了笑，指着那扇窗，又指了指你包里露出一角的画稿。你解下包，把这几天藏起来的画一张张理好，装订成薄薄的一本。你叫它「颜色图鉴」。奇怪的是，从图鉴合上的那一刻起，灰雾贴着耳边的那种低语，第一次被挡在了纸的外面。\n\n<!--panel:2-->\n\n可是灰雾不肯走。那天晚上，它变成了一块发光的屏幕——「雾镜」，比任何一种颜色都亮，光柔柔地漫过来，缠着你的手腕，低声说着「再刷一会儿吧」。你盯着那片亮光看了很久，喉咙有点发紧。然后你站起来，走过去，把它咔哒一声锁进了抽屉。木头合上的声音很轻，却像一小声春雷。灰雾失去了最亮的诱饵，散开成一缕缕不甘心的烟。你回到桌前，在图鉴里贴上十张在港口捡到的彩色画片——它们拼在一起，正好指向灯塔的方向。\n\n<!--panel:3-->\n\n第二天早上，黑猫墨点蹲在窗台上，尾巴扫过还带着颜料味的新漆。阿婆端出两块热面包，麦香混着黄油香，暖了你半边脸。她把面包放进你手里时，忽然凑近，压低了声音：「这手艺……我年轻时候，也见过一个这样的人。」你抬起头，她却只是笑，转身回了炉火边。窗外，雾又漫上来了。而远处的灯塔，闪了一下光——比昨晚，多亮了一秒。",
+      "letterMd": "亲爱的小夏：\n\n展信快乐。先画，再说——所以这封信不用急着回，你先把手头那支笔放下再说。\n\n听说你的手不抖了。画到头发那串细线，第三四笔突然稳住，停下来看了好几秒，有点不敢信——我就知道会是这样。你的手一直在慢慢听话，只是它不告诉你而已。\n\n还有那个水果摊的橙子黄，配深绿叶子，旁边一点蓝紫塑料布。小夏，你已经开始用画家的眼睛看世界了，这比任何练习稿都珍贵。\n\n至于第4天提前半小时开始画画，起手很轻但特别顺——不跟自己较劲的那种线条。我隔着90天都想给你鼓掌。你要知道，这种“居然不难”的时刻，是你自己一步一步挣来的，不是运气。\n\n下周每天20分钟速写，别有压力。给你一条很小的建议：画完不用检查第二遍，放下笔就算完成，这样更容易坚持。\n\n最后偷偷说一句：以后有一天，你会靠画画稳定接单，桌边放着那个记配色的小本子。不剧透了。\n\n慢慢来，你比想象中走得好。\n\n90天后的林夏",
+      "cover": "/demo/cover-1.jpg",
+      "panels": [
+        "/demo/panel-1-0.jpg",
+        "/demo/panel-1-1.jpg",
+        "/demo/panel-1-2.jpg",
+        "/demo/panel-1-3.jpg"
+      ],
+      "nextCover": "/demo/cover-2.jpg"
+    },
+    {
+      "no": 2,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "不抖的手",
+      "questions": [
+        "小夏，第7天手终于不抖了，那一刻什么感觉？",
+        "街上捡到的那组配色，是哪儿看到的？",
+        "如果把这一周做成一幅速写，你会先画哪一笔？"
+      ],
+      "answers": [
+        "说实话挺想哭的，练了那么久，落笔终于稳了。看着线条一笔到位，感觉自己没白熬。",
+        "就在面包店门口，夕阳打在招牌上，橙色和灰蓝叠在一起，特别好看，我当场掏本子记下来了。",
+        "先画那只握笔的手吧，这周所有的进步都是从它开始的。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 7,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 9,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 11,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第2章：不抖的手",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "本周的记录",
+            "story": "小镇一角的变化"
+          }
+        ],
+        "beats": [
+          "林夏坐到褪色的窗前，灰雾的低语让她手开始发抖（对应第7天的挣扎）。",
+          "关键台词位置：她想起这周落笔终于稳了的那晚，握紧铅笔一笔到位——震颤迷咒破碎。",
+          "面包店门口捡到「拾光色」，收入颜色图鉴，图鉴首次主动发光回应（呼应第9天）。",
+          "灰雾改用『明天再画吧』拖延低语，但林夏提前半小时落座，雾散（呼应第11天）。"
+        ],
+        "panels": [
+          {
+            "scene": "Dawn interior, a faded window frame. Lin Xia (short black bob hair, round glasses, grey hoodie) sits on a wooden stool, pencil raised, her hand visibly trembling, fine grey mist curling through the window cracks like whispering fingers.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾的震颤迷咒缠上她的手腕，笔尖在空中晃出虚线。",
+            "dialogues": []
+          },
+          {
+            "scene": "Close-up on her hand: Lin Xia (round glasses reflecting window light) clenches the pencil, knuckles whitening, then the line snaps down — one clean confident stroke crossing the panel diagonally, grey mist recoiling from it like burned paper.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "一笔到位。震颤迷咒应声碎裂，窗框里的颜色像退潮般回来。",
+            "dialogues": []
+          },
+          {
+            "scene": "Golden hour street outside the bakery. Lin Xia (short black bob hair, round glasses, grey hoodie) crouches at the curb, sketchbook open, capturing orange and grey-blue light stacking on the shop sign; black cat Inktail sits beside her foot, tail curled around her ankle.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "夕阳落在招牌上，颜色图鉴自己翻开，吞下这对新颜色。",
+            "dialogues": []
+          },
+          {
+            "scene": "The colors ledger glowing, new entry icon blooming like a small flame. Lin Xia (grey hoodie) holds it up, glasses fogged with reflected light; outside the window, thick grey fog retreats along the rooftops, visibly frustrated.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "图鉴亮起「拾光色」的条目——这是第一件能主动驱雾的武器。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "漫画封面：港口黄昏，齐肩黑短发、圆框眼镜、灰色连帽衫的林夏站在晾衣绳旁，绳上三张彩色小画在灰蒙小镇中发亮，黑色小猫蜷在她脚边，远处灯塔隐约一闪，橙与灰蓝的主色调。",
+        "interviewQuote": "说实话挺想哭的，练了那么久，落笔终于稳了。看着线条一笔到位，感觉自己没白熬。",
+        "cliffhanger": "冷风吹散画稿后，窗台上留下一张不属于林夏的旧速写——落款日期竟是三十年前，而下一页图鉴空白处浮现出四个字：『装订成卷』。",
+        "foreshadowingAdd": [],
+        "foreshadowingResolve": [],
+        "summary": "第1幕第2章：林夏击退灰雾的震颤迷咒，手不再发抖，捡到新颜色「拾光色」收入图鉴，第一次把修好的画挂上晾衣绳。装订图鉴第一卷被灰雾的冷风阻挠，留下三十年前旧速写的悬念。",
+        "nextCoverPrompt": "漫画封面：深夜书桌前，灰色连帽衫、圆框眼镜的林夏在灯下装订画稿，一张泛黄的旧速写悬在半空发光，窗外灰雾凝成巨大的手形阴影压向窗户。",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "<!--panel:0-->\n天还没亮透。你坐在那扇褪色的窗前，木头凳子有点凉，凉意顺着睡裤爬上膝盖。窗缝里，灰雾像谁的手指，细细地探进来，贴着你的耳朵说话。它说的话你听不清，可你的手腕听得清——铅笔在空中晃出一条虚线，抖得像风里的蜘蛛丝。你盯着自己的手，忽然觉得它陌生。这不是你的手。你的手不该这样。你低下头，闻了闻铅笔的木屑味，淡淡松木香，是真实的东西。你把手放回膝上，先不动笔。\n\n<!--panel:1-->\n可你想起一件事。这周有一晚，你也这样坐在窗前，雾也这样低语。那晚你没有等雾说完，你握紧了铅笔，指节发白，一笔落下，笔尖咬住纸面，发出极轻的一声沙。线是稳的。就那一笔，雾像被烫到似的缩回窗缝里，窗框的颜色一格格退潮般回来：木头的黄，玻璃的青。你现在做的就是这个动作。你重新抬手，手腕抖了一下，又一下，然后停住。你落笔。一笔到位。真实的笔，真实的纸，真实的你。雾没再说话。\n\n<!--panel:2-->\n傍晚，面包店的灯刚亮。你蹲在路边，速写本摊在膝盖上。夕阳把招牌染成两种颜色：向阳那一半是暖橙，背光那一半是灰蓝，两层颜色叠在一起，像有人悄悄把黄昏折了一道。墨尾猫蜷在你脚踝边，尾巴一圈一圈，暖暖的，带着晒过太阳的绒布味。你削铅笔，木屑落在鞋面上。你一笔一笔画下那道折痕。画完你才发现，颜色图鉴不知什么时候自己翻开了一页，纸页微微发亮，像小动物睁开了眼睛。它把那对新颜色吞了进去，轻轻合上，仿佛打了个饱嗝。\n\n<!--panel:3-->\n你把图鉴举到眼前，眼镜上蒙了一层灯光的反光。新条目亮起来了：「拾光色」。小小的图标像一粒火种，在你掌心里一跳一跳。窗外的灰雾沿着屋顶退去，退得很慢，很不甘心。你以为它走了。其实它只是换了一句话，第二天清晨，它不再低语，它柔柔地说：明天再画吧，今天太冷了。你听了，差点点头。但你没有。你只是提前半小时坐到窗前，凳子还是凉的，你已经坐下了。雾在窗外站了一会儿，散了。你摊开这一周修好的画，想把它们装订成第一卷。冷风忽然灌进来，画稿哗啦啦飞了一屋子。等一张张捡回来，你在窗台上发现一张不属于你的旧速写，纸已泛黄，边角卷起。落款的日期，是三十年前。而图鉴的下一页，空白处正慢慢浮出四个字：『装订成卷』。",
+      "letterMd": "亲爱的小夏：\n\n这封信，来自三个月后的你，林夏。\n\n先说最想说的：你说“落笔终于稳了，感觉自己没白熬”，我读到这里，特别想隔着时间抱你一下。真的，为你骄傲。那只握笔的手，你选得太对了——这周所有的进步，确实都从它开始。我现在的工作桌上，还摆着那本记配色的小本子。面包店门口那组橙和灰蓝，后来你真的用上了，用得特别漂亮。\n\n还有一件事你大概没意识到多难得：你提前半小时坐下，居然不觉得难。这就是变化悄悄发生了的证据，不轰烈，但它是真的。\n\n只给你一条小建议，别的不多说：下周每天 20 分钟速写，画之前先深呼吸一下，别急着评判自己那 20 分钟画得好不好。画了，就算赢。\n\n至于未来嘛……我只说一句：三个月后的某天早上，你会接到一封你没想到的邮件，内容跟画有关，还挺好的。剩下的，你自己走过去看。\n\n别慌，别熬太晚，好好吃饭。\n\n先画，再说。这句话，90 天了，依然是管用的。\n\n爱你的，\n2027 年的林夏",
+      "cover": "/demo/cover-2.jpg",
+      "panels": [
+        "/demo/panel-2-0.jpg",
+        "/demo/panel-2-1.jpg",
+        "/demo/panel-2-2.jpg",
+        "/demo/panel-2-3.jpg"
+      ],
+      "nextCover": "/demo/cover-3.jpg"
+    },
+    {
+      "no": 3,
+      "chapterType": "low",
+      "completionRate": 0.2,
+      "title": "空白页上的雾",
+      "questions": [
+        "第16天坐了半小时没动笔，那时候脑子里在想什么？",
+        "第14天累到休息，画画的累和别的累一样吗？",
+        "如果这周是部电影，片名会叫什么？"
+      ],
+      "answers": [
+        "说实话脑子里全是'怎么又画不出来了'，越坐越慌，笔越拿不起来。后来干脆盯着画本的空白页发呆，想'我是不是不行了'这种话。",
+        "不太一样。画画的累是那种明明想画但心里堵着的累，像有东西压着。别的累睡一觉能好，这种累睡完还在。",
+        "《空白页》吧。一周都在面对空白，画本的空白，话也说不出来，手机屏幕倒是刷满了，就是心里空的。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 14,
+          "note": "好累，今天先让自己休息",
+          "mood": 2
+        },
+        {
+          "day": 16,
+          "note": "坐在画本前半小时，一笔没动",
+          "mood": 2
+        },
+        {
+          "day": 18,
+          "note": "又刷了一晚上手机，不想说话",
+          "mood": 1
+        }
+      ],
+      "plan": {
+        "title": "第3章：空白页上的雾",
+        "chapterType": "low",
+        "realEventsMapping": [
+          {
+            "real": "本周的记录",
+            "story": "小镇一角的变化"
+          }
+        ],
+        "beats": [
+          "周一：疲惫的林夏被雾裹住手，第一次真心对自己说「今天休息」——雾在暗处微笑",
+          "周三：空白之厅，铅笔近在咫尺却拿不起来，雾的低语与她内心的声音混成一片（interview_quote 置于此刻）",
+          "周五夜：发光手机的雾态分身挣脱锁链，用屏幕的光淹没整间屋子，晾衣绳上的画褪色",
+          "低谷极点：林夏缩在灰色连帽衫里，整页空白，连窗外的雾都是她的颜色"
+        ],
+        "panels": [
+          {
+            "scene": "Monday morning. Lin Xia (short black bob hair, round glasses, grey hoodie) sits slumped at her desk, cheek resting on the closed sketchbook. Grey mist seeps through window cracks, coiling around her wrist like a soft rope. Cold blue-grey palette, only her breath visible.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾最温柔的时候，往往是最危险的时候。",
+            "dialogues": []
+          },
+          {
+            "scene": "Wednesday night. Wide overhead shot: the sketchbook open to a blank page, a pencil lying just out of reach at the far edge of the desk. Lin Xia (short black bob hair, round glasses, grey hoodie) sits frozen, fingers hovering in mid-air, unable to close the distance. The mist fills the room like water, the blank page glowing pale white against the grey.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "铅笔明明就在手边，雾却让它像隔着一整片海。",
+            "dialogues": []
+          },
+          {
+            "scene": "Friday night, bedroom in darkness. Lin Xia (short black bob hair, round glasses, grey hoodie) lies on her bed, face lit only by the harsh glow of a phone held above her. Outside the window, the paintings on the laundry line fade to white one by one. The mist forms a smiling silhouette on the ceiling, feeding on the screen light.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾不需要夺走什么，只需要让她把目光交给屏幕。",
+            "dialogues": []
+          },
+          {
+            "scene": "Rock bottom. Extreme close-up of the blank sketchbook page, then pull back: Lin Xia (short black bob hair, round glasses, grey hoodie) curled up small against the wall, hood pulled over her head, glasses reflecting nothing but grey. The room has lost nearly all color; even the collected color swatches in the Color Codex are dim.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "手指还在够向画本——这一点点「还想画」，雾最恨它。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "A grey-blue muted cover: Lin Xia (short black bob hair, round glasses, grey hoodie) curled up in a fog-filled room, clutching an open blank sketchbook, a single warm pencil lying just out of reach; from the far right, a sliver of lighthouse light cuts through the mist; melancholic yet tender watercolor style.",
+        "interviewQuote": "说实话脑子里全是'怎么又画不出来了'，越坐越慌，笔越拿不起来。",
+        "cliffhanger": "墨点的爪印旁，空白页上缓缓浮现出三十年前那页旧速写的淡淡轮廓——图鉴在提示：解开「空白之厅」的钥匙，藏在旧稿里。下周，林夏必须整理出这本属于她的颜色图鉴第一卷，才能看清旧稿上的字。",
+        "foreshadowingAdd": [
+          {
+            "id": "f3",
+            "hint": "空白之厅里，雾念出的低语竟是林夏小时候写过的日记原句——雾在偷听她很多年了",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [],
+        "summary": "第1幕第3章（低谷）：这一周，灰雾没有硬抢，只是温柔地围困——疲惫时劝她休息，画前偷走她够笔的力气，深夜用屏幕的光填满她的心。五天的空白不是林夏的失败，而是雾的合围。极暗处，2027年的林夏踏雾而来，把铅笔放回她掌心；黑猫墨点在空白页上按下第一个爪印，灯塔再度闪了一下。空白没有消失，但「还想画」的那颗心还在——下周，她要装订自己的颜色图鉴，从三十年前的旧速写里找出破雾的钥匙。",
+        "nextCoverPrompt": "A hopeful dawn-toned cover: Lin Xia (short black bob hair, round glasses, grey hoodie) at a wooden desk binding a handmade book titled '颜色图鉴·卷一', thread and needle in hand, Modian the black cat pressing a paw print on the cover, an old yellowed sketch half-visible beneath the pages, morning light replacing the mist.",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "# 第3章：空白页上的雾\n\n<!--panel:0-->\n\n周一的清晨是灰蓝色的。雾从窗缝里钻进来，凉凉地缠上你的手腕，像一条软软的绳子。你趴在桌上，脸颊贴着合上的画本，纸面有一股淡淡的、旧木头的气味。呼吸在冷空气里变成一小团白。\n\n雾在你耳边说话，声音很温柔：「你太累了，休息吧。」它说得那么轻，轻得像盖在你身上的一床被子。你几乎要点头了。可是这一次，你听见自己的声音，很小，却很真：「今天，休息。」不是雾替你说的，是你自己说的。雾在暗处顿了一下，微笑着退开半步。\n\n<!--panel:1-->\n\n周三的夜里，房间像沉在水底。画本摊开着，那一页白得发亮，铅笔就躺在桌角，离你的指尖只有一掌远。你伸出手，手悬在半空，落不下去。\n\n雾把房间填满了。铅笔明明就在手边，却像隔着一整片海。你听见低语混在自己的心跳里：「怎么又画不出来了」「越坐越慌」「笔都拿不起来」……那些话很熟悉，熟悉得让你发冷——它们像是你心里的话，被雾学了去，又轻轻还给你。你僵在那里，指尖离笔尖，隔着雾。\n\n<!--panel:2-->\n\n周五的深夜，房间里没有开灯。手机的光照在你脸上，白得刺眼。你躺着，拇指一划，又一划。屏幕的光太亮了，亮得你看不见别的东西。\n\n窗外的晾衣绳上，你的画一件一件褪色，从蓝褪成灰，从灰褪成白，像雪一样悄悄化了。天花板的高处，雾堆成一个微笑的影子，安静地喝着屏幕的光。雾不需要夺走什么——它只需要你把目光交出去，一晚，又一晚。你没有察觉。光太亮了，眼睛太酸了。\n\n<!--panel:3-->\n\n后来，你缩进了灰色的连帽衫里。帽子罩下来，镜片上映不出任何颜色。画本上是一整页空白，白得干干净净。窗外也是雾，灰的，连天边都是你的颜色。\n\n可就在那样灰的房间里，你看见了自己的手指——它还朝着画本的方向，微微地、微微地伸着。就那么一点点。就那一点点「还想画」，雾最恨它。雾的合围困住了五天的白纸，却困不住这一根手指。\n\n然后，墨点来了。黑猫踩着雾走过来，把一支温热的铅笔放回你的掌心，又在空白页上按下一个爪印。极远的地方，灯塔闪了一下。\n\n爪印的墨迹还没干，空白页上缓缓浮起一层淡淡的轮廓——像一幅三十年前的旧速写，线条浅得像叹息。图鉴在你手边轻轻发热，它在提示：解开「空白之厅」的钥匙，就藏在旧稿里。可是旧稿上的字，现在还看不清。\n\n下周，你必须整理出这本属于你的颜色图鉴第一卷，才能看清那些字。\n\n雾在暗处，也在等。",
+      "letterMd": "亲爱的小夏：\n\n展信安。听说你这一周叫《空白页》，画本的空白，心里也空。这种“明明想画但心里堵着”的累，睡一觉还在的那种，我太懂了，因为我也是从那里走过来的。坐在画本前半小时一笔没动，脑子里全是“我是不是不行了”，小夏，先画，再说。不是要说教，只是想陪你坐一会儿。\n\n别怪自己刷了一晚上手机。心里空的时候，人就是会去抓点东西填。你不是不行了，你只是累了。2 分的心情也能过一周，你已经很了不起了。\n\n只给你一个小得不能再小的建议：下周画速写的时候，允许自己画得很烂。烂到笑出来那种。第一笔不是为了好看，是为了让笔重新认识纸。\n\n以后的某一天，你会坐在窗边接一单自己喜欢的稿子，阳光落在数位板上，你顺手在角落画了个小太阳。那天不远，但我先不说什么时候。\n\n慢慢来，空白页也是画的一部分。\n\n先画，再说。\n\n2027 年的林夏\n\n—— 2027 年 1 月",
+      "cover": "/demo/cover-3.jpg",
+      "panels": [
+        "/demo/panel-3-0.jpg",
+        "/demo/panel-3-1.jpg",
+        "/demo/panel-3-2.jpg",
+        "/demo/panel-3-3.jpg"
+      ],
+      "nextCover": "/demo/cover-4.jpg"
+    },
+    {
+      "no": 4,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "第25天的橘色街道",
+      "questions": [
+        "第21天手不抖了，那一刻你在画什么？",
+        "捡到的配色记在哪一页？现在还想用吗？",
+        "如果这周是一幅速写，你会留下哪一笔？"
+      ],
+      "answers": [
+        "在画一双眼睛，之前每次画到眼睛就手抖，那天突然就稳了，画完盯着看了好久，有点不敢信是自己画的。",
+        "记在本子倒数第三页，是傍晚路灯下面那种橘加灰蓝。想用，一直想找机会画一张傍晚的街道。",
+        "就留下第25天提前半小时坐下的那一刻吧。原来开始没那么难，这一笔我想记住。"
+      ],
+      "quests": [
+        {
+          "text": "打开工具 5 分钟，做不做都算完成",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：雾里亮起一盏小灯"
+        },
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        }
+      ],
+      "logs": [
+        {
+          "day": 21,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 23,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 25,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第1幕第4章：第25天的橘色街道",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "第21天画完练习稿，手终于不抖了",
+            "story": "林夏修补一双褪色的眼睛——正是灰雾的「震颤迷咒」残余所在，笔尖落下的瞬间手稳住了，迷咒彻底碎裂"
+          },
+          {
+            "real": "第23天在街上捡到新配色，记在本子倒数第三页",
+            "story": "林夏在雾港街头拾得一组新颜色「暮路色」（路灯橘+灰蓝），收入颜色图鉴倒数第三页，成为对抗灰雾的新武器"
+          },
+          {
+            "real": "第25天提前半小时开始画，居然不难",
+            "story": "灰雾在傍晚发动「晚雾合围」，试图用『明天再画吧』的低语困住她；林夏抢先半小时坐下，赶在雾漫过画纸前开始作画——雾的第一次正面进攻被击退"
+          },
+          {
+            "real": "把本周最满意的一张画贴到墙上",
+            "story": "把傍晚街道的画贴上墙，颜色顺着街道蔓延回整条小镇（此任务未完成，被雾的冷风夺走一角，画暂时无法上墙，成为悬念）"
+          }
+        ],
+        "beats": [
+          "清晨，林夏翻开图鉴，从第3章的低谷中站起——手稳了，一双褪色的眼睛在纸上重新亮起（第21天）",
+          "午后街头，她捡到一组新的颜色：路灯橘+灰蓝，图鉴倒数第三页自动亮起，命名「暮路色」（第23天）",
+          "灰雾察觉她的恢复，第一次正面现身：浓雾化作巨大的灰手，把傍晚整条街道的颜色一把抓走——『你画不完了，明天再画吧』",
+          "★幕终高潮：2027年的林夏踏雾而来，把提前半小时的时间还给她；林夏坐下，用暮路色画出整条傍晚的街道，灰雾的手指一寸寸褪去，惨叫着退向灯塔方向"
+        ],
+        "panels": [
+          {
+            "scene": "Close-up: Lin Xia (short black bob hair, round glasses, grey hoodie) leans over a sketchbook at dawn, hand steadying on paper as a pair of eyes she draws slowly regains warm brown color, dawn light through window",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第21天。灰雾的震颤迷咒在笔尖落下的瞬间，彻底碎裂。",
+            "dialogues": []
+          },
+          {
+            "scene": "Wide shot: Lin Xia (short black bob hair, round glasses, grey hoodie) crouches on a foggy street corner at dusk, catching floating color fragments of orange and grey-blue, black cat Ink Spot watching from a lamppost",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "她给这组颜色取名「暮路色」。这是雾港还给她的第一份礼物。",
+            "dialogues": []
+          },
+          {
+            "scene": "Dramatic low angle: a massive grey hand of fog descends over the town at dusk, draining color from rooftops and streets; Lin Xia (short black bob hair, round glasses, grey hoodie) stands small but firm, clutching her pencil, hair blown by wind",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾第一次正面现身。它不再偷，而是要亲手拿走整条街的颜色。",
+            "dialogues": []
+          },
+          {
+            "scene": "Split composition: future Lin Xia (longer black bob, round glasses, weathered grey hoodie) steps out of the fog holding an hourglass of light, handing it to present Lin Xia; behind them the grey hand looms",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "在雾合围之前，她先一步坐下。铅笔落在纸上的声音，是雾最怕的钟声。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "A hopeful manga cover: Lin Xia, girl with short black bob hair, round glasses, grey hoodie, painting a dusk street that glows orange and grey-blue against encroaching grey fog; a giant grey fog hand dissolving above; distant lighthouse flashing; warm-vs-grey color contrast, dynamic low angle",
+        "interviewQuote": "在画一双眼睛，之前每次画到眼睛就手抖，那天突然就稳了，画完盯着看了好久，有点不敢信是自己画的。",
+        "cliffhanger": "被撕走的橘色画角飘向灯塔——那里，三十年前的旧速写正在雾中等待。下周，林夏必须追着那片颜色走进灯塔阴影，赶在灰雾用它拼出下一个咒语之前，把「最满意的一张画」完整贴上墙。",
+        "foreshadowingAdd": [],
+        "foreshadowingResolve": [],
+        "summary": "第1幕第4章（幕终·highlight）：手不抖了，林夏修补好一双褪色的眼睛；拾得新颜色「暮路色」。灰雾第一次正面进攻，试图用合围夺走整条街的颜色。2027年的林夏教她把「提前半小时」变成武器，林夏用暮路色击退灰雾。但她最满意的一张画被冷风撕走一角，画角飞向灯塔，留下新的谜团。",
+        "nextCoverPrompt": "A mysterious manga cover: Lin Xia, girl with short black bob hair, round glasses, grey hoodie, standing before the old lighthouse at night, holding an incomplete painting missing its orange corner; a glowing orange paper fragment drifts toward the lighthouse door; fog swirling, black cat silhouette beside her",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "<!--panel:0-->\n\n清晨的颜色是浅金色的。\n\n你翻开颜色图鉴，纸页间还带着昨夜墨水的微凉气息。窗外的雾港刚刚醒来，海面浮着一层薄薄的银灰。第21天了。你看着纸上一双褪色的眼睛——灰雾留下的震颤迷咒，还盘踞在那里的虹膜深处。\n\n你握住铅笔。笔尖很轻，像一片羽毛落在水面上。\n\n你想起这些天，每次画到眼睛，手都会不听话地抖，线条碎成一小段一小段。可这一次，不知为什么，手腕是暖的。笔尖落在纸上，稳稳的，一道弧线，两道弧线。你听见铅芯划过纸面的沙沙声，很细，像春蚕啃一片嫩叶。\n\n迷咒碎了。没有声音，只是那双眼睛里的灰，一点一点化开，露出温热的棕色，像深秋晒过太阳的栗子。\n\n你放下笔，盯着它看了很久很久。有点不敢相信。可纸上那双眼睛，正安安静静地望着你。\n\n<!--panel:1-->\n\n午后的雾港，是灰蓝里藏着秘密的颜色。\n\n你沿着街道慢慢走。墨点蹲在路灯上，尾巴垂下来，像一截会呼吸的黑墨。风从海上来，带着咸咸的潮味。就在街角——你看见了。\n\n一小片橘色，浮在雾里。旁边跟着一缕灰蓝。它们缠在一起，慢慢旋转，像有人不小心撒落的颜料，又像雾港悄悄递给你的礼物。\n\n你伸手接住。指尖凉凉的，可那团颜色在你掌心里是暖的。\n\n你翻开图鉴，倒数第三页忽然亮了。你提笔写下：路灯橘，加上暮色里的灰蓝。墨点跳下灯柱，蹭了蹭你的手背。\n\n你给它们取了名字——「暮路色」。雾港还给她的第一份礼物。\n\n<!--panel:2-->\n\n可是傍晚来的时候，雾也来了。\n\n这一次，它不再躲在墙角，不再只是低语。它第一次正面现身——浓雾在街道尽头隆起，凝成一只巨大的灰手，缓缓压向整条小镇。屋顶的颜色被抹淡，砖墙的暖红褪成苍白。你听见它说：画不完了，明天再画吧。\n\n风很冷，吹得你的刘海贴在额头上。你的手指冻得发僵，还攥着那支铅笔。\n\n明天再画吧。这句话像一层薄雾，缠上你的脚踝。\n\n<!--panel:3-->\n\n就在这时，雾里走出一个人。\n\n灰色的连帽衫，圆圆的眼镜，黑发比你长一些。是你。是未来的林夏。她的掌心里托着一只小小的沙漏，漏斗里流的不是沙，是光。\n\n\"把提前半小时，\"她说，声音很轻，像替你拢好被风吹乱的画纸，\"还给现在的你。\"\n\n你接过那只沙漏。它在你手里微微发烫。你看看天色——雾合围之前，还有半小时。原来半小时，足够了。\n\n你坐下来。摊开纸。用暮路色，画傍晚的整条街道：路灯橘一盏一盏亮起，灰蓝的天空沉下去，砖墙透着暖意。铅笔落在纸上的沙沙声，一下，又一下——那是雾最怕的钟声。\n\n灰手一寸一寸地褪色。它惨叫着，缩回浓雾里，逃向远处那座灯塔的方向。\n\n你画完了。这是你本周最满意的一张。你捧着它走向墙边，就在揭下胶带的瞬间——\n\n一阵冷风，从窗缝里钻进来。\n\n\"嘶啦\"一声，很轻。画的右下角，缺了。\n\n那一小片橘色，打着旋儿，飘出窗外，飘过屋顶，飘向海边的灯塔。你追到窗前，只看见雾里有一点微光，越来越远。\n\n灯塔下，三十年前的旧速写，正在雾中静静等待。\n\n下周，你必须追着那片颜色，走进灯塔的阴影——赶在灰雾用它拼出下一个咒语之前，把「最满意的一张画」，完整地，贴上墙。",
+      "letterMd": "亲爱的小夏：\n\n展信好。先画，再说，对吧？你现在应该已经懂这句了。\n\n听说你那双手不抖了。画的是一双眼睛——每次都卡在眼睛上的那种。你画完盯着看了好久，不敢信是自己画的。小夏，我隔着90天也想替你盯着看一会儿。那一笔，值得骄傲。眼睛是画者最难骗人的地方，你稳住了，就是真的稳住了。\n\n倒数第三页那组橘加灰蓝，我记得。傍晚路灯下的颜色，你一直想用它画一条傍晚的街道，对吧？记着这个念头就好，别急。有些颜色会自己等来它的画面。\n\n还有第25天，提前半小时坐下，居然不难。你说想记住这一笔——我也想。后来我发现，“开始没那么难”不是错觉，是你练出来的。\n\n只给一条小小的建议：下周画速写时，第一分钟别挑纸别削笔，坐下就画。仪式感留给画完之后。\n\n不剧透，只说一句：以后某个傍晚，你会真的把那条橘加灰蓝的街道画出来，而且它会比你想象的好。到那天你就知道，第21天那双眼睛，一直替你看着路呢。\n\n稳稳地画下去吧。\n\n90天后依旧爱画眼睛的\n林夏",
+      "cover": "/demo/cover-4.jpg",
+      "panels": [
+        "/demo/panel-4-0.jpg",
+        "/demo/panel-4-1.jpg",
+        "/demo/panel-4-2.jpg",
+        "/demo/panel-4-3.jpg"
+      ],
+      "nextCover": "/demo/cover-5.jpg"
+    },
+    {
+      "no": 5,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "提前半小时的破雾笔",
+      "questions": [
+        "小夏，第28天手不抖了，画的是什么呢？",
+        "街上捡到的那组配色，后来用在画里了吗？",
+        "如果把这一周做成一支速写短片，最后一格画面是什么？"
+      ],
+      "answers": [
+        "画的是一组手的练习，练了快一个月，那天突然发现线条稳了，激动得差点把笔甩出去。",
+        "记下来之后一直没敢乱用，就先涂在一个小色卡上，等遇到合适的稿子再上，怕糟蹋了。",
+        "应该是那天提前半小时坐到画桌前，窗外天还没完全亮，笔尖刚落纸的那一下。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 28,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 30,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 32,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第2幕第5章：提前半小时的破雾笔",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "✓ 每天画20分钟速写共5天（第28天手不抖了，画的是手的练习）",
+            "story": "林夏连续五天修补渔村的五扇窗，第28天在修补一扇刻着手的浮雕窗时，手稳如磐石，捡到新颜色「稳线色」"
+          },
+          {
+            "real": "✓ 在街上捡到一组新配色，记在本子上（只涂在小色卡，没敢乱用）",
+            "story": "林夏在雾巷里拾得一串从雾里漏出的「晨雾金」，小心收进色卡——这颜色暂时不敢用，被灰雾盯上了"
+          },
+          {
+            "real": "✓ 提前半小时开始画，窗外天没亮笔尖刚落纸（心情4）",
+            "story": "灰雾趁黎明最浓时突袭晾衣绳，林夏提前半小时坐到画桌前，用「稳线色」在天亮前划开雾墙，击退进攻"
+          },
+          {
+            "real": "✗ 整理练习稿到文件夹（完成度1，未完成）",
+            "story": "图鉴第二卷的装订线被灰雾的冷风缠住，散页被吹得满屋飞——不是林夏的错，是雾不想让她看清自己走过的路"
+          }
+        ],
+        "beats": [
+          "新挑战：灰雾改变战术，不再抢颜色，而是缠住她的『记录』——吹散图鉴散页，想让她忘记自己变强的证据",
+          "技能升级：连续五天修补渔村的窗，第28天在手的浮雕窗前，手稳了——2027年的林夏现身，说出那句『突然发现线条稳了，激动得差点把笔甩出去』，授予新颜色「稳线色」",
+          "道具获得：雾巷里拾得「晨雾金」色卡，林夏珍惜地收起不敢乱用——这将成为日后关键",
+          "高潮：黎明前灰雾总攻，林夏提前半小时坐到画桌前，天未亮、笔尖落纸的一瞬，稳线色划开雾墙"
+        ],
+        "panels": [
+          {
+            "scene": "Dawn, a fishing village street of faded windows. Lin Xia (short black bob hair, round glasses, grey hoodie) kneels before a carved stone window with hand reliefs, pencil pressed to her repair-sketch. Close-up on her hand: the pencil line is perfectly steady for the first time. Her eyes widen behind round glasses, mouth slightly open in surprise. Cool blue pre-dawn light, one faint golden thread rising from the repaired window.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "连续五天，五扇窗。这一次，落笔的手稳得像刻进石头里。",
+            "dialogues": []
+          },
+          {
+            "scene": "The same street, fog parting. The 2027 Lin Xia steps out of the mist — same short black bob hair and round glasses, but wearing a lighthouse-keeper's long coat over a grey hoodie, a lantern in hand. She leans close, grinning, tapping the young Lin Xia's sketchbook. Young Lin Xia holds up the freshly caught swatch of light. Black cat Modian sits on the windowsill between them.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "从灯塔方向走来的她，把一缕光按进色卡：这是「稳线色」，你的手赢回来的。",
+            "dialogues": []
+          },
+          {
+            "scene": "A narrow fog alley. Lin Xia (short black bob hair, round glasses, grey hoodie) crouches, catching a drifting ribbon of golden mist with her color card. The golden color settles on the card like honey. In the deep fog behind her, the silhouette of Grey Fog recoils slightly, as if annoyed. Her expression is careful, protective, cradling the card with both hands.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾巷里漏出一串没被吞掉的金色——「晨雾金」。她不敢乱用，先小心收好。",
+            "dialogues": []
+          },
+          {
+            "scene": "Lin Xia's room before sunrise, window dark. Grey Fog presses against the glass in thick tendrils, reaching toward the clothesline of paintings outside. Lin Xia (short black bob hair, round glasses, grey hoodie) already sits at her desk, thirty minutes early, back straight. Her pencil tip touches paper just as a faint first light breaks the horizon — a beam of steady-line color erupts from the page, slicing the fog on the window like a blade.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾选了黎明前最浓的时刻总攻。可她已经坐在桌前半小时了。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "漫画封面：黎明前的房间，short black bob hair、圆框眼镜、灰色连帽衫的女孩坐在画桌前，笔尖落纸迸出金色光束劈开窗上的灰雾，窗外晾衣绳上画作重新发亮，远处灯塔剪影闪烁，明亮突破感，横版漫画封面",
+        "interviewQuote": "练了快一个月，那天突然发现线条稳了，激动得差点把笔甩出去。",
+        "cliffhanger": "被卷走的练习稿散页飞向灯塔——下周，林夏要追着风找回散页、完成图鉴第二卷的装订，而灯塔为何总在她突破时闪一下，答案又近了一步。",
+        "foreshadowingAdd": [],
+        "foreshadowingResolve": [],
+        "summary": "highlight章：连续五天的速写练习让林夏的手彻底稳定，她在浮雕窗前拾得新颜色「稳线色」，2027年的她亲口确认这份成长；又在雾巷拾得「晨雾金」色卡。灰雾改缠『记录』、吹散图鉴散页并趁黎明总攻，林夏靠提前半小时落笔，用稳线色一击破雾。但装订图鉴的散页仍被冷风卷走向灯塔——下周追回散页、装订图鉴第二卷。",
+        "nextCoverPrompt": "漫画封面：狂风的海角路上，short black bob hair、圆框眼镜、灰色连帽衫的女孩追逐着漫天飞舞的速写稿，稿纸如白鸟飞向远处亮着一闪微光的灯塔，黑猫墨点在前方引路，晨雾中透出金色，追逐感构图，横版漫画封面",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "你数过了，这是第五扇窗。\n\n渔村的窗都旧了，颜色褪得像被海水洗过太多次的蓝布。前四扇窗你已经修好，用的是同一种笨办法：每天二十分钟，坐在窗前，一笔一笔地描。指尖冰凉的石灰粉，铅笔芯刮过石面的沙沙声，像有人在很轻很轻地磨一支旧歌。\n\n第五扇窗不一样。它刻着一双手。\n\n浮雕的手指已经模糊了，你趴在窗前，闻到石头里潮气混着旧木头的味道。笔尖落下去的那一刻——\n\n咦。\n\n线没有抖。\n\n你画完一整根指头，线稳得像刻进石头里。又画一根，还是稳的。你盯着自己的手看了很久，天边最冷的那种青蓝色正一点一点亮起来。你的手，赢回来了。\n\n<!--panel:0-->\n\n雾从街角漫过来，雾里走出一个人。\n\n是你。是未来的你，林夏。一样的黑色短发，一样的圆框眼镜，只是外面罩着灯塔守护人的长风衣，手里提着一盏灯。灯是暖黄色的，照得雾都柔软了。\n\n她蹲下来，凑近你的速写本，笑了。她伸手，把一缕从窗里升起的光按进你的色卡。\n\n「这是稳线色。」她说，「你的手自己挣回来的。」\n\n墨点蹲在窗台上，尾巴慢慢摇了一下。你捏着那张色卡，纸的边缘还有一点点温度。\n\n「练了快一个月，」林夏说，「那天突然发现线条稳了，激动得差点把笔甩出去。」\n\n<!--panel:1-->\n\n回去的路上要穿过雾巷。\n\n巷子很窄，雾贴着你的袖子流。你闻到一种甜味，很淡，像蜂蜜混着清晨晒过太阳的被子的味道。你停下脚步。\n\n雾里漏出来一串金色。\n\n细细细细的一线，没被灰雾吞掉，正慢慢往下坠。你掏出色卡，双手捧着，接住了它。金色在卡上慢慢晕开，像一小勺化开的晨光。\n\n「晨雾金。」\n\n巷子深处，灰雾的影子缩了一下，好像有点不高兴。你把色卡贴身收好，用手掌护着。这颜色太亮了，你还不敢用。但你知道它在。\n\n<!--panel:2-->\n\n那天夜里，你没睡踏实。\n\n后半夜你干脆起来，摸黑坐到画桌前。窗外还是全黑的，墨蓝色的，晾衣绳上挂着你的画，被夜风轻轻吹动。你看了眼闹钟——比平时早了整整半小时。\n\n你后来说不清为什么。就是觉得，今天雾会来。\n\n它真的来了。\n\n黎明前最浓的时刻，灰雾贴着玻璃涌上来，一缕一缕往晾衣绳的方向伸。屋里冷下来了，玻璃上结了细细的霜花，你呵出的气是白的。\n\n你坐直了。笔尖落纸。\n\n就在笔尖碰到纸的那一瞬，天边裂开第一道亮——稳线色从你的笔尖下涌出来，像一道细细的光刃，唰地划开窗上的雾墙。雾僵了一下，往后退了。\n\n晾衣绳上的画，一件一件，重新亮了。\n\n<!--panel:3-->\n\n可是。\n\n雾退走的时候，卷起了一阵很冷的风。风灌进屋里，掀翻了桌上摊开的图鉴第二卷——你这些天的练习稿，散了满屋。\n\n这不是你的错。是雾不想让你看清，自己走过的那条路。\n\n你伸手去抓，只抓住两三张。剩下的稿纸像一群白鸟，从没关严的窗缝里飞出去，飞过渔村的屋顶，飞向海角——\n\n飞向灯塔。\n\n下周，你要追着风去，一张一张把它们找回来，装订好第二卷。\n\n而那座灯塔——为什么每次你突破的时候，它总要闪一下？\n\n答案，又近了一步。",
+      "letterMd": "小夏：\n\n你好呀，是我，90天后的你。\n\n先说那句让你差点把笔甩出去的事——我读到了。练了一个月的手，终于稳了。你激动得想大喊，我在这头也替你骄傲了一下。真的，那种“线条稳了”的瞬间，是别人给不了的，只有你的手自己知道。\n\n还有那组捡来的配色。你没敢乱用，先涂在小色卡上等着——这个小心翼翼我太熟悉了，别觉得是胆小，那是珍惜。好东西值得等一副配得上它的稿子，它会等到的，你信我。\n\n提前半小时坐到画桌前，“窗外天还没完全亮，笔尖刚落纸的那一下”——你把这一格说给速写短片的时候，我几乎能看见那个画面。以后这样的清晨会越来越多，有一天的光和那一刻很像，但房间不太一样了。先不多说，免得剧透。\n\n要一条建议的话，就一条：下周那20分钟速写，画不完也别补，明天接着画就行。连续感比完美感值钱。\n\n先画，再说。你已经在这么做了，我只是来确认一下：这条路是对的。\n\n天快亮的时候，记得抬头看一眼。\n\n——2027年的林夏",
+      "cover": "/demo/cover-5.jpg",
+      "panels": [
+        null,
+        "/demo/panel-5-1.jpg",
+        "/demo/panel-5-2.jpg",
+        "/demo/panel-5-3.jpg"
+      ],
+      "nextCover": "/demo/cover-6.jpg"
+    },
+    {
+      "no": 6,
+      "chapterType": "struggle",
+      "completionRate": 0.6,
+      "title": "歪掉的骨头与贴上墙的光",
+      "questions": [
+        "第35天卡住后出门散步，回来接着画了吗？",
+        "第39天心情4那张，是不是就是贴墙那张呀？",
+        "如果这周是一幅速写，落笔的最后一笔想画在哪？"
+      ],
+      "answers": [
+        "接是接着画了，但说实话改动不大，出去走那圈主要是让脑子透透气，回来盯着画布看了半天，最后就调整了几笔，第二天才真正找到感觉。",
+        "对，就是那张！虽然只有二十分钟，但那个姿势我纠结了好久，最后画出来居然没歪，当时还挺得意的，就贴墙上了。",
+        "画在明天吧。这周很多都是'明天重来'，希望最后一笔落在下周开头，把第37天歪掉的人体重画正，算是给自己一个交代。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 35,
+          "note": "画到一半卡住了，出去走了一圈",
+          "mood": 3
+        },
+        {
+          "day": 37,
+          "note": "人体结构又画歪了，明天重来",
+          "mood": 3
+        },
+        {
+          "day": 39,
+          "note": "今天只画了二十分钟，但好歹画了",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第2幕第6章·歪掉的骨头与贴上墙的光",
+        "chapterType": "struggle",
+        "realEventsMapping": [
+          {
+            "real": "本周的记录",
+            "story": "小镇一角的变化"
+          }
+        ],
+        "beats": [
+          "新挑战：灰雾学会模仿『明天重来』的语调，专挑林夏画歪时发动——这是它的新招",
+          "技能升级：林夏发现『稳线色』的弱点——它只对手稳有效，画歪时失效；她需要一种能在歪斜中站住的颜色",
+          "拉锯：修窗卡住→散步拾得旧色卡（小胜）→只补三笔（小挫）→人体画歪、被『明天』拖住（大挫）",
+          "关键位置引用采访原话：2027年的林夏问她那晚散步的真正收获，林夏说出采访原句"
+        ],
+        "panels": [
+          {
+            "scene": "Rainy harbor at dusk. The protagonist (short black bob hair, round glasses, grey hoodie) crouches before a half-lit, half-faded window, her pencil frozen mid-stroke, the line on the glass trembling and stopping dead. Thick grey mist coils behind her like a hand about to close.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾学会了新招：专挑她画歪的那一瞬，掐断她的颜色。",
+            "dialogues": []
+          },
+          {
+            "scene": "A narrow fog-lit alley. The protagonist (short black bob hair, round glasses, grey hoodie) walks slowly, hood half up, hands in pockets. At the alley mouth, an old torn color card lies at her feet, half-buried in mist. Her glasses reflect its faint glow as she bends down.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "透气的散步，意外绊出一张不完整的旧色卡——像有人多年前遗失的。",
+            "dialogues": []
+          },
+          {
+            "scene": "Back inside, lamplight. The protagonist (short black bob hair, round glasses, grey hoodie) sits cross-legged, the old color card in one hand, staring at the half-finished window sketch on her lap. Her expression is honest, a little tired. A black cat sits silently at the edge of the lamplight.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "2027年的她问她那晚的收获，林夏第一次没有美化自己。",
+            "dialogues": []
+          },
+          {
+            "scene": "Next morning, the laundry line by the harbor. A sketch of a person on the line is visibly warped, one shoulder crooked. Grey mist seeps into the crooked line, pulling it wider. The protagonist (short black bob hair, round glasses, grey hoodie) reaches out, hesitates, her pencil hand trembling at the edge of the frame.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾模仿她的语气低语。歪掉的人像被雾越拉越歪。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "雨天黄昏的雾港，齐肩黑色短发、圆框眼镜、灰色连帽衫的林夏蹲在一扇半亮半褪的窗前，铅笔悬停，身后灰雾如手掌般合拢，冷灰与暖黄对半构图，漫画封面风格",
+        "interviewQuote": "接是接着画了，但说实话改动不大，出去走那圈主要是让脑子透透气，回来盯着画布看了半天，最后就调整了几笔，第二天才真正找到感觉。",
+        "cliffhanger": "散页被冷风卷向灯塔，而2027年的林夏留下一句话：『下周开头，把第37天那个人重画正。』灯塔闪了一下——仿佛在等她赴约。",
+        "foreshadowingAdd": [
+          {
+            "id": "f4",
+            "hint": "雾巷拾得的旧色卡不完整，边缘有熟悉的手写编号——像阿婆那一代修补师的笔迹",
+            "resolveByChapter": 8
+          }
+        ],
+        "foreshadowingResolve": [
+          "[object Object]"
+        ],
+        "summary": "struggle章：灰雾升级新招，专挑林夏画歪时掐断『稳线色』并模仿她的语气劝『明天重来』。修窗只补了三笔（小挫）、人体画歪被『明天』拖住一晚（大挫）、二十分钟的雕像一角画正并挂上晾衣绳最高处（小胜）。林夏在雾巷拾得一张带熟悉笔迹的旧色卡，并终于看清关键卡点：灰雾的墙，是她一句句『明天』砌成的。整理图鉴散页未完成，纸页被冷风卷向灯塔；2027年的她约定：下周开头重画正第37天歪掉的人体。",
+        "nextCoverPrompt": "清晨灯塔下的礁石滩，齐肩黑色短发、圆框眼镜、灰色连帽衫的林夏迎风支起画板，画板上是一副肩线歪斜的人体草稿，散页在她头顶盘旋飞向灯塔，2027年的林夏立在灯塔光影边缘，灯塔闪出一线金光",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "灰雾学会了新招。\n\n那天黄昏，雨刚停，你蹲在港口那扇半亮半褪的窗前。窗上你补的颜色明明是稳的，可就在笔尖微微一歪的瞬间，灰雾从背后漫过来，像一只手，轻轻掐断了那条线。你听见它说话了，用你自己的声音，软软的：「明天重来吧。」\n\n你握笔的手停在半空。铅笔尖离玻璃只差一点点，凉的，带着雨后铁锈的气味。你没有画下去。你把笔收了起来。\n\n<!--panel:0-->\n\n你出门散步。\n\n不是为了逃避，你自己也不太确定。雾巷很窄，灯光被泡得发黄，你的手插在兜里，一步一步踩过湿漉漉的石板。走到巷口，脚下忽然硌了一下——一张旧色卡，边角卷起，半埋在雾里。你弯腰捡起来，镜片上映出它微弱的光。\n\n只有半张。剩下的边缘撕得整整齐齐，还有一个手写的编号。那笔迹你好像在哪儿见过，熟得让你心里一沉，又一时想不起来。你把它揣进兜里，贴着掌心，有点潮，有点暖。\n\n<!--panel:1-->\n\n回到屋里，你盘腿坐在灯下。\n\n黑猫在灯光边缘蹲着，不说话，就那么看着你。2027年的林夏隔着日记问你：那晚散步，真正的收获是什么？\n\n你想美化一下，想了半天，没美化成。\n\n「接是接着画了，」你说，声音很小，「但说实话改动不大。出去走那圈主要是让脑子透透气。回来盯着画布看了半天，最后就调整了几笔，第二天才真正找到感觉。」\n\n说完你才发现，今晚你只补了三笔。三笔而已。可你也没骗自己，稳线色只对手稳的人有效，画歪的时候，它就哑了。你需要一种能在歪斜里站得住的颜色。也许，就从这张缺了半张的色卡找起。\n\n<!--panel:2-->\n\n第二天清晨，晾衣绳上那幅人体，肩线歪得更厉害了。\n\n灰雾顺着歪掉的那条线渗进去，一寸一寸，把它拉得更斜。你伸手，铅笔悬在纸的边缘，指尖抖。你又听见那个声音——你的声音：「明天重来吧，明天你一定画得正。」\n\n你盯着那个人像看了很久。然后你看清了：这堵雾墙，不是灰雾砌的。是你一句一句的「明天」，亲手砌上去的。\n\n你画了二十分钟的雕像一角，那一角，是正的。你把它夹上晾衣绳的最高处。风吹过来，纸角轻轻响。你去整理图鉴的散页，还没理完：\n\n<!--panel:3-->\n\n一阵冷风突然掀翻了桌上的散页。\n\n纸页打着旋，一片一片，全朝灯塔的方向卷去。你追了两步，没追上。就在这时，2027年的林夏在日记的最后一行留下一句话：\n\n『下周开头，把第37天那个人重画正。』\n\n远处，灯塔闪了一下。\n\n金色的，短短的一下——像是在等她赴约，也像是在等你。",
+      "letterMd": "亲爱的小夏：\n\n这周过得挺闷吧，我知道。35天那天你卡住了，出门走了一圈，回来就调了几笔，自己都觉得“改动不大”。但你后来自己也说了，那一圈是让脑子透透气——不是偷懒，是画画的一部分。理解你，真的。\n\n37天人体又歪了，你说“明天重来”。这句话你写下来的时候可能有点丧，可我读完反而想笑：你居然还愿意重来，这就是本事。还有39天那张，只画了二十分钟，姿势却没歪，你把它贴墙上了——我记得那张墙，它以后还会贴更多东西的，先不说。\n\n这周低落的日子多，但你说最后一笔想“画在明天”，想把歪掉的人体重画正。小夏，这个交代你自己会给的，信我。\n\n只提一个小建议：重画那天，先别擦旧的，把新的人体画在旁边对比着来。你会看清自己到底歪在哪。\n\n对了，那个每天20分钟的速写任务，下周你不用咬牙坚持，它会自己变成习惯的——先画，再说。\n\n墙上的那张画，替我多看一眼。\n\n——90天后的林夏",
+      "cover": "/demo/cover-6.jpg",
+      "panels": [
+        "/demo/panel-6-0.jpg",
+        "/demo/panel-6-1.jpg",
+        "/demo/panel-6-2.jpg",
+        "/demo/panel-6-3.jpg"
+      ],
+      "nextCover": "/demo/cover-7.jpg"
+    },
+    {
+      "no": 7,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "手不再抖的那一瞬",
+      "questions": [
+        "第42天手不抖了，画的是什么？还记得那种感觉吗？",
+        "捡到的那组配色后来用上了吗？",
+        "如果把这一周画成一幅速写，最后的落笔会停在哪里？"
+      ],
+      "answers": [
+        "画的是一组手部练习，画了一百天一直卡在这儿。手不抖那一刻真的想喊出来，感觉像终于跟自己和解了。",
+        "用上了一部分，铺在背景里试了试，效果比我想的还温柔，那个本子我现在随身带着。",
+        "大概停在笔尖刚离开纸面的那一瞬吧，不完美，但整个星期最松弛的时刻就是那儿。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 42,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 44,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 46,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第7章：手不再抖的那一瞬",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "第42天：画完练习稿，手终于不抖了（完成）",
+            "story": "林夏在一百天里卡住的手部练习终于补完——褪色的『手之窗』整面亮起，拾得新颜色「落笔色」：只在笔尖离开纸面的一瞬才出现。"
+          },
+          {
+            "real": "第44天：街上捡到一组新配色记在本子里（完成）",
+            "story": "林夏在巷口拾到一组被灰雾偷走的颜色，抄进随身小本——本子变成能吸引走失颜色的『引色册』，成为新道具。"
+          },
+          {
+            "real": "第46天：提前半小时开始画，居然不难（完成）",
+            "story": "灰雾趁黎明围攻港口，林夏提前半小时落笔，用落笔色一笔划破雾墙——灰雾第一次被正面击退。"
+          },
+          {
+            "real": "整理本周练习稿到一个文件夹（未完成，散页仍未收回）",
+            "story": "灰雾趁林夏忙于应战，把散落的练习稿吹向灯塔方向——不是她的错，是灰雾偷袭，装订图鉴第二卷留到下周。"
+          }
+        ],
+        "beats": [
+          "开场：港口清晨，手之窗仍褪色。林夏摊开手部练习，灰雾在窗外低语『明天再画吧』。",
+          "第42天之景：最后一笔落下，手不抖了——手之窗整面亮起，笔尖离开纸面的一瞬，空中浮出「落笔色」。",
+          "阿婆送来热面包，说出关键回忆：『我年轻时也认识一位修补师，她说过——颜色不在画完里，在落笔那一瞬里。』f2伏笔揭示：阿婆那代修补师的核心秘密正是「落笔色」。",
+          "第44天之景：林夏用小本抄下巷口拾得的走失颜色，本子泛起微光——引色册诞生，可吸引被灰雾偷走的颜色。"
+        ],
+        "panels": [
+          {
+            "scene": "Dawn harbor. The girl with short black bob hair, round glasses, grey hoodie stands before a faded wooden window, pencil hovering. Grey mist presses against the glass behind her, faces swirling in it.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾贴在窗上低语，可这一次，林夏的笔尖先落了下去。",
+            "dialogues": []
+          },
+          {
+            "scene": "Close-up: the girl (short black bob hair, round glasses, grey hoodie) finishes a hand study, pencil lifting off the paper. As the pencil tip leaves the page, golden light bursts from the stroke; the faded window behind ignites into full color.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "笔尖离开纸面，手之窗整面亮起，新的颜色「落笔色」诞生了。",
+            "dialogues": []
+          },
+          {
+            "scene": "Bakery doorway. An old woman with a warm smile hands bread to the girl (short black bob hair, round glasses, grey hoodie). Behind the old woman, a faded photo on the wall shows a young painter holding an old color card.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "阿婆的回忆接上了旧修补师的传承，落笔色的来历第一次被照亮。",
+            "dialogues": []
+          },
+          {
+            "scene": "Narrow alley. The girl (short black bob hair, round glasses, grey hoodie) crouches, copying drifting color wisps into a small notebook. The notebook glows softly, pulling loose colors toward its pages like magnets.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "抄满配色的随身小本变成「引色册」，能召回被灰雾偷走的颜色。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "A harbor at golden dawn: a girl with short black bob hair, round glasses and a grey hoodie draws a blazing golden stroke that splits a wall of grey mist, the split revealing vivid colors behind; a distant lighthouse flickers; warm cinematic lighting, painterly style.",
+        "interviewQuote": "画的是一组手部练习，画了一百天一直卡在这儿。手不抖那一刻真的想喊出来，感觉像终于跟自己和解了。",
+        "cliffhanger": "雾退后飘回的一页练习稿，边缘有和阿婆同代修补师一样的手写编号——散页与旧色卡的谜同时指向灯塔，下周循编号追回全部散页、装订图鉴第二卷，并重画第37天歪掉的人体。",
+        "foreshadowingAdd": [
+          {
+            "id": "f5",
+            "hint": "引色册每吸收一种颜色，最后一页就浮现出一行不属于林夏的铅笔小字——像是有人在灯塔那头同步记录",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [
+          "[object Object]"
+        ],
+        "summary": "highlight章：完成百天卡关的手部练习，手之窗整面亮起，林夏拾得只在笔尖离纸一瞬出现的「落笔色」；阿婆道出旧修补师的口诀（回收伏笔f2），随身小本变成能召回颜色的「引色册」。灰雾黎明总攻并卷走向灯塔的散页，林夏提前半小时落笔、用落笔色击退灰雾。2027年的她揭示中点深意：修的是颜色，更是「明天」砌成的墙。结尾练习稿上的编号笔迹（衔接f4）指向灯塔。",
+        "nextCoverPrompt": "The girl with short black bob hair, round glasses and a grey hoodie kneels at the base of a towering lighthouse, gathering swirling loose sketch pages; a glowing notebook floats beside her, its last page showing mysterious handwriting; cool blue-grey palette with one beam of light from the unlit lighthouse.",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "<!--panel:0-->\n\n清晨的港口是灰蓝色的。你坐在窗边，把一百天前就开始的那沓手部练习摊在桌上。纸页边角卷了，像睡久了的被褥。手之窗的木框还是褪色的，木头摸上去凉凉的，带着夜里盐雾留下的涩。\n\n灰雾贴在玻璃外面，很轻地说话：“明天再画吧。明天光线更好。”\n\n你听见了。你的手指在铅笔上停了一停。然后你把橡皮挪到桌角，削好笔，坐直。\n\n“今天画。”你说。声音很小，可雾往后缩了一下。\n\n你从第一只手画起。左手的关节，掌心的褶皱。铅笔划过纸面的声音，沙沙的，像小雪落在窗台上。窗外的雾的脸，慢慢看不清了——因为屋里的你，亮起来了。\n\n<!--panel:1-->\n\n最后一只手。中指压在纸上的那一点，微微发麻。你画到指节的阴影时，忽然发现——\n\n手，不抖了。\n\n一百天里一直发抖的那条线，此刻稳稳地、慢慢地，落在纸上。你听见自己的心跳，一下，一下，像很远的海。\n\n然后你提笔。\n\n笔尖离开纸面的那一瞬，金色从最后一笔里升起来，细细的，像一根点燃的线头。手之窗整面亮了。晨光穿过窗棂，在地板上铺出一格一格的暖黄。而空中，浮着一种你从没见过的颜色。\n\n它只在笔尖离纸的那一瞬出现。你给它取名叫——落笔色。\n\n你伸手去碰它。指尖暖暖的，像刚出炉的东西。\n\n<!--panel:2-->\n\n阿婆来的时候，面包还是热的。你捧在手里，麦香混着一点焦糖的甜，从纸袋的缝里钻出来。\n\n“手之窗亮了。”她说，眼睛眯成两道月牙。\n\n她坐在你旁边，慢慢讲起来：“我年轻时，也认识一位修补师。她说过一句话——颜色不在画完里，在落笔那一瞬里。”\n\n你咬了一口面包，停下来。窗台上那张旧色卡忽然有了解释：那些褪掉的颜色，不是丢了。是它们一直在等，等一次真正的落笔。\n\n阿婆起身要走，在门口回头：“那批修补师啊……东西，都留在灯塔那边。”\n\n灯塔。你记住了。雾海深处，那座黑了很久的塔。\n\n<!--panel:3-->\n\n第44天，你在巷口蹲下来。\n\n一小撮颜色蜷在墙根，是灰雾偷走时掉下的。你掏出随身的小本，把这些颜色一笔一笔抄进去——青灰掺一点藕荷，还有砖头的那种暗红。铅笔芯磨得暖暖的。\n\n抄完最后一个色号，本子轻轻震了一下。封面泛起微光，像揣了一小捧萤火。巷子深处，几缕走失的颜色被它拽着，慢悠悠飘过来，贴在纸页上。\n\n你的小本，变成引色册了。\n\n第46天，灰雾趁黎明围攻港口。你比平时提前半小时坐到画桌前——居然，不难。你蘸着落笔色，朝雾墙划下一笔。金色裂开灰色的幕布，雾第一次，往后退了。\n\n雾退的时候，一页练习稿飘了回来，落在你脚边。\n\n你捡起来。纸的边缘，有一行手写的编号——细瘦的铅笔字，工整又温柔。\n\n和阿婆那一辈修补师，一模一样的笔迹。\n\n散页被雾卷去了灯塔。旧色卡的谜，也指向灯塔。下周，你要循着编号，把飘散的每一页都找回来，装订成图鉴的第二卷——还要重画第37天，那张歪掉的人体。\n\n而在你的引色册最后一页，一行不属于你的铅笔小字，正静静地，多了一行。",
+      "letterMd": "亲爱的小夏：\n\n展信安。\n\n看到你说手不抖了，我在这儿想给你鼓掌——你不是“终于跟自己和解了”，你是把自己从那个卡了一百天的地方，轻轻抱了出来。这一周你画了手部练习、捡到了温柔到舍不得的配色、还提前半小时坐下，居然觉得不难。小夏，我读这些的时候是骄傲的，真的，不是客气的那种骄傲。\n\n你说想把速写的落笔停在笔尖刚离开纸面的那一瞬，“不完美，但最松弛”。我特别喜欢这句话。以后你会明白，最好的画常常就是这样收尾的——不追满，留一口气。\n\n只提醒一件小事：下周每天20分钟速写，别等状态来了才开始。坐下，笔落在纸上，就算开始了。先画，再说。\n\n至于未来的画面嘛……那个随身带着的本子，会带你去一些你现在想不到的地方。不剧透，但我保证，值得。\n\n好好吃饭，好好画。\n\n爱你的，\n2027年的林夏",
+      "cover": "/demo/cover-7.jpg",
+      "panels": [
+        "/demo/panel-7-0.jpg",
+        "/demo/panel-7-1.jpg",
+        "/demo/panel-7-2.jpg",
+        "/demo/panel-7-3.jpg"
+      ],
+      "nextCover": "/demo/cover-8.jpg"
+    },
+    {
+      "no": 8,
+      "chapterType": "struggle",
+      "completionRate": 0.6,
+      "title": "墙里最亮的一块砖",
+      "questions": [
+        "第49天卡住去走路，回来后接着画了吗？那一下什么感觉？",
+        "第51天说人体画歪明天重来，重画后满意吗？小夏还挺坚持的嘛。",
+        "墙上那张最满意的画，如果它是电影海报，片名叫什么？"
+      ],
+      "answers": [
+        "回来接着画了，虽然进度慢得要死。不过走路那会儿脑子放空了，回来线条顺了一点，至少没那么烦躁了。",
+        "重画了两遍吧，还是有点歪，但比之前强。说不满意也谈不上，就是……凑合吧。坚持个屁，就是不甘心而已。",
+        "《慢慢来》，副标题可以是'一个画画的人的挣扎'，哈哈，够矫情的。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 49,
+          "note": "画到一半卡住了，出去走了一圈",
+          "mood": 3
+        },
+        {
+          "day": 51,
+          "note": "人体结构又画歪了，明天重来",
+          "mood": 3
+        },
+        {
+          "day": 53,
+          "note": "今天只画了二十分钟，但好歹画了",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第8章：墙里最亮的一块砖",
+        "chapterType": "struggle",
+        "realEventsMapping": [
+          {
+            "real": "画到一半卡住，出去走了一圈，回来接着画",
+            "story": "灰雾在窗前布下『迷宫雾』，林夏笔尖困死，掷下画笔走出巷子。走路的空当让脑中雾散，回来用笨拙的线一格格铺过去——迷宫雾退了半步。小胜。"
+          },
+          {
+            "real": "人体结构画歪，说『明天重来』，重画两遍仍歪",
+            "story": "灰雾抓住这句『明天重来』当楔子，砸进刚裂开的墙缝。重画两遍仍歪，雾沿缝灌进来，本周补好的三笔重新褪色——至暗时刻的裂缝由此扩大。"
+          },
+          {
+            "real": "只画了二十分钟，但好歹画了",
+            "story": "林夏不再追求『画好』，只守住二十分钟的下限。引色册微微发烫，识别出这不是放弃，是修补师最低限度的一笔——墙停止了崩塌。"
+          },
+          {
+            "real": "把最满意的一张贴到墙上；练习稿文件夹没整理",
+            "story": "她把《慢慢来》钉上墙，墙缝处透进一线晨雾金。但没归档的散稿被灰雾顺着松散处卷起，纸页边缘露出旧色卡上同款手写编号，全部指向灯塔（回收f4）。"
+          }
+        ],
+        "beats": [
+          "迷宫雾：卡住→走路→回来续笔（小胜）",
+          "『明天重来』成为灰雾的楔子，墙缝扩大（大挫）",
+          "至暗时刻：林夏发现关键卡点——她怕的不是画歪，是歪了之后没有『重来一次也不嫌晚』的底气",
+          "二十分钟下限守住，墙停止崩塌"
+        ],
+        "panels": [
+          {
+            "scene": "Foggy alley at dawn. Lin Xia (short black bob hair, round glasses, grey hoodie) stands before a half-painted window, pencil frozen mid-air. A maze of grey mist coils around her wrist. A black cat sits at the alley mouth, watching.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾织成迷宫，林夏的笔尖第一次找不到出口。",
+            "dialogues": []
+          },
+          {
+            "scene": "Empty seaside road, midday. Lin Xia (short black bob hair, round glasses, grey hoodie) walks slowly, hands in hoodie pocket, breath visible. Behind her the fog maze loosens, one gap opening in the grey wall.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "走路的半小时，迷宫雾松了半寸——她第一次主动绕开灰雾。",
+            "dialogues": []
+          },
+          {
+            "scene": "Night desk, lamplight. Lin Xia (short black bob hair, round glasses, grey hoodie) redraws a human figure twice; crumpled papers pile up. A grey hand-shaped shadow presses a wedge into a glowing wall crack behind her.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "『明天重来』六个字，被灰雾凿成楔子，砸进白天的裂缝。",
+            "dialogues": []
+          },
+          {
+            "scene": "A vast grey brick wall of accumulated 'tomorrows' looms. Lin Xia (short black bob hair, round glasses, grey hoodie) kneels small at its base, round glasses reflecting the wall. The black cat presses against her leg.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "至暗时刻：她终于看清卡点——她怕的是歪了之后，没有重来的底气。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "A girl with short black bob hair, round glasses and a grey hoodie kneeling before an immense grey brick wall built from the word '明天', one hand pressed to a crack; a taller silhouette in a grey coat crouches beside her; a black cat at their feet; faint golden numbers glowing on scattered sketch pages; muted harbour fog palette, ink and watercolor style.",
+        "interviewQuote": "坚持个屁，就是不甘心而已。",
+        "cliffhanger": "散稿编号连成的线在夜空中指向灯塔，灯塔恰好闪了一下——但阿婆的口诀缺了后半句，而那后半句，只刻在灯塔的门上。下周林夏必须追着编号走到灯塔下，赶在灰雾把最后几页散稿封进墙里之前。",
+        "foreshadowingAdd": [
+          {
+            "id": "f6",
+            "hint": "引色册在『二十分钟』那晚多出一行陌生铅笔小字：『下限也是线。』——灯塔那头有人在她落笔时同步写",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [
+          "[object Object]"
+        ],
+        "summary": "struggle章·至暗时刻：卡住走路续笔（小胜）→『明天重来』被灰雾凿成楔子，墙缝扩大（大挫）→林夏看清关键卡点：她怕的不是画歪，是歪了之后不敢重来；2027年的她现身陪伴，二十分钟下限止住崩塌。贴画上墙透进晨雾金，未归档散稿的旧修补师编号（回收f4）全部指向灯塔。",
+        "nextCoverPrompt": "Night lighthouse looming at the harbour's end, its base wrapped in grey mist; a girl with short black bob hair, round glasses and a grey hoodie walks toward it carrying an album, black cat ahead on the path; glowing handwritten numbers trail across the sky like a thread pointing to the tower door.",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "# 第8章：墙里最亮的一块砖\n\n<!--panel:0-->\n\n清晨的光是灰白色的，像被水洗过的纸。你坐在窗前，笔尖悬在半空，落不下去。\n\n灰雾从窗缝里爬进来，绕着你的手腕织了一张网。一格，又一格。你往左画，雾就往左合拢；你往右，雾也往右。纸上的线越画越乱，像被风吹散的头发。\n\n你把笔掷下了。木笔杆磕在桌角，发出一声小小的、闷闷的响。你站起身，走出巷子。\n\n黑猫蹲在巷口看你，眼睛是两粒琥珀色的光。你没有停下来摸它。你需要走路。\n\n海边的路很长，风里有咸咸的味道。你走了很久，久到呼出的白气都变得均匀。你数着自己的脚步声——一下，两下，三下。就在数到不知多少下的时候，你发现脑子里那张网，松了半寸。\n\n<!--panel:1-->\n\n你回到窗前。雾还在，但退了一点点，露出一条窄窄的、可以下笔的路。\n\n你没有画得很好。线是笨的，歪的，一格一格地铺过去，像小孩在学走路。可是雾退了半步。\n\n小胜。你把这三个字悄悄放进口袋。\n\n但灰雾记性好得很。\n\n<!--panel:2-->\n\n夜里，灯是暖黄色的，暖得有点假。你画一个人体，结构歪了。你说：“明天重来。”\n\n你说这话的时候，没听见身后一声轻轻的、像冰裂开的脆响。\n\n灰雾抓住这六个字，把它凿成一根楔子——砸进白天刚裂开的墙缝里。你重画了一遍，歪。又重画一遍，还是歪。雾顺着缝灌进来，你这一周补好的三笔颜色，正在一点一点重新褪成灰。\n\n你蹲下来，抱住膝盖。黑猫过来，把温热的身体贴着你的小腿。它身上有一股晒过太阳的旧棉被的味道。\n\n然后你终于看清了。你怕的不是画歪。\n\n你怕的是歪了之后，没有人告诉你，重来一次也不嫌晚。\n\n墙缝里，无数灰色的砖浮出来，每块砖上都写着两个字：明天。明天。明天。你数不清有多少块。\n\n<!--panel:3-->\n\n一只穿着灰大衣的手，从砖墙的影子里伸过来，轻轻搭在你肩上。是林夏。未来的你，没有说话，只是在你旁边蹲下来，和你一起看那堵墙。\n\n你翻开引色册。它微微发烫，像一只暖手炉。册页上浮出一行字，墨迹很淡：\n\n这不是放弃。这是修补师最低限度的一笔。\n\n你懂了。你不再要求自己画好。你只守一条线——二十分钟。铅笔在纸上的沙沙声，比什么都轻，又比什么都重。\n\n二十分钟后，你放下笔。墙，停止了崩塌。\n\n引色册的角落里，不知何时多了一行陌生的铅笔小字，笔迹不是你的：**「下限也是线。」**\n\n你没有问是谁写的。你把本周最满意的那张《慢慢来》钉上墙。浆糊的味道有点甜。钉下去的那一下，墙缝里透出一线晨雾的金色。\n\n可你没注意到，桌上那些没归档的散稿，正被灰雾顺着松散处，一页一页卷起来。\n\n纸页边缘，露出旧色卡上同款的手写编号。三〇七。二一四。一〇八。你追出去，夜风里，那些编号连成一条线，在黑蓝色的夜空中发着微光——线的尽头，是港口尽头的灯塔。\n\n就在你看清它的那一刻，灯塔的光，恰好闪了一下。\n\n你猛地想起阿婆的口诀。后半句。后半句是什么？\n\n阿婆只教了你前半句。而后半句——据说刻在灯塔的门上。\n\n下周，你必须追着编号走到灯塔下。赶在灰雾，把最后几页散稿封进墙里之前。",
+      "letterMd": "亲爱的小夏：\n\n这周过得挺磨人的吧，我知道。画歪了重来，重画了还是“有点歪”，你说“凑合吧”——我懂，那不是敷衍，是你对自己的诚实。还有那句“坚持个屁，就是不甘心而已”，我在2027年听到都想笑，又有点想哭。不甘心是好事，说明你心里知道你能更好。\n\n第49天你卡住出去走了一圈，回来接着画了，还说“线条顺了一点”。小夏，这个瞬间比你以为的重要得多。你不是在逃避，你在给自己找呼吸的空间。这种本事，以后救你很多次。\n\n二十分钟也是画了，你说得对，好歹画了。这就是全部秘密了，真的。\n\n就一条建议：下周每天二十分钟速写，画完别回头看上一张，直接合上本子。省得自我审判。\n\n对了，你墙上那张画，电影名你自己都取好了——《慢慢来》。信不信，两年后真有人用差不多的词形容你的画：不快，但稳。先画，再说。\n\n慢慢来，小夏。\n\n——2027年的林夏",
+      "cover": "/demo/cover-8.jpg",
+      "panels": [
+        "/demo/panel-8-0.jpg",
+        "/demo/panel-8-1.jpg",
+        "/demo/panel-8-2.jpg",
+        "/demo/panel-8-3.jpg"
+      ],
+      "nextCover": "/demo/cover-9.jpg"
+    },
+    {
+      "no": 9,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "幕终：黎明前半小时，墙倒了",
+      "questions": [
+        "第56天手终于不抖了，小夏，画的是哪张？那一刻什么感觉？",
+        "街上捡到的配色是什么样？第58天心情4是不是因为它？",
+        "如果这周是一部电影，最后一个镜头定格在哪一幕？"
+      ],
+      "answers": [
+        "就是那张一直在练的速写稿啊，画到一半突然发现线条稳了。那一刻有点不敢相信，还停笔看了看自己的手，哈哈。",
+        "是一面老墙，墙皮剥落露出来的灰绿和锈红叠在一起，特别妙。心情4大概一半是因为它吧，捡到宝的感觉。",
+        "定格在今天早上吧，提前半小时坐下，窗外刚亮，笔已经在纸上了。就那一幕。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 56,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 58,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 60,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第9章·幕终：黎明前半小時，墙倒了",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "画完一张练习稿，手终于不抖了",
+            "story": "林夏完成本周第一段稳线速写，笔尖第一次没有抖，褪色的晾衣绳下摆重新透出红色；灰雾试图用『不敢相信』的低语蒙住她的眼睛，她停笔看手，稳住。"
+          },
+          {
+            "real": "在街上捡到一组新配色，记在本子上",
+            "story": "林夏在老墙前发现剥落墙皮下的灰绿与锈红，将它们收入引色册——册页发出微光，浮现一行陌生铅笔小字：颜色不在别处，在被剥开的表面之下。"
+          },
+          {
+            "real": "提前半小时开始画，居然不难",
+            "story": "关键决战：灰雾在黎明发动幕终总攻，把『明天重来』砌成最后一道高墙。林夏提前半小时落笔，窗外刚亮、笔已在纸上，引色册吸收三天的颜色，凝成新能力「晨线」，一笔劈开雾墙。"
+          }
+        ],
+        "beats": [
+          "开场：连续第五天，二十分钟速写不间断，晾衣绳上挂满重新亮起的画，港口居民开始驻足围观",
+          "第56天稳线时刻——手不抖了，引色册微微发烫",
+          "第58天老墙拾色，册页浮现陌生笔迹，指向灯塔（为f5铺垫）",
+          "灰雾幕终总攻：黎明前倾巢而出，把一周积累的『明天』碎语砌成最高的一道雾墙，欲卷走晾衣绳上所有画"
+        ],
+        "panels": [
+          {
+            "scene": "Wide establishing shot at dawn. LIN XIA (short black bob hair, round glasses, grey hoodie) sits small at a wooden desk by a window, pencil already on paper. Outside, the fishing port glows faintly; a clothesline strung with paintings flutters. Grey mist gathers at the horizon like a rising tide.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第五个清晨。窗外刚亮，笔已在纸上。",
+            "dialogues": []
+          },
+          {
+            "scene": "Close-up on LIN XIA's (short black bob hair, round glasses, grey hoodie) hand mid-stroke, the pencil line perfectly steady. Her eyes widen behind round glasses; she lifts the pencil and stares at her own hand in disbelief. Grey mist wisps recoil from the paper edge.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾低语着『不敢相信』，可线条稳得像刻上去的。",
+            "dialogues": []
+          },
+          {
+            "scene": "A weathered street wall, plaster peeling to reveal layered grey-green and rust-red beneath. LIN XIA (short black bob hair, round glasses, grey hoodie) kneels, sketchbook open, carefully pressing a color swatch into the glowing 引色册. Black cat 墨点 sits on the wall above, tail curled.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "颜色不在别处，在被剥开的表面之下。",
+            "dialogues": []
+          },
+          {
+            "scene": "Full-page dramatic spread: night before dawn. A towering wall of grey mist looms over the port, built from whispering words like『明天重来』. LIN XIA (short black bob hair, round glasses, grey hoodie) stands tiny before it, gripping the 引色册, hair blown by wind. The lighthouse looms behind the wall.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾倾巢而出，把一周的『明天』砌成最后一道墙。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "黎明海港，灰雾高墙崩裂成金色光屑，齐肩黑短发、圆框眼镜、灰色连帽衫的林夏执笔横扫出一道晨色光线，身后晾衣绳上画作发亮，远处灯塔连闪两下，横版漫画封面构图",
+        "interviewQuote": "定格在今天早上吧，提前半小时坐下，窗外刚亮，笔已经在纸上了。就那一幕。",
+        "cliffhanger": "图鉴最后一页浮现新委托的名字——委托地址是灯塔影子下的旧渔仓，而灰雾第一次学会了模仿阿婆的声音说『明天再来吧』",
+        "foreshadowingAdd": [
+          {
+            "id": "f7",
+            "hint": "引色册吸收老墙配色时浮现的陌生铅笔小字『颜色不在别处』——灯塔那头的同步记录越来越频繁",
+            "resolveByChapter": 13
+          },
+          {
+            "id": "f8",
+            "hint": "灯塔在雾墙崩塌时连闪两下，像是回应，也像是某种信号",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [],
+        "summary": "幕终highlight章：连续五天二十分钟速写，林夏的手终于稳定（第56天），在老墙拾得灰绿锈红新色收入引色册（第58天）。灰雾黎明发动幕终总攻，用一周的『明天』砌成最后雾墙；林夏提前半小时落笔（第60天），与2027年的自己并肩，以引色册三日之色凝成新能力「晨线」一击劈墙，灯塔连闪两下。她把练习稿装订成第一本颜色图鉴，重整旗鼓——而图鉴最后一页，浮出指向灯塔影子的新委托。",
+        "nextCoverPrompt": "雾未散尽的旧渔仓门口，林夏手持发光的颜色图鉴仰望高大的灯塔剪影，图鉴最后一页的字迹泛着微光，黑猫墨点蹲在门槛上，冷蓝与一点暖金对峙的色调",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "# 第9章·幕终：黎明前半小時，墙倒了\n\n第五个清晨，你醒来的时候，天还是薄荷色的。窗外刚亮，笔已经在纸上了。晾衣绳上挂着这五天的速写，海风一吹，纸角轻轻拍打，发出细小的、像鱼尾扫水的声音。港口有人停下来看。卖鱼丸的阿婆踮着脚，数了数，说：「又多了一张。」你听见自己的心跳，一下，一下，落进铅笔尖里。\n\n<!--panel:0-->\n\n线条走得很慢。灰雾在纸边悄悄聚拢，贴着你的耳朵低语：「不敢相信吧，不敢相信——」你没有捂耳朵。你只是停了笔，把左手摊开，看。指尖有一点铅笔灰，手背被晨光照成淡淡的杏色。手没有抖。你把手放回纸上，继续画。晾衣绳最下摆那幅褪了色的画，不知什么时候，红色重新透了出来，像有人在里面点了一盏很小的灯。墨点蹲在窗台上，尾巴尖卷成一个安静的问号。\n\n<!--panel:1-->\n\n午后你走上老街。那面墙晒了一整天，摸上去是温热的、粗粝的，像烤过的面包皮。一片墙皮翘了起来，你轻轻一掀——底下藏着灰绿，还有一点锈红，是被藏了很多年的颜色。你把它们一片一片收进引色册。册页微微发烫，然后浮出一行陌生的铅笔小字，不是你的笔迹：\n\n「颜色不在别处，在被剥开的表面之下。」\n\n你抬头。远处，灯塔立在灰蒙蒙的天边，一动不动，像在等你。\n\n<!--panel:2-->\n\n那天夜里，灰雾倾巢而出。\n\n它把这一个星期所有掉落在你脚边的碎语——「明天重来吧」「明天也不迟」——一块一块捡起来，砌成了最高的一道墙。墙比灯塔矮一点，比你的勇气高一点。它在黎明前压过来，要卷走晾衣绳上所有的画。\n\n你坐在桌前。窗外还是深夜的蓝，可你比墙早到了半小时。笔尖落在纸上的那一刻，天边刚刚裂开第一线晨光。引色册自己翻开了——老墙的灰绿、锈红，还有这三天攒下的所有颜色，一齐涌向你的笔尖，凝成一条温热的、金橘色的线。\n\n你抬手，横着一划。\n\n<!--panel:3-->\n\n雾墙从中间裂开，碎成漫天的光屑，像有人把一整袋金色的糖撒进了风里。晾衣绳上的画一张都没少，反而亮了起来。远处的灯塔，连着闪了两下——像是回应，也像是在叫你的名字。\n\n后来，你把这一周的练习稿装订在一起。墨点用头蹭了蹭册子，它就成了一本薄薄的、会发光的颜色图鉴。你翻开最后一页，想写点什么——\n\n字迹自己浮了上来。\n\n是一个新委托的名字。委托地址写着：**灯塔影子下的旧渔仓。**\n\n而门外，灰雾第一次学会了模仿阿婆的声音，轻轻地说：\n\n「明天再来吧。」\n\n<!--panel:4-->",
+      "letterMd": "小夏：\n\n你好呀，我是90天后的你，那个真的开始接单的林夏。先画，再说——这句话你还记得吧？往后它会救你很多次。\n\n看到你第56天的记录，我在屏幕这边笑了好久。“画到一半突然发现线条稳了，还停笔看了看自己的手”，哈哈，你现在大概还不知道，那只手以后要画几百张稿子呢。它稳了，就一直稳了。我为你骄傲，真的。\n\n还有那面老墙。灰绿配锈红，你捡到宝了。这个配色以后你会反复用到，用到别人问你“这颜色怎么想出来的”。你就说：在街上捡的。\n\n最后一个镜头定格得很好。窗外刚亮，笔已经在纸上——这一幕，九十天后的我隔段时间就会经历一次，每次都想起来你。\n\n只提一个小事：下周每天20分钟速写，别盯着“5天”看，每天只管坐下那20分钟就好。数量会自己长出来的。\n\n不剧透太多，只说一句：以后某个傍晚，你会收到一封邮件，写着“我们想请您为……”——先到这里，剩下的你自己拆。\n\n慢慢画，好好吃饭。\n\n——90天后的林夏",
+      "cover": "/demo/cover-9.jpg",
+      "panels": [
+        "/demo/panel-9-0.jpg",
+        "/demo/panel-9-1.jpg",
+        "/demo/panel-9-2.jpg",
+        "/demo/panel-9-3.jpg"
+      ],
+      "nextCover": "/demo/cover-10.jpg"
+    },
+    {
+      "no": 10,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "提前半小时的台灯",
+      "questions": [
+        "第63天说手终于不抖了，小夏，是哪张画让你放松下来的？",
+        "第65天捡到的配色记在哪一页？现在看还喜欢吗？",
+        "如果这周是一部速写短片，最后一个镜头你会画什么？"
+      ],
+      "answers": [
+        "是一张街角水果摊的练习，画到第三遍的时候手突然稳了，可能是不再想着画好，光顾着看那些颜色了。",
+        "记在牛皮本第七页，旁边还沾了一块奶茶渍。现在看还是喜欢，那种灰蓝加橙的搭配，想拿去画下个月的晨雾。",
+        "画那只提前半小时亮起来的台灯吧，灯光下面纸还是白的，但我知道一会儿它就会被填满。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 63,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 65,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 67,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第10章：提前半小时的台灯",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "本周的记录",
+            "story": "小镇一角的变化"
+          }
+        ],
+        "beats": [
+          "最终准备：林夏复盘颜色图鉴，发现新委托页的灯塔影子与旧色卡编号连成一条线",
+          "街角水果摊三易其稿，手终于不抖——引色册凝出「稳线」（回收第63天真实记录）",
+          "集市拾色，灰雾抢夺第七页，墨点助攻夺回",
+          "黎明袭击：灰雾让台灯『差半小时』，2027年的林夏从灯塔方向走来，递来那块奶茶渍书签"
+        ],
+        "panels": [
+          {
+            "scene": "Night, Lin Xia's small desk under one warm lamp. She flips her bound color codex; the last page shows a faint lighthouse shadow. Composition: top-down angle, her face lit from below, eyes narrowed in realization. short black bob hair, round glasses, grey hoodie.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "图鉴最后一页，委托的影子与旧编号终于连成一条直线。",
+            "dialogues": []
+          },
+          {
+            "scene": "Morning street, a fruit stall with oranges and grey-blue crates. Close-up: Lin Xia's pencil hand, third attempt, steady line. Her expression relaxed, glasses reflecting fruit colors. short black bob hair, round glasses, grey hoodie.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第三遍落笔，她不再想画好，只看着那些颜色。",
+            "dialogues": []
+          },
+          {
+            "scene": "The codex floats open, absorbing the sketch's warm orange; a glowing thread winds around her pencil. Wind of grey mist snatches at page seven; a black cat pounces on the paper corner. Dynamic diagonal composition. short black bob hair, round glasses, grey hoodie.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "新能力「稳线」成形；灰雾伸手抢走第七页，墨点扑住了它。",
+            "dialogues": []
+          },
+          {
+            "scene": "Pre-dawn. The desk lamp refuses to brighten; grey mist coils at the window edge like a held breath. Lin Xia sits before a blank white page, fists clenched. Behind her, a tall silhouette with the same short black bob hair, round glasses, and grey hoodie walks in from the lighthouse direction, holding a bookmark stained like milk tea.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灰雾掐住了灯：让它『永远差半小时』。可她坐在了白纸前。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "雾港黎明，灰蓝橙三色的晨线劈开雾墙，戴圆框眼镜、黑色齐肩短发、灰色连帽衫的女孩在白纸光盾前落笔，远处灯塔连闪两下，黑猫跃于纸角",
+        "interviewQuote": "画那只提前半小时亮起来的台灯吧，灯光下面纸还是白的，但我知道一会儿它就会被填满。",
+        "cliffhanger": "书签夹入第七页的瞬间，图鉴最后一页的灯塔影子轻轻晃动——委托的落款处，浮出一行陌生铅笔小字：『最后一次总攻，在雾散之前。』",
+        "foreshadowingAdd": [
+          {
+            "id": "f9",
+            "hint": "奶茶渍书签夹入第七页后，图鉴末页浮现新的陌生铅笔小字『最后一次总攻，在雾散之前』——灯塔那头的同步记录第一次带上了警告的语气",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [],
+        "summary": "highlight章：林夏三易其稿稳住手，凝出新能力「稳线」；灰雾抢夺晨雾配色被墨点击退；黎明灰雾让台灯『差半小时』，2027年的她递来奶茶渍书签，林夏提前半小时落笔，以灰蓝加橙引动「晨线·二式」劈开雾墙，最满意的画贴墙上透出橙光。练习稿尽数入册，而书签落页之后，灯塔那头传来第一次带警告语气的同步小字。",
+        "nextCoverPrompt": "雾散前夜，港口晾衣绳上挂满发光的画，女孩抱颜色图鉴立于灯塔山脚下，山顶灯塔光芒将熄未熄，雾墙在身后最后一次合拢",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "夜很深了。你把颜色图鉴摊在台灯下，暖黄的光像一层薄薄的蜂蜜，淌过每一页。指尖翻过纸页时，能听见细微的、干燥的沙沙声，像有人在很远的地方翻动秋天的落叶。最后一页上，那座灯塔的影子淡淡地立着。你眯起眼睛，忽然发现——影子倾斜的角度，和旧色卡上某个编号的排线，悄悄连成了一条直线。你没有多想，只是拿铅笔，沿着那条线，轻轻描了一遍。铅笔尖落在纸上的那一刻，心跳漏了半拍。<!--panel:0-->\n\n<!--panel:1-->\n\n清晨的街角，水果摊的橙子堆得像小太阳。你第三次落笔。前两次，手总是不听话地抖，线条像受惊的鸟。这一次，你不再想着“要画好”，只是看着——看橙子皮上细小的、磨砂般的光点，看灰蓝色木箱上一道旧旧的裂纹。铅笔划过纸面，沙、沙、沙，稳得像退潮后的沙地。线，不抖了。你抬起头，愣了一下，然后笑了：原来不想结局的时候，手就自己知道了路。<!--panel:1-->\n\n<!--panel:2-->\n\n风来的时候，你正在集市上拾色。颜色图鉴悬浮在半空，把画里那团暖橙一点点吸进去，纸页间亮起一条细细的光线，绕着你的铅笔转了三圈——稳线，凝成了。可就在这时，灰雾从摊位缝隙里探出手，冰凉的风擦过你的耳廓，直直卷向第七页。纸角翻起的瞬间，一道黑影扑了过去。是墨点。它四脚钉住纸面，尾巴炸成一团小刷子，冲着雾气低低地叫。你伸手，把第七页按回图鉴里。指尖触到纸的那一刻，纸是温的，像刚晒过太阳。<!--panel:2-->\n\n<!--panel:3-->\n\n黎明前最暗的时刻，台灯不肯亮。灰雾缠在窗沿，像一口憋住的呼吸，它掐住了灯，让它永远差半小时。你坐在白纸前，纸白得几乎发凉。手心出了汗，但你没有站起来等灯。你就坐在那里，把铅笔握好。然后，身后传来很轻的脚步声——她从灯塔的方向走来，和你一样的齐肩短发，一样的圆框眼镜，一样的灰色连帽衫。2027年的林夏。她把一块书签放进你掌心，边缘有一圈奶茶渍，圆圆的，像一枚小小的月亮。“画那只提前半小时亮起来的台灯吧，”她说，“灯光下面纸还是白的，但我知道，一会儿它就会被填满。”灯，就在这时亮了。你翻开图鉴，把书签夹向第七页——<!--panel:3-->\n\n书签落进纸缝的瞬间，图鉴最后一页的灯塔影子轻轻晃动了一下。委托的落款处，缓缓浮出一行陌生的铅笔小字，笔画很浅，像怕被人看见：\n\n『最后一次总攻，在雾散之前。』",
+      "letterMd": "亲爱的小夏：\n\n见字如面。我是90天后的你。\n\n先说最想说的：第63天那张街角水果摊，画到第三遍手突然稳了——因为你“不再想着画好，光顾着看那些颜色了”。小夏，你不知道这句话有多珍贵。那种放松不是技巧来了，是你终于把“评判”放下了。我隔着90天都替你骄傲，真的。\n\n牛皮本第七页那组灰蓝加橙，旁边沾着奶茶渍的，记得它吗？别撕掉那页。有些配色就是得带着一点生活的痕迹才好看，你以后会更懂这句话。\n\n还有那盏提前半小时亮起来的台灯——白纸被灯光照着，你知道它一会儿就会被填满。你看，你已经学会期待了，而不是害怕。这是这一周里我觉得最了不起的事，比手不抖还了不起。\n\n一个小小的建议：下周画那5天速写的时候，挑一天在画完之后多看它一分钟再合上本子。就一分钟。你会发现自己比自己以为的更喜欢自己的画。\n\n对了，晨雾那组颜色，你会用上的。用在哪、画成什么样，我现在不能剧透——但那盏台灯会记得。\n\n先画，再说。\n\n台灯亮着的林夏\n写于第153天的傍晚",
+      "cover": "/demo/cover-10.jpg",
+      "panels": [
+        "/demo/panel-10-0.jpg",
+        "/demo/panel-10-1.jpg",
+        "/demo/panel-10-2.jpg",
+        "/demo/panel-10-3.jpg"
+      ],
+      "nextCover": "/demo/cover-11.jpg"
+    },
+    {
+      "no": 11,
+      "chapterType": "low",
+      "completionRate": 0.2,
+      "title": "雾中的二十分钟",
+      "questions": [
+        "小夏，第70天累到休息，那天身体到底在抗议什么呀？",
+        "第72天坐了半小时没动笔，那半小时你在想些什么？",
+        "如果这周是一部电影，最后一个镜头会是空画本还是手机屏幕？"
+      ],
+      "answers": [
+        "就是累啊，说不上具体哪里，但身体先撑不住了。那几天晚上都睡不好，心里压着事没说出口，白天又硬撑着，所以只好放自己一马。",
+        "其实挺慌的。画本摊在那儿，脑子却在想画不出来怎么办，越想越不敢下笔。后来干脆发呆，觉得自己是不是不行，半小时就这么耗过去了。",
+        "手机屏幕吧，说实话有点扎心，但这就是真实的样子。不过我倒希望下一周的镜头，是手机放一边，画本上有几笔歪歪扭扭的线条。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 70,
+          "note": "好累，今天先让自己休息",
+          "mood": 2
+        },
+        {
+          "day": 72,
+          "note": "坐在画本前半小时，一笔没动",
+          "mood": 2
+        },
+        {
+          "day": 74,
+          "note": "又刷了一晚上手机，不想说话",
+          "mood": 1
+        }
+      ],
+      "plan": {
+        "title": "第11章 雾中的二十分钟",
+        "chapterType": "low",
+        "realEventsMapping": [
+          {
+            "real": "好累，让自己休息了一天（✓仍属关键任务的自我照顾，不计断线）",
+            "story": "灰雾围拢灯塔前的老屋，林夏第一次发现：连修补师也允许在雾里歇一晚。阿婆把热面包放在窗台上，说她年轻时也认识一位这样累倒过的修补师——『修颜色的人，先得留一点颜色给自己。』（回响f2）"
+          },
+          {
+            "real": "坐在画本前半小时，一笔没动（✗被灰雾阻挠：不是她的错）",
+            "story": "灰雾化作雾手按住她的手腕，把『画不出来怎么办』的低语塞进耳朵。她与画本对坐半小时，窗上那扇刚修补过的窗颜色开始变淡——雾在偷走她还没落笔的颜色。"
+          },
+          {
+            "real": "刷了一晚上手机，不想说话（✗被灰雾阻挠）",
+            "story": "手机屏幕的光比窗上所有颜色都亮，练习稿散落一地来不及归拢，雾趁夜漫进屋里，把散稿一张张卷向雾巷深处。墙上最满意的那幅画也被雾啃去一角，但她及时护住了图鉴。"
+          },
+          {
+            "real": "每天20分钟速写共5天，全部完成（✓关键任务达成）",
+            "story": "纵使雾在身边盘旋，五天里她每天都落了笔——哪怕只是歪歪扭扭的一线。引色册吸收了这五道『疲惫之色』，封面透出微弱的暖光：最终准备的火种没灭。"
+          }
+        ],
+        "beats": [
+          "开章：浓雾围屋，连续五天她都画了，但颜色越来越淡——雾学会了等她累",
+          "第72天：雾手按腕、对画本僵坐半小时，窗色变淡（灰雾阻挠，非她之过）",
+          "第74天：手机光最亮的夜晚，散稿被雾卷走，墙上画作被啃角",
+          "阿婆深夜送面包，说出『留一点颜色给自己』，带来一碗热汤"
+        ],
+        "panels": [
+          {
+            "scene": "Wide shot: a small timber house at the end of a fog-swallowed port street, thick grey mist pressing against the windows. Inside, LIN XIA (short black bob hair, round glasses, grey hoodie) sits slumped at her desk at night, chin on her arms, staring at an open sketchbook. A faint candle is her only warm light source in the cold blue-grey palette.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "连续五天她都落了笔。可雾学会了等——等修补师累的那一天。",
+            "dialogues": []
+          },
+          {
+            "scene": "Medium close-up: LIN XIA (short black bob hair, round glasses, grey hoodie) frozen at her desk, pencil hovering a centimeter above the sketchbook, hand trembling slightly. Semi-transparent grey fog-fingers curl around her wrist from the page's shadow. Her eyes are wide, lips pressed thin. Behind her, the patched window's colors visibly pale.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾手按住她的手腕，偷走的不是画好的颜色，是她还没落笔的那些。",
+            "dialogues": []
+          },
+          {
+            "scene": "Low-angle night shot: LIN XIA (short black bob hair, round glasses, grey hoodie) lies face-down on her bed, face lit coldly by a phone screen glowing brighter than anything else in the room. Loose practice sheets scatter across the floor; grey mist seeps under the door, tendrils curling up the papers and dragging them toward the door crack. One drawing on the wall has a corner gnawed into fog.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "她连说话的力气都想省下来。雾趁夜卷走了散稿，啃掉了墙上那幅画的一角。",
+            "dialogues": []
+          },
+          {
+            "scene": "Warm interior shot breaking the cold palette: the bakery granny, small and round in a shawl, stands at LIN XIA's doorway holding a steaming bowl. LIN XIA (short black bob hair, round glasses, grey hoodie) sits up, red-eyed but listening. Steam curls between them, the only warm color in the panel. The black cat MO DIAN sits at the granny's feet.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "阿婆的话像一碗热汤。原来雾最想骗她相信的，是休息也是一种失败。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "雾港深处的小屋，浓灰雾压窗，烛光里林夏抱膝而坐，散落的画稿被雾丝卷起；远处灯塔透出一线极细晨光，画面冷灰中只有烛火与那一线暖金——压抑但温柔的低谷章封面",
+        "interviewQuote": "手机屏幕吧，说实话有点扎心，但这就是真实的样子。不过我倒希望下一周的镜头，是手机放一边，画本上有几笔歪歪扭扭的线条。",
+        "cliffhanger": "图鉴末页浮现新铅笔小字『把你最后一镜，换成画本吧』，灯塔方向透出一线落在空画本上的晨光——下一周，她要用『疲惫之色』完成雾散前的第一次主动出击，关键任务：连续七天提前半小时落笔，把最后一镜从手机屏幕换成画本。",
+        "foreshadowingAdd": [
+          {
+            "id": "f10",
+            "hint": "图鉴末页在『疲惫之色』入册后浮现新铅笔小字『把你最后一镜，换成画本吧』——灯塔那头的同步记录第一次直接对她说话，而非记录",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [],
+        "summary": "低谷章：雾学会了等她累。第72天雾手按腕让她半小时落不下笔，第74夜手机光最亮时卷走散稿、啃去墙上画作一角——但都不是她的错，是雾的阻挠。关键任务五天二十分钟速写一天未断，五道『疲惫之色』入册成火种。阿婆送来『留一点颜色给自己』，2027年的她提灯踏雾而入，捡回散稿、点破真相：雾怕的不是她画得好，是她攒够总攻的颜色。结尾灯塔一线晨光落在空画本上，图鉴末页浮出直接对她说话的新小字。",
+        "nextCoverPrompt": "黎明前的雾港，林夏站在窗前把手机扣在桌上，画本摊开透出暖光，五道彩色线条从册页飞向窗外撕开的雾口，灯塔方向光束渐亮——反击开始的封面",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "# 第11章 雾中的二十分钟\n\n雾是傍晚围拢来的。\n\n你坐在窗边，看着灰色一寸一寸吞掉港口的屋顶，像有人往世界泼了一盆洗笔水。你很累。累到铅笔放在手边，却连握起来的力气都想省着用。烛火在你桌上晃，是整间屋子里唯一暖的颜色。\n\n\"今天……不画了吧。\"你听见自己说。\n\n声音很轻，像怕被雾听见。可雾没笑话你。它只是安安静静地贴着窗，等你。你说不上来为什么，但它好像学会了等——等修补师累的那一天。\n\n第二天清晨，窗台上多了一块热面包，还冒着白汽，麦香混着雾的湿味钻进鼻子里。阿婆站在门口，披着旧披肩。\n\n\"我年轻时，也认识一位这样累倒过的修补师。\"她把面包往你手里推了推，\"修颜色的人，先得留一点颜色给自己。\"\n\n你咬了一口。面包是暖的。原来累的时候歇一晚，雾也不会趁机收走你的名字。\n\n<!--panel:0-->\n\n第二天晚上，你坐在画本前。\n\n半小时。你与它对坐着，一笔没动。铅笔悬在纸面上方一厘米的地方，抖。有什么东西从纸页的影子里伸出来——半透明的、灰色的雾手，轻轻按住你的手腕。\n\n\"画不出来怎么办。\"\n\n那声音不凶，甚至很温柔，像有人在你耳边替你叹息。你盯着空白的纸，忽然发现窗上那扇刚修补过的窗，颜色正在变淡——雾偷走的不是你画好的颜色，是你还没落笔的那些。\n\n半小时到了。你还是没画出来。可你清楚，这不是你的错。\n\n是雾按住了你的手。\n\n<!--panel:1-->\n\n第74天的夜里，屋子里最亮的光，是手机屏幕。\n\n它比窗上所有的颜色都亮，冷白的光照着你的脸。你不想说话，连翻身的力气都想省下来。练习稿散了一地，你来不及归拢——雾就从门缝底下漫进来了。\n\n灰色的丝，一条一条，卷住那些散稿，把它们拖向雾巷深处。墙上你最满意的那幅画，被啃去了一角，缺口的边缘毛茸茸的，像被雪咬过。\n\n你猛地扑过去，把图鉴死死抱进怀里。\n\n它没事。图鉴在你怀里微微发着温，像一颗没熄的炭。散稿被卷走了几张，墙上的画缺了一角。你抱着图鉴坐在地板上，雾在门外等着，可你护住的东西，一样也没少。\n\n<!--panel:2-->\n\n可即便是这样的一个星期，你也没有断过。\n\n五天。每天二十分钟。雾在身边盘旋，雾手偶尔按住你的腕，可你每天都落了笔——哪怕只是歪歪扭扭的一线，一线灰蓝，一线暗淡的黄。它们不漂亮，可它们是你的。\n\n引色册把五道「疲惫之色」一并收了进去。合上册子的时候，你看见封面透出一点微弱的暖光，像灰烬里埋着的火种。\n\n原来累着画出的颜色，也是颜色。\n\n<!--panel:3-->\n\n深夜，你翻开图鉴的末页。\n\n新的小字浮了上来，铅笔写的，很轻，却像第一次直接在对你说话——\n\n『把你最后一镜，换成画本吧。』\n\n你抬起头。窗外，浓雾的深处，灯塔方向透出一线极细的晨光，穿过雾，落在你摊开的、还空着的画本上。\n\n金色的，一小方，正好落在空白的第一页。\n\n雾还压着窗。可你盯着那道光，忽然握紧了手边的铅笔。\n\n七天。每天提前半小时落笔。\n\n雾怕的，也许从来不是你画得好。",
+      "letterMd": "小夏：\n\n展信安。\n\n看到第70天那句“好累，今天先让自己休息”，我在屏幕这头轻轻“嗯”了一声。我知道那种累——说不上哪里疼，就是身体先罢工了，心里压着事，嘴上还硬撑。休息不是偷懒，是你在自救。这一周我也经历过，别怪自己。\n\n第72天那个半小时，你坐在画本前，脑子转着“画不出来怎么办”，越想越不敢下笔。小夏，那个慌我太熟了。笔没动不是你不行，是恐惧先坐进了椅子里。刷手机那晚也一样，不是堕落，只是能量见底了。\n\n你说希望下一个镜头是“画本上有几笔歪歪扭扭的线条”——我喜欢这个愿望。所以只给你一条小建议：明天先画20分钟速写，别管好不好，先画，再说。歪的线条也是线条。\n\n不剧透太多，就说一句：你想要的那个镜头，后面真的会出现。手机会放一边，画本会翻开，而且不止几笔。\n\n慢慢来，我等你。\n\n2027年的林夏",
+      "cover": "/demo/cover-11.jpg",
+      "panels": [
+        "/demo/panel-11-0.jpg",
+        "/demo/panel-11-1.jpg",
+        "/demo/panel-11-2.jpg",
+        "/demo/panel-11-3.jpg"
+      ],
+      "nextCover": "/demo/cover-12.jpg"
+    },
+    {
+      "no": 12,
+      "chapterType": "rest",
+      "completionRate": 0.7,
+      "title": "灯塔下的野餐",
+      "questions": [
+        "小夏，第81天翻旧速写本看到进步，那一刻什么感觉？",
+        "和阿婆聊一下午，她哪句话让你最想画下来？",
+        "如果这周定格成一幅速写，你会画哪个瞬间？"
+      ],
+      "answers": [
+        "说实话挺感动的，就是那种……原来我真的有在慢慢变好的感觉。以前那些歪歪扭扭的线条，现在看着还挺可爱的，哈哈。",
+        "她说她年轻时第一次看见海，站在那儿哭了，说不出为什么。我脑子立刻就有了画面——一个姑娘，背对着我，风吹着衣角。",
+        "应该是第79天吧，阿婆坐在藤椅上，阳光斜斜的，她笑起来的皱纹一圈一圈的。我当时就想，这个画面我不能忘。"
+      ],
+      "quests": [
+        {
+          "text": "打开工具 5 分钟，做不做都算完成",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：雾里亮起一盏小灯"
+        },
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        }
+      ],
+      "logs": [
+        {
+          "day": 77,
+          "note": "睡到自然醒，去海边走了走",
+          "mood": 4
+        },
+        {
+          "day": 79,
+          "note": "和阿婆聊了一下午天，她年轻时的事",
+          "mood": 4
+        },
+        {
+          "day": 81,
+          "note": "翻旧速写本，居然看到进步",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "第12章：灯塔下的野餐",
+        "chapterType": "rest",
+        "realEventsMapping": [
+          {
+            "real": "睡到自然醒，去海边走了走",
+            "story": "林夏没有委托、没有雾袭，第一次睡到雾港的午后。她赤脚走到海边，捡回一枚贝壳色的颜料——『休息色』入册。灰雾在远处不敢靠近有阳光的滩涂。"
+          },
+          {
+            "real": "和阿婆聊了一下午天，她年轻时的事",
+            "story": "阿婆在藤椅上讲年轻时的事：她第一次看见海哭了，说不出为什么。林夏速写下这个画面，阿婆看着画，欲言又止地提起『我年轻时也认识一位修补师……』，话被风带走了。"
+          },
+          {
+            "real": "翻旧速写本，居然看到进步",
+            "story": "夜晚整理图鉴时，林夏翻出第一本歪歪扭扭的速写本。对照现在的线条，她第一次确信自己在变好——旧本子里夹着褪色的纸片，编号笔迹与雾巷旧色卡如出一辙。"
+          },
+          {
+            "real": "把本周最满意的一张画贴到墙上（未完成）",
+            "story": "不是林夏的错：夜里灰雾在她伸手贴画时打翻墨水瓶，糊住了墙面。2027年的林夏提灯赶来，用衣袖擦出一小块干净墙，说：『贴画的墙，雾抢不走，但它需要你亲手贴上去。』"
+          }
+        ],
+        "beats": [
+          "第77天午后，林夏在海边休整，捡『休息色』入册，回想自己为什么开始画画——不是为了战胜雾，是为了不让颜色消失",
+          "第79天，藤椅、斜阳、阿婆的皱纹。林夏速写『这个画面我不能忘』的瞬间，阿婆话到嘴边的往事埋下新伏笔",
+          "第80夜灰雾打翻墨水阻挠贴画，2027年的林夏出场，二人并坐灯塔下吃阿婆的面包，谈『休息也是修补的一部分』",
+          "第81天，翻旧速写本看见进步，旧本里的褪色纸片与雾巷色卡笔迹呼应；图鉴末页再添一行铅笔小字"
+        ],
+        "panels": [
+          {
+            "scene": "Wide shot: a sunlit beach at afternoon. Lin Xia (short black bob hair, round glasses, grey hoodie) walks barefoot along the tide line, holding a shell up to the light. Behind her, the grey fog wall hesitates far away at the town edge. Warm low-angle light.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第77天。没有雾袭的午后，修补师第一次发现，停下来也是一种颜色。",
+            "dialogues": []
+          },
+          {
+            "scene": "Medium shot: bakery courtyard. Grandma sits in a rattan chair, sunlight slanting across her wrinkled smiling face. Lin Xia (short black bob hair, round glasses, grey hoodie) kneels sketching in her notebook, pencil mid-stroke, focused and soft-eyed.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第79天。阿婆说起年轻时第一次见海哭了，还有一位修补师——话被风带走了。",
+            "dialogues": []
+          },
+          {
+            "scene": "Night scene: Lin Xia reaches to pin a drawing on the wall, when spilled ink blots the wall beside her (fog sabotage). The older Lin Xia from 2027 (same short black bob hair, round glasses, grey hoodie but travel-worn, carrying a lantern) steps through thinning fog at the doorway, calm expression.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第80夜。灰雾打翻墨水，但贴画的资格，雾抢不走。",
+            "dialogues": []
+          },
+          {
+            "scene": "Two-shot: the two Lin Xias sit side by side on the breakwater under the distant lighthouse, splitting bread. 2027 Lin Xia looks at the lighthouse with unreadable nostalgia; young Lin Xia bites bread, glasses reflecting warm lamplight.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "灯塔的方向，2027年的她没有回答，只是笑了笑，眼里映着很久以前的火光。",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "Warm rest-themed cover: Lin Xia (short black bob hair, round glasses, grey hoodie) sitting on a sunlit breakwater sharing bread with the older version of herself (same appearance, lantern at side), distant lighthouse, soft golden haze, black cat nearby, gentle watercolor style",
+        "interviewQuote": "应该是第79天吧，阿婆坐在藤椅上，阳光斜斜的，她笑起来的皱纹一圈一圈的。我当时就想，这个画面我不能忘。",
+        "cliffhanger": "图鉴末页在『休息色』入册后浮现新的铅笔小字：『阿婆没有说完的那句话，雾也在听。明天，替她问完。』——下周林夏将回到面包店，问出阿婆与上一代修补师的事，并亲手贴上那张画。",
+        "foreshadowingAdd": [
+          {
+            "id": "f11",
+            "hint": "旧速写本里滑出的褪色纸片，编号笔迹与雾巷色卡一致——旧本子可能来自上一代修补师",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [
+          "[object Object]"
+        ],
+        "summary": "休整章。海边拾得『休息色』，藤椅斜阳下的阿婆速写成为本周最满意的画；灰雾夜半打翻墨水阻挠贴画，2027年的林夏现身擦墙、同游灯塔，点破休息也是修补。翻旧速写本看见进步，纸片笔迹牵出上一代修补师的影子。画已抚平，胶带备好——只等天亮贴上，并向阿婆问完那句话。",
+        "nextCoverPrompt": "Dawn cover: bakery storefront in early light, Lin Xia (short black bob hair, round glasses, grey hoodie) pressing a sketch onto the clean wall while grandma watches with teary smile, old faded paper slip held in grandma's hand, fog retreating down the street, hopeful watercolor tones",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "# 第12章：灯塔下的野餐\n\n第77天，你睡到了雾港的午后。\n\n这是第一次。没有委托，没有雾袭，窗帘缝里漏进来的光是蜂蜜色的，落在你枕边，像有人悄悄放了一小条金子。你赤着脚走下楼，木地板凉丝丝的，贴着脚心一路凉到海风里。\n\n滩涂被太阳晒得发白。你弯下腰，捡起一枚贝壳——内侧是淡淡的粉，混着一点灰，一点说不清的温柔。你把它举到眼前，让光从壳里透过来。\n\n那是『休息色』。你轻轻把它收进图鉴。\n\n远处的灰雾停在镇子边缘，一动不动。原来有阳光的地方，它不敢来。你站着看了很久，忽然想起自己为什么开始画画——不是为了战胜雾。是为了不让颜色消失。\n\n<!--panel:0-->\n\n第79天，你在面包店的院子里。\n\n阿婆坐在藤椅上，午后的斜阳从她的肩膀滑下来，落在她笑起来的皱纹里，一圈，又一圈。她说起年轻时第一次看见海，哭了，自己也不知道为什么。\n\n“你哭什么呀。”她笑着摇蒲扇，风把她的白发吹乱了一点。\n\n你没说话。你只是把速写本摊在膝盖上，铅笔轻轻落下。藤椅的影子、扇子的弧线、她眼角的光。沙沙的铅笔声混着蝉鸣，混着院子里晒干的木头味。\n\n画完的那一瞬你想：这个画面，我不能忘。\n\n阿婆凑过来看。她看了很久很久，忽然开口：“我年轻时，也认识一位修补师……”\n\n一阵风来。蒲扇停了。\n\n后半句话，被风带走了。阿婆只是看着画，眼睛里有很远很远的什么。你把画小心地抚平，夹进本子最里面。\n\n<!--panel:1-->\n\n第80夜，墨水打翻了。\n\n你正踮着脚，要把那幅画贴上墙——灰雾不知从哪里钻进来，撞倒了桌上的墨水瓶。黑的，一大片，糊在墙上，像一只张开的手。\n\n你的手停在半空。画的边角还捏在指间，微微发抖。\n\n然后门口亮起一点暖光。提灯的人跨进来，同你一样的短发，一样的圆眼镜，一样的灰卫衣，只是袖口磨旧了，是2027年的林夏。\n\n她什么也没说，先用衣袖蘸了水，一下一下，在墙上擦出一小块干净的白。灯影里她的侧脸很平静。\n\n“贴画的墙，雾抢不走。”她说，“但它需要你亲手贴上去。”\n\n于是画先回了你的怀里。你们提着灯，并肩坐到灯塔下的防波堤上，分吃阿婆的面包。还是温的，麦香混着咸咸的海风。她望着灯塔，没回答你的问题，只是笑了笑，眼里映着很久以前的火光。\n\n<!--panel:2-->\n\n第81天夜里，你整理图鉴，翻出了第一本速写本。\n\n歪歪扭扭的线。倾斜的屋顶。涂出边框的海。你忍不住笑了，鼻子却有点酸。再看看现在本子里的藤椅和斜阳——你第一次这么清楚地知道：你在变好。\n\n翻到最后一页时，滑出一张褪色的纸片。\n\n编号的笔迹，瘦瘦的，斜斜的。你的心轻轻一跳——和雾巷那张旧色卡上的字，一模一样。\n\n这本旧本子，是从哪里来的？\n\n你把纸片抚平，夹好。然后你翻开图鉴的末页。『休息色』安静地入了册，粉灰色的那一格还带着午后阳光的温度。\n\n就在这时，页脚浮起一行新的铅笔小字，淡淡的，像昨天才写下的：\n\n**『阿婆没有说完的那句话，雾也在听。明天，替她问完。』**\n\n你合上图鉴。画已经抚平了，胶带就放在手边。\n\n明天，面包店的门会开着。藤椅会在阳光里。\n\n你会问完那句话。\n\n<!--panel:3-->",
+      "letterMd": "亲爱的小夏：\n\n展信愉快呀。\n\n看到你这周睡到自然醒、去海边走了走，我心里一下就松了。以前你总觉得停下来是偷懒，现在你看，歇着歇着，反而翻旧速写本时发现“原来我真的有在慢慢变好”。那一刻你也感动了吧？我隔着九十天都想抱抱你。那些歪歪扭扭的线条真的挺可爱的，别撕。\n\n还有阿婆。她说第一次看见海，站在那儿哭了，说不出为什么——你脑子立刻有了画面：一个姑娘，背对着你，风吹着衣角。小夏，能被一句话击中的心，就是画画的人最好的本钱。阿婆坐在藤椅上，阳光斜斜的，皱纹一圈一圈……这个画面你记住了，我也没忘。\n\n先画，再说。下周就照你计划的来：每天 20 分钟速写，5 天就好。别贪多，20 分钟很小的，画完就算赢。\n\n不剧透太多，只说一句：以后某个下午，你会靠画画接住自己的生活，风把你吹得稳稳的。慢慢来。\n\n先去海边再走一走吧。\n\n爱你的，\n2027 年的林夏",
+      "cover": "/demo/cover-12.jpg",
+      "panels": [
+        "/demo/panel-12-0.jpg",
+        "/demo/panel-12-1.jpg",
+        "/demo/panel-12-2.jpg",
+        "/demo/panel-12-3.jpg"
+      ],
+      "nextCover": "/demo/cover-13.jpg"
+    },
+    {
+      "no": 13,
+      "chapterType": "highlight",
+      "completionRate": 1,
+      "title": "终章·雾散前，灯塔亮了",
+      "questions": [
+        "第84天手终于不抖了，画的是哪张？小夏现在还记得那种感觉吗？",
+        "捡到的那组新配色后来用上了没？",
+        "如果这周是一部短片，最后一个镜头会停在哪里？"
+      ],
+      "answers": [
+        "是那张城市黄昏的练习稿，本来练了两周都崩，那天突然稳了。记得！笔尖落下去的那一瞬间，我盯着纸看了好几秒，不敢动。",
+        "记在配色本上了，粉灰加一点点橘，还没正式用，但我有预感会出现在下一张里。舍不得随便浪费，好配色要等对的画。",
+        "停在提前半小时坐下来的那张桌子吧，台灯刚开，纸还空白，但我已经拿起笔了。就这么一秒，安静的、准备开始的一秒。"
+      ],
+      "quests": [
+        {
+          "text": "每天画 20 分钟速写，共 5 天",
+          "difficulty": 1,
+          "isKey": true,
+          "storyHook": "完成后：港口的颜色亮了一格"
+        },
+        {
+          "text": "把本周最满意的一张画贴到墙上",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：晾衣绳上多了一件作品"
+        },
+        {
+          "text": "整理这周的练习稿到一个文件夹",
+          "difficulty": 1,
+          "isKey": false,
+          "storyHook": "完成后：颜色图鉴厚了一页"
+        }
+      ],
+      "logs": [
+        {
+          "day": 84,
+          "note": "画完了一张练习稿，手终于不抖了",
+          "mood": 5
+        },
+        {
+          "day": 86,
+          "note": "在街上捡到一组新的配色，记在了本子上",
+          "mood": 4
+        },
+        {
+          "day": 88,
+          "note": "今天提前半小时开始画，居然不难",
+          "mood": 4
+        }
+      ],
+      "plan": {
+        "title": "终章·雾散前，灯塔亮了",
+        "chapterType": "highlight",
+        "realEventsMapping": [
+          {
+            "real": "本周的记录",
+            "story": "小镇一角的变化"
+          }
+        ],
+        "beats": [
+          "[object Object]",
+          "[object Object]",
+          "[object Object]",
+          "[object Object]"
+        ],
+        "panels": [
+          {
+            "scene": "Wide shot: seaside town at dusk. Lin Xia (short black bob hair, round glasses, grey hoodie) sits at a desk by the window, hand steady, drawing a city sunset sketch. Grey mist presses against the glass like grasping hands. Her eyes are calm.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "第84天，雾想按住她的手，可手，不抖了。",
+            "dialogues": []
+          },
+          {
+            "scene": "Close-up of Lin Xia's notebook: a picked-up colour card (pink-grey with a dot of orange) placed beside a faded torn paper; both bear the same handwritten number. Her finger points at the matching strokes, eyes wide behind round glasses.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "两段笔迹重合的瞬间，一本旧传承接到了她手里。",
+            "dialogues": []
+          },
+          {
+            "scene": "Lin Xia (grey hoodie) stands at the mouth of a vast white hall of fog, back straight, brush raised. The mist twists into words from her childhood diary. She is not flinching — her expression is defiant.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "雾念出她童年的日记——原来它听了很多年，却什么也没学会。",
+            "dialogues": []
+          },
+          {
+            "scene": "Dynamic wide panel: two figures side by side — Lin Xia and the taller 2027 Lin Xia (short black bob hair grown slightly longer, same round glasses, weathered coat over grey hoodie), both painting strokes of pink-grey and orange light onto the collapsing fog core. Sketch pages swirl as sparks around them.",
+            "characters": [
+              "protagonist"
+            ],
+            "shot": "medium",
+            "narration": "引色册的同步小字连成一句：『灯塔这头，一直有人。』",
+            "dialogues": []
+          }
+        ],
+        "coverPrompt": "Comic cover: Lin Xia (short black bob hair, round glasses, grey hoodie) and her older future self standing back to back before an igniting lighthouse, brushes raised, pink-grey and orange light exploding through grey fog, colour flooding back into a seaside town.",
+        "interviewQuote": "是那张城市黄昏的练习稿，本来练了两周都崩，那天突然稳了。记得！笔尖落下去的那一瞬间，我盯着纸看了好几秒，不敢动。",
+        "cliffhanger": "2027年的她只带走了一句话：雾的最后一缕藏在灯塔底部——那里，锁着上一代修补师留下的东西，也是下周的战场。",
+        "foreshadowingAdd": [
+          {
+            "id": "f12",
+            "hint": "灯塔底部的门上刻着两行编号，一行属于上一代修补师，另一行是空的——像是留给林夏的",
+            "resolveByChapter": 13
+          }
+        ],
+        "foreshadowingResolve": [
+          "f1",
+          "f3",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "summary": "林夏稳手完成黄昏练习稿，发现拾得色卡与旧纸片同源，继承上一代修补师传承。灰雾借童年日记发动心理总攻，林夏与2027年的自己并肩，以粉灰橘与满册练习稿引动颜色风暴击溃雾核，灯塔点亮全港。终幕留下口信：最后一缕雾在灯塔之下。",
+        "nextCoverPrompt": "Next chapter cover: the lighthouse base at night, an old door carved with two lines of numbers, one blank. Lin Xia (short black bob hair, round glasses, grey hoodie) holds a lantern, the last wisp of grey fog curling around her feet.",
+        "nextWeekQuests": [
+          {
+            "text": "每天画 20 分钟速写，共 5 天",
+            "difficulty": 1,
+            "isKey": true,
+            "storyHook": "完成后：港口的颜色亮了一格"
+          },
+          {
+            "text": "把本周最满意的一张画贴到墙上",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：晾衣绳上多了一件作品"
+          },
+          {
+            "text": "整理这周的练习稿到一个文件夹",
+            "difficulty": 1,
+            "isKey": false,
+            "storyHook": "完成后：颜色图鉴厚了一页"
+          }
+        ]
+      },
+      "bodyMd": "# 终章 · 雾散前，灯塔亮了\n\n第84天，黄昏从窗子的另一侧漫进来。\n\n你坐在书桌前，窗外那片灰雾贴着玻璃，像一只只想要按住你的手。你听得见玻璃上细小的、雾在爬行的声音，沙沙的，像有人在很远的地方翻一本湿透的书。\n\n可你的手，不抖了。\n\n笔尖落下去，落在那张练了两周、崩了无数次的城市黄昏练习稿上。橘色的光先出来，一小格，然后是粉灰的天空，一寸一寸铺开。窗外的雾变得更浓了，压得更低了，可纸上的黄昏，亮起来了。\n\n笔尖落下去的那一瞬间，你盯着纸看了好几秒，不敢动。\n\n真的是稳的。\n\n<!--panel:0-->\n\n收拾练习稿的时候，一张色卡从册页里滑出来。\n\n粉灰的底色，一角点着橘。你把它捡起来，和那张从旧书页里掉出来的残纸并排放在一起——两段笔迹，在你眼前，一点一点重合。同一个\"3\"字起笔的角度，同一道收尾时轻轻上挑的弧线。\n\n指尖抚过纸面，能摸到那道旧折痕的凹凸，薄薄的，像一根睡着的光。\n\n你翻到传承册的最后一页。上面只有一行小字：\n\n「引色者不引天上的颜色，引自己手里的。」\n\n两段笔迹重合的瞬间，一本旧传承，接到了你手里。\n\n<!--panel:1-->\n\n雾开始说话了。\n\n它张开成一个白茫茫的大厅，把你围在中间，念出你童年日记里的句子。一字一句，都是你以为早就烧掉、早就没人知道的那些——害怕的、哭着写的、不敢给别人看的。\n\n原来它听了很多年，听见了那么多。\n\n却什么也没学会。\n\n你站在大厅的入口，背挺直了。笔举起来，手腕上的温度是真实的，笔杆上细细的木纹硌着指腹，也是真实的。雾念它的，你画你的。\n\n\"那些都是我的。\"你说，\"你只是听见过。\"\n\n<!--panel:2-->\n\n然后，她来了。\n\n2027年的林夏站在你身边，比你高一点，头发长了一点点，还是那副圆框眼镜，灰帽衫外面罩着一件磨旧的大衣。她不说话，只是举起笔，朝雾核的位置一点。\n\n引色册摊开在风里，满册的练习稿哗哗地翻，速写、色卡、崩掉的稿子、稳住的那一张——千百道笔迹同时亮起，粉灰和橘的光像潮水一样涌出去。纸页在你们身边盘旋，一页一页，碎成细小的、发光的屑。\n\n雾核塌下去的时候没有声音。只有颜色，从港口的一角开始，一格一格地亮回来。屋顶是屋顶的橙，海是海的那种深蓝带一点点绿。\n\n灯塔顶上，光转了第一圈。\n\n引色册最后一页的同步小字，连成了一句：\n\n『灯塔这头，一直有人。』\n\n<!--panel:3-->\n\n颜色回来的那个晚上，你和她并肩坐在防波堤上。石头还留着白天晒过的余温，海风里有淡淡的咸味，和一点画完稿之后笔洗水的味道。\n\n她没有多说什么。她只是站起来，把一张纸条按在你手心。\n\n\"2027年的我，只带一句话走。\"\n\n你展开。纸条上的字迹和你的很像，只是更稳：\n\n**雾的最后一缕，藏在灯塔底部。**\n\n**那里锁着上一代修补师留下的东西——**\n\n**也是下周的战场。**",
+      "letterMd": "亲爱的小夏：\n\n你好呀，我是90天后的你，那个“接单很稳”的林夏。先别惊讶，先画，再说。\n\n刚看完你这一周的记录，最让我想笑又想哭的是第84天，那张城市黄昏的练习稿。你练了两周都崩，那天突然稳了，笔尖落下去，你盯着纸看了好几秒不敢动。小夏，我想隔着时间抱你一下。那种“不敢动”的感觉，我到现在还记得，它是你告诉自己的第一句：我可以。这一周你悄悄提前半小时坐下，台灯亮着，纸还空白，你已经拿起笔了，那一秒安静得真好。我为你骄傲，不是因为你画得完美，而是因为你一直在画。\n\n那条粉灰加一点点橘的配色，先让它在你脑子里待着吧，好配色是要等对的画的，你的直觉没错。\n\n只提一个很小的建议：下周每天20分钟速写，别挑“状态好的时候”，坐下就画，丑不丑不管。20分钟而已，比刷牙还短。\n\n最后偷偷说一句：未来某一天，你会靠画黄昏这类稿子接到人生第一批正式委托。具体哪张，不告诉你，你自己画出来。\n\n台灯开着的你，很好。\n\n先画，再说。\n爱你的，\n90天后的林夏\n\n—— 2027 年 1 月",
+      "cover": "/demo/cover-13.jpg",
+      "panels": [
+        "/demo/panel-13-0.jpg",
+        "/demo/panel-13-1.jpg",
+        "/demo/panel-13-2.jpg",
+        "/demo/panel-13-3.jpg"
+      ],
+      "nextCover": null
+    }
+  ]
+}

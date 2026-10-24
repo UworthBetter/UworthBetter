@@ -47,7 +47,8 @@ export function Landing() {
     try {
       await api.demo.seed();
       await refresh();
-      router.push("/season");
+      // 先进揭晓页认识林夏（人格卡 + 首封信），再开始第 1 周
+      router.push("/reveal");
     } catch (e) {
       setError(e instanceof ApiClientError ? e.message : "演示账号没有载入");
       setBusy(false);

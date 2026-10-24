@@ -7,16 +7,54 @@ import { getCurrentUser, getActiveSeason } from "@/lib/server/session";
 import { subscribeJob } from "@/lib/server/jobs";
 import { getAITasks } from "@/lib/ai/tasks";
 import { env } from "@/lib/env";
-import { fxChapterPlan, fxOnboarding } from "@/fixtures";
+import { fxChapterBodyMd, fxChapterLetterMd, fxChapterPlan, fxInterview, fxOnboarding } from "@/fixtures";
 import { startChapter } from "@/lib/server/pipeline/chapter";
 import { buildSafeChapterContext } from "@/lib/server/context";
 import { getChapter } from "@/lib/server/records";
+import type { DemoSeasonData } from "@/lib/server/demoData";
 
 const session = vi.hoisted(() => ({ values: new Map<string, string>() }));
 vi.mock("next/headers", () => ({ cookies: async () => ({
   get: (key: string) => session.values.has(key) ? { value: session.values.get(key) } : undefined,
   set: (key: string, value: string) => session.values.set(key, value),
 }) }));
+
+// seed/demo-season.json 生成中，运行时 demoSeason() 可能为 null：用可切换的假预烘季注入。
+const demoDataState = vi.hoisted(() => ({ season: null as DemoSeasonData | null }));
+vi.mock("@/lib/server/demoData", () => ({
+  demoSeason: () => demoDataState.season,
+  demoChapter: (no: number) => demoDataState.season?.chapters.find((c) => c.no === no),
+}));
+
+/** 用 fixtures 拼出的最小假预烘季：满足 DemoSeasonData 形状，13 章循环复用同一份预烘内容。 */
+const fakeBakedSeason: DemoSeasonData = {
+  seasonTitle: fxOnboarding.bible.seasonTitle,
+  logline: fxOnboarding.bible.logline,
+  sheets: { future: "/stub/sheet-future.png", present: "/stub/sheet-present.png" },
+  chapters: Array.from({ length: 13 }, (_, i) => {
+    const no = i + 1;
+    return {
+      no,
+      chapterType: "highlight",
+      completionRate: 1,
+      title: `预烘第${no}章`,
+      questions: [...fxInterview.questions],
+      answers: [...fxInterview.answers],
+      quests: fxOnboarding.roadmap.week1Quests.map((q) => ({ ...q })),
+      logs: [
+        { day: 1, note: "预烘日志：画完一张速写", mood: 4 },
+        { day: 3, note: "预烘日志：整理了这周的草稿", mood: 5 },
+      ],
+      plan: fxChapterPlan,
+      // 加注释标记，区分预烘正文与 fixture/mock 正文。
+      bodyMd: `${fxChapterBodyMd()}\n<!--demo:baked:${no}-->`,
+      letterMd: `${fxChapterLetterMd()}\n<!--demo:baked-letter:${no}-->`,
+      cover: `/stub/demo-cover-${no}.png`,
+      panels: [0, 1, 2, 3].map((idx) => `/stub/demo-panel-${no}-${idx}.png`),
+      nextCover: no < 13 ? `/stub/demo-cover-${no + 1}.png` : null,
+    };
+  }),
+};
 
 const params = <T extends Record<string, string>>(p: T) => ({ params: Promise.resolve(p) });
 const req = () => new Request("http://test/x");
@@ -158,6 +196,50 @@ describe("持久化 API 契约", () => {
     C.SeedResponse.parse(await body(await (await import("@/app/api/demo/seed/route")).POST()));
     const previous = env.DEMO_MODE; env.DEMO_MODE = false;
     try { await body(await POST(json("POST", {})), 403); } finally { env.DEMO_MODE = previous; }
+  });
+
+  it("可玩演示：预烘数据第 1 周开局、跳章幂等、cached 回放预烘正文", async () => {
+    const ff = await import("@/app/api/demo/fast-forward/route");
+    await body(await (await import("@/app/api/demo/reset/route")).POST());
+    demoDataState.season = fakeBakedSeason;
+    try {
+      // ① 第 1 周开局：第 1 章 in_progress + 首周任务未完成，人设图来自预烘
+      C.SeedResponse.parse(await body(await (await import("@/app/api/demo/seed/route")).POST()));
+      const seeded = C.SeasonView.parse(await body(await (await import("@/app/api/season/route")).GET()));
+      expect(seeded.current.no).toBe(1);
+      expect(seeded.chapters[0].status).toBe("in_progress");
+      expect(seeded.current.quests.length).toBeGreaterThan(0);
+      expect(seeded.current.quests.every((q) => !q.done)).toBe(true);
+      expect(seeded.futureSelf.sheetFutureUrl).toBe("/stub/sheet-future.png");
+
+      // ② 跳到第 5 周：1–4 章 ready 且标题来自预烘，第 5 章 in_progress + 采访预填 + 任务未完成
+      const jumped = C.SeasonView.parse(await body(await ff.POST(json("POST", { chapter: 5 }))));
+      expect(jumped.current.no).toBe(5);
+      expect(jumped.chapters.slice(0, 4).map((c) => `${c.status}:${c.title}`)).toEqual(
+        Array.from({ length: 4 }, (_, i) => `ready:预烘第${i + 1}章`));
+      expect(jumped.chapters[4].status).toBe("in_progress");
+      expect(jumped.current.quests.every((q) => !q.done)).toBe(true);
+      const questions = C.InterviewQuestions.parse(
+        await body(await (await import("@/app/api/chapters/[n]/interview/route")).GET(req(), params({ n: "5" }))));
+      expect(questions.questions).toEqual([...fxInterview.questions]);
+
+      // ③ 幂等：来回跳不报错，重跳到第 2 周后仅第 1 章 ready
+      const again = C.SeasonView.parse(await body(await ff.POST(json("POST", { chapter: 2 }))));
+      expect(again.current.no).toBe(2);
+      expect(again.chapters.filter((c) => c.status === "ready").map((c) => c.no)).toEqual([1]);
+
+      // ④ cached 生成本章：正文回放预烘内容（带 demo:baked 标记），分镜用预烘 URL
+      await body(await ff.POST(json("POST", { cached: true, rate: 1 })));
+      const season = await getActiveSeason();
+      const jobId = getChapter(season.id, 2).activeJobId;
+      expect(jobId).toBeTruthy();
+      expect((await finish(jobId!)).at(-1)).toMatchObject({ type: "done" });
+      const view = C.ChapterView.parse(await body(await (await import("@/app/api/chapters/[n]/route")).GET(req(), params({ n: "2" }))));
+      expect(view.bodyMd).toContain("demo:baked:2");
+      expect(view.panels.map((p) => p.imageUrl)).toEqual([0, 1, 2, 3].map((idx) => `/stub/demo-panel-2-${idx}.png`));
+    } finally {
+      demoDataState.season = null;
+    }
   });
 
   it("危机记录与采访答案不进入 AI 上下文", async () => {

@@ -275,6 +275,7 @@ export type SeedResponse = z.infer<typeof SeedResponse>;
 export const FastForwardRequest = z.object({
   rate: z.number().min(0).max(1).optional(), // 指定本章完成度
   cached: z.boolean().optional(), // 生成时回放预生成章节（网络兜底）
+  chapter: z.number().int().min(2).max(13).optional(), // 跳章：把 1..chapter-1 章直接完成，落到该周（需预生成演示数据）
 });
 export type FastForwardRequest = z.infer<typeof FastForwardRequest>;
 

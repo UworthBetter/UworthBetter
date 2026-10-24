@@ -16,6 +16,7 @@
     "seed:demo": "tsx scripts/seed.ts",
     "ping:text": "tsx scripts/ping-text.ts",
     "ping:image": "tsx scripts/ping-image.ts",
+    "gen:demo-season": "tsx scripts/gen-demo-season.ts",
     "contracts:lock": "tsx scripts/contracts-lock.ts",
     "gen:stub-images": "tsx scripts/gen-stub-images.ts"
   },

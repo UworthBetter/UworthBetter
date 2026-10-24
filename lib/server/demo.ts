@@ -7,6 +7,7 @@ import { bubbleLayout, chapterQuests, requireEditable } from "@/lib/server/recor
 import { fail } from "@/lib/server/http";
 import { startChapter } from "@/lib/server/pipeline/chapter";
 import { deleteImage } from "@/lib/server/storage";
+import { demoChapter, demoSeason } from "@/lib/server/demoData";
 
 export function assertIdle(userId: string) {
   const seasons = db.select().from(schema.seasons).where(eq(schema.seasons.userId, userId)).all();
@@ -42,13 +43,34 @@ export async function resetUser(userId: string) {
   await Promise.all([...urls].map(deleteImage));
 }
 
-/** D 轨道尚未提供 seed 资产时，使用经过契约校验的 fixtures 构造完整演示季。 */
+/** 演示建档：预生成数据（demoSeason）可用时从第 1 周开局（可玩体验）；否则回退到旧 fixture 流程。 */
 export function seedDemo(userId: string): string {
   assertIdle(userId);
+  const demo = demoSeason();
+  const first = demo ? demoChapter(1) : undefined;
   return db.transaction((tx) => {
     const fx = fxOnboarding;
     const self = tx.insert(schema.futureSelves).values({ userId, profile: fx.futureSelf,
-      sheetFutureUrl: "/stub/sheet-future.png", sheetPresentUrl: "/stub/sheet-present.png" }).returning().get();
+      sheetFutureUrl: demo && first ? demo.sheets.future : "/stub/sheet-future.png",
+      sheetPresentUrl: demo && first ? demo.sheets.present : "/stub/sheet-present.png" }).returning().get();
+    if (demo && first) {
+      // 新流程：从第 1 周开局，游客亲手走周循环，可随时通过 demoJump 跳到第 N 周。
+      const season = tx.insert(schema.seasons).values({ userId, futureSelfId: self.id, title: fx.bible.seasonTitle,
+        style: fx.input.style, timeBudget: fx.input.timeBudget, onboardingInput: fx.input, bible: fx.bible,
+        roadmap: fx.roadmap, firstLetterMd: fx.firstLetterMd, startDate: toDateStr(new Date()),
+        currentChapter: 1, status: "active" }).returning().get();
+      tx.update(schema.users).set({ activeSeasonId: season.id, nickname: "林夏" }).where(eq(schema.users.id, userId)).run();
+      for (const road of fx.roadmap.acts.flatMap((a) => a.chapters)) {
+        tx.insert(schema.chapters).values({ seasonId: season.id, chapterNo: road.no, title: road.title,
+          status: road.no === 1 ? "in_progress" : "locked",
+          coverUrl: road.no === 1 ? first.cover : null }).run();
+      }
+      // 只插入第 1 章任务（全部未完成）；日志不插，由游客亲手记录。
+      if (first.quests.length) tx.insert(schema.quests).values(first.quests.map((q, idx) => ({ ...q, idx,
+        chapterNo: 1, seasonId: season.id }))).run();
+      return season.id;
+    }
+    // 旧 fixture 流程：seed 资产未就绪时的回退路径，直接落在第 4 章。
     const start = new Date();
     start.setDate(start.getDate() - 21);
     const season = tx.insert(schema.seasons).values({ userId, futureSelfId: self.id, title: fx.bible.seasonTitle,
@@ -88,17 +110,94 @@ export function seedDemo(userId: string): string {
   });
 }
 
+/**
+ * 演示跳章：把 1..chapter-1 章按预生成数据直接写成已完成，落到第 chapter 周开局。
+ * 幂等：每次先清空该季全部章节内容、分镜、任务与日志再重建（支持来回跳）。
+ */
+export function demoJump(season: typeof schema.seasons.$inferSelect, chapter: number) {
+  if (!Number.isInteger(chapter) || chapter < 2 || chapter > 13) {
+    throw fail("VALIDATION", "chapter 必须是 2–13 之间的整数", 400);
+  }
+  const demo = demoSeason();
+  if (!demo || !season.roadmap) throw fail("VALIDATION", "预生成演示数据未就绪", 400);
+  const byNo = new Map(demo.chapters.map((c) => [c.no, c]));
+  const baked = (n: number) => {
+    const data = byNo.get(n);
+    if (!data) throw fail("VALIDATION", "预生成演示数据未就绪", 400);
+    return data;
+  };
+  // 生成中的章节不允许跳转，避免清掉进行中的任务。
+  if (db.select().from(schema.chapters).where(eq(schema.chapters.seasonId, season.id)).all().some((c) => c.status === "generating")) {
+    throw fail("ALREADY_GENERATING", "请等待生成完成后再跳转", 409);
+  }
+  const roadTitle = (n: number) => season.roadmap!.acts.flatMap((a) => a.chapters).find((c) => c.no === n)!.title;
+  db.transaction((tx) => {
+    const rows = tx.select().from(schema.chapters).where(eq(schema.chapters.seasonId, season.id)).all();
+    const rowOf = (n: number) => {
+      const row = rows.find((c) => c.chapterNo === n);
+      if (!row) throw fail("VALIDATION", "演示季章节不完整", 400);
+      return row;
+    };
+    // 幂等：先清空全部章节内容、分镜、任务与日志，再按预烘数据重建。
+    for (const row of rows) {
+      tx.delete(schema.panels).where(eq(schema.panels.chapterId, row.id)).run();
+      tx.update(schema.chapters).set({ status: "locked", chapterType: null, completionRate: null,
+        title: roadTitle(row.chapterNo), plan: null, bodyMd: null, letterMd: null, summary: null,
+        coverUrl: null, interview: null, activeJobId: null, generatedAt: null }).where(eq(schema.chapters.id, row.id)).run();
+    }
+    tx.delete(schema.quests).where(eq(schema.quests.seasonId, season.id)).run();
+    tx.delete(schema.dailyLogs).where(eq(schema.dailyLogs.seasonId, season.id)).run();
+    const base = new Date(`${season.startDate}T12:00:00`);
+    // 1..chapter-1 章逐章按预烘数据写成 ready。
+    for (let n = 1; n < chapter; n++) {
+      const data = baked(n);
+      const row = rowOf(n);
+      tx.update(schema.chapters).set({ status: "ready", title: data.title, chapterType: data.chapterType,
+        completionRate: data.completionRate, plan: { ...data.plan, chapterType: data.chapterType },
+        bodyMd: data.bodyMd, letterMd: data.letterMd, summary: data.plan.summary,
+        interview: data.questions.map((q, i) => ({ q, a: data.answers[i] })),
+        coverUrl: data.cover, generatedAt: new Date() }).where(eq(schema.chapters.id, row.id)).run();
+      tx.insert(schema.panels).values(data.plan.panels.map((p, idx) => ({ chapterId: row.id, idx,
+        imageUrl: data.panels[idx], sceneDesc: p.scene, narration: p.narration ?? null,
+        dialogues: p.dialogues.map((d, j) => ({ ...d, x: bubbleLayout[idx][j * 2], y: bubbleLayout[idx][j * 2 + 1] })),
+      }))).run();
+      if (data.quests.length) tx.insert(schema.quests).values(data.quests.map((q, idx) => ({ ...q, idx,
+        chapterNo: n, seasonId: season.id, done: true, doneAt: new Date() }))).run();
+      for (const log of data.logs) {
+        const date = new Date(base);
+        date.setDate(date.getDate() + log.day);
+        tx.insert(schema.dailyLogs).values({ seasonId: season.id, chapterNo: n,
+          date: toDateStr(date), note: log.note, mood: log.mood }).run();
+      }
+      // 下一章封面由本章预烘 nextCover 提供（n+1 ≤ chapter ≤ 13）。
+      tx.update(schema.chapters).set({ coverUrl: data.nextCover }).where(eq(schema.chapters.id, rowOf(n + 1).id)).run();
+    }
+    // 落到目标周：路线图标题、上一章预烘 nextCover 封面、预填采访问题与未完成任务。
+    const target = baked(chapter);
+    tx.update(schema.chapters).set({ status: "in_progress", title: roadTitle(chapter),
+      coverUrl: baked(chapter - 1).nextCover,
+      interview: target.questions.map((q) => ({ q, a: "" })) }).where(eq(schema.chapters.id, rowOf(chapter).id)).run();
+    if (target.quests.length) tx.insert(schema.quests).values(target.quests.map((q, idx) => ({ ...q, idx,
+      chapterNo: chapter, seasonId: season.id }))).run();
+    tx.update(schema.seasons).set({ currentChapter: chapter, status: "active" }).where(eq(schema.seasons.id, season.id)).run();
+  });
+}
+
 export function fastForward(season: typeof schema.seasons.$inferSelect, rate = .6, cached = false) {
   requireEditable(season, season.currentChapter);
   const quests = chapterQuests(season.id, season.currentChapter);
+  // 预烘数据存在时，补记日志的 note/mood 优先用当前章预烘日志（小优化，缺失时回退固定文案）。
+  const bakedLogs = demoChapter(season.currentChapter)?.logs ?? [];
+  const fallbackNotes = ["今天练习了十分钟", "尝试了一种新的配色", "给朋友看了我的作品", "好累，决定早点休息", "画完了一张速写", "整理了这一周的草稿"];
   db.transaction((tx) => {
     quests.forEach((q, i) => tx.update(schema.quests).set({ done: i < Math.round(quests.length * rate),
       doneAt: i < Math.round(quests.length * rate) ? new Date() : null }).where(eq(schema.quests.id, q.id)).run());
     for (let i = 0; i < 6; i++) {
       const date = new Date(`${season.startDate}T12:00:00`);
       date.setDate(date.getDate() + (season.currentChapter - 1) * 7 + i);
+      const preset = bakedLogs.length ? bakedLogs[i % bakedLogs.length] : undefined;
       tx.insert(schema.dailyLogs).values({ seasonId: season.id, chapterNo: season.currentChapter, date: toDateStr(date),
-        note: ["今天练习了十分钟", "尝试了一种新的配色", "给朋友看了我的作品", "好累，决定早点休息", "画完了一张速写", "整理了这一周的草稿"][i], mood: rate < .4 ? 2 : 4 }).run();
+        note: preset?.note ?? fallbackNotes[i], mood: preset?.mood ?? (rate < .4 ? 2 : 4) }).run();
     }
   });
   if (cached) startChapter(season, season.currentChapter, true);

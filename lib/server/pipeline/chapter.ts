@@ -11,6 +11,7 @@ import { createJob } from "@/lib/server/jobs";
 import { bubbleLayout, getChapter, insertQuests, requireEditable } from "@/lib/server/records";
 import { futureSelf } from "@/lib/server/views";
 import { imageStep } from "@/lib/server/pipeline/steps";
+import { demoChapter } from "@/lib/server/demoData";
 import { fxChapterBodyMd, fxChapterLetterMd, fxChapterPlan } from "@/fixtures";
 
 const PANEL_STEPS = ["panel0", "panel1", "panel2", "panel3"] as const;
@@ -23,16 +24,25 @@ export function startChapter(season: typeof schema.seasons.$inferSelect, n: numb
       const context = await buildSafeChapterContext(season.id, n);
       const self = futureSelf(season);
       const refs: ImageRef[] = [self.sheetPresentUrl, self.sheetFutureUrl].flatMap((url) => url ? [{ url }] : []);
+      // 预生成演示数据：cached 回放时优先使用（无预烘数据则完全走原 fixture 回放）。
+      const baked = cached ? demoChapter(n) : undefined;
       ctx.emit({ type: "step", step: "plan", status: "running" });
-      const plan = ChapterPlan.parse(cached ? { ...fxChapterPlan, chapterType: context.chapterType } : await ai.genChapterPlan(context));
-      // 完成度类型由领域规则决定，不能被 AI 输出覆盖。
-      plan.chapterType = context.chapterType;
+      const plan = ChapterPlan.parse(cached
+        ? { ...(baked ? baked.plan : fxChapterPlan), chapterType: baked ? baked.chapterType : context.chapterType }
+        : await ai.genChapterPlan(context));
+      // 完成度类型由领域规则决定，不能被 AI 输出覆盖；预烘数据例外（正文按预设完成度写成，类型用预烘值）。
+      if (!baked) plan.chapterType = context.chapterType;
       ctx.emit({ type: "step", step: "plan", status: "done", data: { title: plan.title, chapterType: plan.chapterType,
         panels: plan.panels.map((p, idx) => ({ idx, narration: p.narration ?? null, dialogues: p.dialogues.map((d, j) => ({ ...d, x: bubbleLayout[idx][j * 2], y: bubbleLayout[idx][j * 2 + 1] })) })) } });
       const limit = pLimit(env.IMAGE_CONCURRENCY);
       const scene = (step: "cover" | "next_cover" | "panel0" | "panel1" | "panel2" | "panel3", prompt: string, sceneRefs = refs) => limit(async () => {
         if (cached) {
-          const url = step.startsWith("panel") ? `/stub/panel-${step.slice(-1)}.png` : `/stub/cover-${step === "next_cover" ? n + 1 : n}.png`;
+          // 预烘图像直接 emit done；缺失（null）时回退到 stub 路径。
+          const bakedUrl = !baked ? null
+            : step === "cover" ? baked.cover
+            : step === "next_cover" ? baked.nextCover
+            : baked.panels[Number(step.slice(-1))];
+          const url = bakedUrl ?? (step.startsWith("panel") ? `/stub/panel-${step.slice(-1)}.png` : `/stub/cover-${step === "next_cover" ? n + 1 : n}.png`);
           ctx.emit({ type: "step", step, status: "done", data: { url } });
           return url;
         }
@@ -57,11 +67,11 @@ export function startChapter(season: typeof schema.seasons.$inferSelect, n: numb
           }
           return full;
         };
-        const bodyMd = cached ? await replay("body", fxChapterBodyMd())
+        const bodyMd = cached ? await replay("body", baked ? baked.bodyMd : fxChapterBodyMd())
           : await ai.streamChapterBody(context, plan, (text) => ctx.emit({ type: "delta", target: "body", text }));
         ctx.emit({ type: "step", step: "body", status: "done", data: { bodyMd } });
         ctx.emit({ type: "step", step: "letter", status: "running" });
-        const letterMd = cached ? await replay("letter", fxChapterLetterMd())
+        const letterMd = cached ? await replay("letter", baked ? baked.letterMd : fxChapterLetterMd())
           : await ai.streamChapterLetter(context, plan, (text) => ctx.emit({ type: "delta", target: "letter", text }));
         ctx.emit({ type: "step", step: "letter", status: "done", data: { letterMd } });
         return { bodyMd, letterMd };
@@ -74,7 +84,8 @@ export function startChapter(season: typeof schema.seasons.$inferSelect, n: numb
       ctx.emit({ type: "step", step: "save", status: "running" });
       db.transaction((tx) => {
         tx.update(schema.chapters).set({ status: "ready", title: plan.title, plan, ...textResult.value,
-          summary: plan.summary, chapterType: context.chapterType, completionRate: context.completionRate,
+          summary: plan.summary, chapterType: baked ? baked.chapterType : context.chapterType,
+          completionRate: baked ? baked.completionRate : context.completionRate,
           coverUrl, generatedAt: new Date(), activeJobId: null }).where(eq(schema.chapters.id, chapter.id)).run();
         tx.delete(schema.panels).where(eq(schema.panels.chapterId, chapter.id)).run();
         tx.insert(schema.panels).values(plan.panels.map((p, idx) => ({ chapterId: chapter.id, idx,

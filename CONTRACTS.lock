@@ -1,7 +1,7 @@
 {
   "lib/contracts/ai.ts": "3e9c70ca1695535e",
   "lib/contracts/aiTasks.ts": "418bf78278b3c4b5",
-  "lib/contracts/api.ts": "aa8e6e402b5a5397",
+  "lib/contracts/api.ts": "71bfe54a2314ae32",
   "lib/contracts/events.ts": "66f5cc88d11bb756",
   "lib/contracts/index.ts": "ab70cb19ce587483",
   "lib/server/db/schema.ts": "3a76d88445a1c744"

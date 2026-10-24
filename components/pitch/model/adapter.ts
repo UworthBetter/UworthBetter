@@ -24,11 +24,14 @@ export function directionOf(t: ChapterKind): Direction {
   return t === "highlight" ? "ahead" : t === "struggle" ? "on_track" : "drift";
 }
 
-/** 来信里第一句带「我」的句子，最多 40 字 */
+/** 来信摘句：第一句带「我」的句子，从其中第一个带「我」的分句截起，最多 40 字 */
 function letterQuote(md: string): string {
   const sentences = md.replace(/[#*>]/g, "").split(/(?<=[。！？])|\n+/).map((s) => s.trim()).filter(Boolean);
   const hit = sentences.find((s) => s.includes("我") && !s.startsWith("亲爱的")) ?? "";
-  return hit.length > 40 ? `${hit.slice(0, 39)}…` : hit;
+  const clauses = hit.split(/(?<=，)/);
+  const from = clauses.findIndex((c) => c.includes("我"));
+  const quote = clauses.slice(Math.max(0, from)).join("");
+  return quote.length > 40 ? `${quote.slice(0, 39)}…` : quote;
 }
 
 function toChapter(raw: unknown, no: number): PitchChapter {

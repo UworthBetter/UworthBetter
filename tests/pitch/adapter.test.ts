@@ -26,6 +26,12 @@ describe("toPitchData", () => {
     expect(c3.letterQuote.length).toBeLessThanOrEqual(40);
   });
 
+  it("来信摘句：长句从第一个含「我」的分句截起，保持完整", () => {
+    const s = clone();
+    s.chapters[2].letterMd = ["亲爱的小夏：", "", "这种累，睡一觉还在的那种，我太懂了，因为我也是从那里走过来的。别怪自己。"].join("\n");
+    expect(toPitchData(s).chapters[2].letterQuote).toBe("我太懂了，因为我也是从那里走过来的。");
+  });
+
   it("chapterType → direction 映射", () => {
     expect(directionOf("highlight")).toBe("ahead");
     expect(directionOf("struggle")).toBe("on_track");

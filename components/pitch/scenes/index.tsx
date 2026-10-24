@@ -4,6 +4,7 @@ import type { ComponentType } from "react";
 import type { PitchData } from "@/components/pitch/model/types";
 import { Scene07Converge } from "@/components/pitch/scenes/Converge";
 import { Scene00Title, Scene01Question, Scene02Three } from "@/components/pitch/scenes/Opening";
+import { Scene08Linxia, Scene09Shelf } from "@/components/pitch/scenes/Story";
 import { Scene03Stranger, Scene04See, Scene05Borrowed, Scene06Rewrite } from "@/components/pitch/scenes/Research";
 
 export type SceneProps = { data: PitchData; beat: number; active: boolean };
@@ -40,8 +41,8 @@ export const SCENES: SceneDef[] = [
   def("borrowed", "借来的动机", 3, true, "", Scene05Borrowed),
   def("rewrite", "故事可以重写", 3, true, "", Scene06Rewrite),
   def("converge", "汇合", 3, true, "", Scene07Converge),
-  def("linxia", "认识林夏", 3, false),
-  def("shelf", "她的连载", 3, false),
+  def("linxia", "认识林夏", 3, false, "", Scene08Linxia),
+  def("shelf", "她的连载", 3, false, "", Scene09Shelf),
   def("live", "现场演示", 5, false),
   def("evolution", "画像演化", 8, true),
   def("compare", "差异化", 3, true),

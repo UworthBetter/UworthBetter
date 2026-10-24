@@ -1,11 +1,14 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useReducer, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore } from "react";
 import { Stage } from "@/components/pitch/Stage";
 import { formatHash, keyToCommand, navReducer, parseHash, shouldForwardKey, type NavAction, type Pos } from "@/components/pitch/model/nav";
+import { QR_URL } from "@/components/pitch/scenes/Closing";
 import { LiveDemo } from "@/components/pitch/scenes/Live";
 import { PITCH_CHANNEL, type PitchMessage } from "@/components/pitch/SpeakerNotes";
+import { ImageCacheProvider } from "@/components/pitch/ImageCache";
+import { imageUrlsOf } from "@/components/pitch/model/preload";
 import type { PitchData } from "@/components/pitch/model/types";
 import { BEATS, SCENES } from "@/components/pitch/scenes";
 
@@ -16,7 +19,9 @@ const noop = () => () => {};
 /** 舞台尺寸、位置都取决于浏览器（视口、hash），只在客户端渲染 */
 export function PitchDeck({ data }: { data: PitchData }) {
   const mounted = useSyncExternalStore(noop, () => true, () => false);
-  return mounted ? <Deck data={data} /> : null;
+  // 加载时预取全部图片到内存，现场断网时除现场演示外的场景仍能完整显示
+  const urls = useMemo(() => [...imageUrlsOf(data), QR_URL], [data]);
+  return mounted ? <ImageCacheProvider urls={urls}><Deck data={data} /></ImageCacheProvider> : null;
 }
 
 function Deck({ data }: { data: PitchData }) {

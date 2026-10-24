@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import { useCachedSrc } from "@/components/pitch/ImageCache";
 import { buildFateTree, type FateTree } from "@/components/pitch/model/fateTree";
 import type { PitchData, PitchSnapshot } from "@/components/pitch/model/types";
 import { buildWall } from "@/components/pitch/model/wall";
@@ -151,6 +152,20 @@ function Stops({ tree, data, beat }: { tree: FateTree; data: PitchData; beat: nu
 
 const DIRECTION_LABEL = { ahead: "超额", on_track: "照做", drift: "偏离", pivot: "转向" } as const;
 
+function WallImage({ src, variant }: { src: string | null; variant: { flip: boolean; hue: number; crop: number } }) {
+  const cached = useCachedSrc(src);
+  if (!cached) return <div className="pitch-ph" style={{ width: "100%", height: "100%" }} />;
+  return (
+    <img
+      src={cached}
+      alt=""
+      draggable={false}
+      style={{ width: "100%", height: "100%", maxWidth: "none", objectFit: "cover", objectPosition: "50% 15%", transformOrigin: "50% 20%",
+        transform: `scale(${variant.crop}) scaleX(${variant.flip ? -1 : 1})`, filter: variant.hue ? `hue-rotate(${variant.hue}deg)` : undefined }}
+    />
+  );
+}
+
 function Wall({ data, beat, realSrc }: { data: PitchData; beat: number; realSrc: string | null }) {
   const cells = useMemo(() => {
     const sources = [...data.branches.map((b) => b.imageUrl), ...data.snapshots.map((s) => s.imageUrl)].filter((u): u is string => !!u);
@@ -184,17 +199,7 @@ function Wall({ data, beat, realSrc }: { data: PitchData; beat: number; realSrc:
               border: c.real ? "3px solid #e3b866" : "none",
             }}
           >
-            {c.src ? (
-              <img
-                src={c.src}
-                alt=""
-                draggable={false}
-                style={{ width: "100%", height: "100%", maxWidth: "none", objectFit: "cover", objectPosition: "50% 15%", transformOrigin: "50% 20%",
-                  transform: `scale(${c.variant.crop}) scaleX(${c.variant.flip ? -1 : 1})`, filter: c.variant.hue ? `hue-rotate(${c.variant.hue}deg)` : undefined }}
-              />
-            ) : (
-              <div className="pitch-ph" style={{ width: "100%", height: "100%" }} />
-            )}
+            <WallImage src={c.src} variant={c.variant} />
           </div>
         );
       })}

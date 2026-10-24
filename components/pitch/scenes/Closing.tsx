@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useCachedSrc } from "@/components/pitch/ImageCache";
 import type { SceneProps } from "@/components/pitch/scenes";
 import { Portrait } from "@/components/pitch/ui/Portrait";
 import { Reveal } from "@/components/pitch/ui/Reveal";
@@ -152,8 +153,11 @@ export function Scene16Roadmap() {
   );
 }
 
+export const QR_URL = "/pitch/qr.svg"; // 网址定下来后离线生成放到这里；不存在时只显示网址文本
+
 export function Scene17End({ data, beat }: SceneProps) {
   const [qr, setQr] = useState(true);
+  const qrSrc = useCachedSrc(QR_URL);
   return (
     <div className="pitch-center" style={{ gap: 48 }}>
       <motion.div initial={false} animate={{ y: beat >= 1 ? -30 : 0 }} style={{ display: "flex", gap: 48, alignItems: "center" }}>
@@ -171,7 +175,7 @@ export function Scene17End({ data, beat }: SceneProps) {
       </Reveal>
       <Reveal show={beat >= 1} style={{ display: "flex", alignItems: "center", gap: 40 }}>
         <div className="pitch-claim">谢谢</div>
-        {qr ? <img src="/pitch/qr.svg" alt="网址二维码" width={160} height={160} onError={() => setQr(false)} /> : null}
+        {qr ? <img src={qrSrc ?? QR_URL} alt="网址二维码" width={160} height={160} onError={() => setQr(false)} /> : null}
         <div className="pitch-body">{data.siteUrl}</div>
       </Reveal>
     </div>

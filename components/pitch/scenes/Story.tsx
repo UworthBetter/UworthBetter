@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element -- 路演页用本地静态图 */
 "use client";
 
 import { motion } from "framer-motion";

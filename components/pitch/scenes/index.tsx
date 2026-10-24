@@ -43,7 +43,7 @@ export const SCENES: SceneDef[] = [
   def("converge", "汇合", 3, true, "", Scene07Converge),
   def("linxia", "认识林夏", 3, false, "", Scene08Linxia),
   def("shelf", "她的连载", 3, false, "", Scene09Shelf),
-  def("live", "现场演示", 5, false),
+  def("live", "现场演示", 5, false, "", () => null), // 内容由 PitchDeck 常驻挂载的 LiveDemo 渲染
   def("evolution", "画像演化", 8, true),
   def("compare", "差异化", 3, true),
   def("tech", "技术实现", 3, true),

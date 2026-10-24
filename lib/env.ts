@@ -31,6 +31,11 @@ const Env = z.object({
     .string()
     .default("1")
     .transform((v) => v === "1" || v === "true"),
+  // 路演：正常流程的「生成本章」也走预生成章节回放（仅在 DEMO_MODE 下生效）
+  DEMO_CACHED_GENERATE: z
+    .string()
+    .default("0")
+    .transform((v) => v === "1" || v === "true"),
 });
 
 export type Env = z.infer<typeof Env>;

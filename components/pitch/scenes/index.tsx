@@ -2,6 +2,9 @@
 
 import type { ComponentType } from "react";
 import type { PitchData } from "@/components/pitch/model/types";
+import { Scene07Converge } from "@/components/pitch/scenes/Converge";
+import { Scene00Title, Scene01Question, Scene02Three } from "@/components/pitch/scenes/Opening";
+import { Scene03Stranger, Scene04See, Scene05Borrowed, Scene06Rewrite } from "@/components/pitch/scenes/Research";
 
 export type SceneProps = { data: PitchData; beat: number; active: boolean };
 export type SceneDef = {
@@ -29,14 +32,14 @@ const def = (id: string, title: string, beats: number, dark: boolean, notes = ""
   ({ id, title, beats, dark, notes, Component: Component ?? placeholder(title) });
 
 export const SCENES: SceneDef[] = [
-  def("title", "标题", 1, true),
-  def("question", "一个问题", 2, true),
-  def("three", "三种人", 4, true),
-  def("stranger", "陌生人", 3, true),
-  def("see", "看见与对话", 3, true),
-  def("borrowed", "借来的动机", 3, true),
-  def("rewrite", "故事可以重写", 3, true),
-  def("converge", "汇合", 3, true),
+  def("title", "标题", 1, true, "", Scene00Title),
+  def("question", "一个问题", 2, true, "", Scene01Question),
+  def("three", "三种人", 4, true, "", Scene02Three),
+  def("stranger", "陌生人", 3, true, "", Scene03Stranger),
+  def("see", "看见与对话", 3, true, "", Scene04See),
+  def("borrowed", "借来的动机", 3, true, "", Scene05Borrowed),
+  def("rewrite", "故事可以重写", 3, true, "", Scene06Rewrite),
+  def("converge", "汇合", 3, true, "", Scene07Converge),
   def("linxia", "认识林夏", 3, false),
   def("shelf", "她的连载", 3, false),
   def("live", "现场演示", 5, false),

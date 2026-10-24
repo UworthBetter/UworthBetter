@@ -2,6 +2,7 @@
 
 import type { ComponentType } from "react";
 import type { PitchData } from "@/components/pitch/model/types";
+import { Scene12Compare, Scene13Tech, Scene14Rigor, Scene15Business, Scene16Roadmap, Scene17End } from "@/components/pitch/scenes/Closing";
 import { Scene07Converge } from "@/components/pitch/scenes/Converge";
 import { Scene00Title, Scene01Question, Scene02Three } from "@/components/pitch/scenes/Opening";
 import { Scene11Evolution } from "@/components/pitch/scenes/Evolution";
@@ -46,12 +47,12 @@ export const SCENES: SceneDef[] = [
   def("shelf", "她的连载", 3, false, "", Scene09Shelf),
   def("live", "现场演示", 5, false, "", () => null), // 内容由 PitchDeck 常驻挂载的 LiveDemo 渲染
   def("evolution", "画像演化", 8, true, "", Scene11Evolution),
-  def("compare", "差异化", 3, true),
-  def("tech", "技术实现", 3, true),
-  def("rigor", "严谨与安全", 1, true),
-  def("business", "商业化", 1, false),
-  def("roadmap", "Roadmap", 1, false),
-  def("end", "谢谢", 2, false),
+  def("compare", "差异化", 3, true, "", Scene12Compare),
+  def("tech", "技术实现", 3, true, "", Scene13Tech),
+  def("rigor", "严谨与安全", 1, true, "", Scene14Rigor),
+  def("business", "商业化", 1, false, "", Scene15Business),
+  def("roadmap", "Roadmap", 1, false, "", Scene16Roadmap),
+  def("end", "谢谢", 2, false, "", Scene17End),
 ];
 
 export const BEATS = SCENES.map((s) => s.beats);

@@ -29,6 +29,10 @@ export async function getImageProvider(): Promise<ImageProvider> {
   if (env.AI_IMAGE_PROVIDER === "zhipu") {
     const { createZhipuImageProvider } = await import("./zhipuImage");
     cached = createZhipuImageProvider();
+  } else if (env.AI_IMAGE_PROVIDER === "openai") {
+    // OpenAI 兼容中转站（如 sidrune.ai）：/images/generations，返回 b64_json 或 url
+    const { createOpenAIImageProvider } = await import("./openaiImage");
+    cached = createOpenAIImageProvider();
   } else {
     const { createMockImageProvider } = await import("./mockImage");
     cached = createMockImageProvider();

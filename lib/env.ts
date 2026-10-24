@@ -20,7 +20,7 @@ const Env = z.object({
   // 主流程真实实现仍是 TODO，切全局开关会弄坏建档，这个开关只影响 suggestGoals 一个方法。
   AI_SUGGEST_PROVIDER: z.enum(["auto", "mock", "real"]).default("auto"),
 
-  AI_IMAGE_PROVIDER: z.enum(["mock", "zhipu"]).default("mock"),
+  AI_IMAGE_PROVIDER: z.enum(["mock", "zhipu", "openai"]).default("mock"),
   IMAGE_BASE_URL: z.string().default("https://open.bigmodel.cn/api/paas/v4"),
   IMAGE_API_KEY: z.string().default(""),
   IMAGE_MODEL: z.string().default("cogview-4-250304"),

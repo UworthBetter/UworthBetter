@@ -15,6 +15,7 @@
     "db:reset": "tsx scripts/reset-db.ts",
     "seed:demo": "tsx scripts/seed.ts",
     "ping:text": "tsx scripts/ping-text.ts",
+    "ping:image": "tsx scripts/ping-image.ts",
     "contracts:lock": "tsx scripts/contracts-lock.ts",
     "gen:stub-images": "tsx scripts/gen-stub-images.ts"
   },

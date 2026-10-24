@@ -5,6 +5,7 @@ import { useCallback, useEffect, useReducer, useRef, useState, useSyncExternalSt
 import { Stage } from "@/components/pitch/Stage";
 import { formatHash, keyToCommand, navReducer, parseHash, shouldForwardKey, type NavAction, type Pos } from "@/components/pitch/model/nav";
 import { LiveDemo } from "@/components/pitch/scenes/Live";
+import { PITCH_CHANNEL, type PitchMessage } from "@/components/pitch/SpeakerNotes";
 import type { PitchData } from "@/components/pitch/model/types";
 import { BEATS, SCENES } from "@/components/pitch/scenes";
 
@@ -28,8 +29,18 @@ function Deck({ data }: { data: PitchData }) {
   const [liveVisited, setLiveVisited] = useState(isLive);
   if (isLive && !liveVisited) setLiveVisited(true);
 
+  // 与演讲者备注窗口同步（按 S 打开）
+  const channel = useRef<BroadcastChannel | null>(null);
+  useEffect(() => {
+    const ch = new BroadcastChannel(PITCH_CHANNEL);
+    channel.current = ch;
+    ch.onmessage = (e: MessageEvent<PitchMessage>) => { if (e.data.type === "nav") dispatch(e.data.action); };
+    return () => ch.close();
+  }, []);
+
   useEffect(() => {
     window.history.replaceState(null, "", formatHash(pos));
+    channel.current?.postMessage({ type: "pos", pos } satisfies PitchMessage);
   }, [pos]);
 
   const onKey = useCallback((e: KeyboardEvent) => {
@@ -40,6 +51,7 @@ function Deck({ data }: { data: PitchData }) {
     if (cmd === "next" || cmd === "prev" || cmd === "home" || cmd === "end") dispatch({ type: cmd });
     else if (cmd === "black") setBlack((b) => !b);
     else if (cmd === "video") setVideo((v) => !v);
+    else if (cmd === "notes") window.open("/pitch/notes", "uwb-notes", "width=900,height=640");
     else if (cmd === "fullscreen") {
       if (document.fullscreenElement) void document.exitFullscreen();
       else void document.documentElement.requestFullscreen().catch(() => {});

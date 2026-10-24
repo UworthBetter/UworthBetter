@@ -48,3 +48,6 @@ next-env.d.ts
 *.db
 *.db-wal
 *.db-shm
+
+# 头脑风暴草图
+/.superpowers/

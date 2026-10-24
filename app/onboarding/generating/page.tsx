@@ -1,5 +1,10 @@
-import { Placeholder } from "@/components/layout/Placeholder";
+import { Suspense } from "react";
+import { GeneratingScreen } from "@/components/onboarding/GeneratingScreen";
 
 export default function Page() {
-  return <Placeholder card="C5" title="生成中" apis={["GET /api/jobs/:id/events（试试 stub-onboarding）"]} />;
+  return (
+    <Suspense fallback={<div className="quiet-loading">正在聆听你的愿望…</div>}>
+      <GeneratingScreen />
+    </Suspense>
+  );
 }

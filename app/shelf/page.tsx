@@ -1,5 +1,5 @@
-import { Placeholder } from "@/components/layout/Placeholder";
+import { ShelfScreen } from "@/components/screens/ShelfScreen";
 
 export default function Page() {
-  return <Placeholder card="C11" title="书架" apis={["GET /api/shelf"]} />;
+  return <ShelfScreen />;
 }

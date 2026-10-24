@@ -102,7 +102,7 @@ export const api = {
   },
 };
 
-/** 订阅任务事件（SSE）。返回取消函数。C2 的 useJob 基于它实现状态管理与重连。 */
+/** 订阅任务事件（SSE）。出错时关掉连接，由 useJob 决定要不要重连。 */
 export function subscribeJob(jobId: string, onEvent: (e: JobEvent) => void, onError?: (e: Event) => void): () => void {
   const es = new EventSource(`/api/jobs/${encodeURIComponent(jobId)}/events`);
   es.onmessage = (msg) => {
@@ -114,6 +114,48 @@ export function subscribeJob(jobId: string, onEvent: (e: JobEvent) => void, onEr
     onEvent(parsed.data);
     if (parsed.data.type === "done" || parsed.data.type === "error") es.close();
   };
-  if (onError) es.onerror = onError;
+  es.onerror = (e) => {
+    es.close();
+    onError?.(e);
+  };
   return () => es.close();
+}
+
+/** 与未来的你对话。响应是 SSE，不是 JSON。 */
+export async function streamChat(
+  messages: { role: "user" | "assistant"; content: string }[],
+  onDelta: (text: string) => void,
+  signal?: AbortSignal,
+): Promise<void> {
+  const res = await fetch("/api/future/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "text/event-stream" },
+    credentials: "same-origin",
+    body: JSON.stringify({ messages: messages.slice(-30) }),
+    signal,
+  });
+  if (!res.ok || !res.body) {
+    const body: unknown = await res.json().catch(() => null);
+    const err = ApiError.safeParse(body);
+    if (err.success) throw new ApiClientError(err.data.error.code, err.data.error.message, res.status);
+    throw new ApiClientError("INTERNAL", `HTTP ${res.status}`, res.status);
+  }
+  const reader = res.body.getReader();
+  const dec = new TextDecoder();
+  let buf = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    const parts = buf.split("\n\n");
+    buf = parts.pop() ?? "";
+    for (const part of parts) {
+      const line = part.split("\n").find((l) => l.startsWith("data: "));
+      if (!line) continue;
+      const parsed = JobEvent.safeParse(JSON.parse(line.slice(6)));
+      if (!parsed.success) continue;
+      if (parsed.data.type === "delta") onDelta(parsed.data.text);
+      if (parsed.data.type === "error") throw new ApiClientError("AI_FAILED", parsed.data.message, 500);
+    }
+  }
 }

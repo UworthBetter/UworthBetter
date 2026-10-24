@@ -1,5 +1,5 @@
-import { Placeholder } from "@/components/layout/Placeholder";
+import { RevealScreen } from "@/components/screens/RevealScreen";
 
 export default function Page() {
-  return <Placeholder card="C6" title="未来自我揭晓" apis={["GET /api/future-self"]} />;
+  return <RevealScreen />;
 }

@@ -19,6 +19,7 @@
     "gen:stub-images": "tsx scripts/gen-stub-images.ts"
   },
   "dependencies": {
+    "@fontsource/noto-serif-sc": "^5.3.1",
     "better-sqlite3": "^13.0.3",
     "drizzle-orm": "^0.45.4",
     "framer-motion": "^14.6.0",

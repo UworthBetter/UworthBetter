@@ -1,5 +1,10 @@
-import { Placeholder } from "@/components/layout/Placeholder";
+import { Suspense } from "react";
+import { ChapterScreen } from "@/components/screens/ChapterScreen";
 
 export default function Page() {
-  return <Placeholder card="C10" title="章节阅读器" apis={["GET /api/chapters/:n", "GET /api/jobs/:id/events（试试 stub-chapter-2）", "PUT /api/chapters/:n/quests"]} />;
+  return (
+    <Suspense fallback={<div className="quiet-loading">正在翻开这一章…</div>}>
+      <ChapterScreen />
+    </Suspense>
+  );
 }

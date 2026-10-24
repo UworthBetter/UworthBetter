@@ -1,5 +1,10 @@
-import { Placeholder } from "@/components/layout/Placeholder";
+import { Suspense } from "react";
+import { InterviewScreen } from "@/components/screens/InterviewScreen";
 
 export default function Page() {
-  return <Placeholder card="C9" title="周末采访" apis={["GET/POST /api/chapters/:n/interview", "POST /api/chapters/:n/generate"]} />;
+  return (
+    <Suspense fallback={<div className="quiet-loading">正在准备采访…</div>}>
+      <InterviewScreen />
+    </Suspense>
+  );
 }

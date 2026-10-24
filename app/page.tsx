@@ -1,5 +1,10 @@
-import { Placeholder } from "@/components/layout/Placeholder";
+import { Suspense } from "react";
+import { Landing } from "@/components/screens/Landing";
 
 export default function Page() {
-  return <Placeholder card="C3" title="落地页" apis={["GET /api/me", "POST /api/demo/seed"]} />;
+  return (
+    <Suspense fallback={<div className="quiet-loading">编辑室正在铺纸…</div>}>
+      <Landing />
+    </Suspense>
+  );
 }

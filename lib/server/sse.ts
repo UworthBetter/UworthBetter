@@ -13,28 +13,45 @@ export const SSE_HEADERS = {
 
 export function sseResponse(source: AsyncIterable<JobEvent>, signal?: AbortSignal): Response {
   const enc = new TextEncoder();
+  const iterator = source[Symbol.asyncIterator]();
+  let stop: (() => void) | undefined;
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const ping = setInterval(() => controller.enqueue(enc.encode(": ping\n\n")), 15_000);
+      let closed = false;
+      const ping = setInterval(() => { if (!closed) controller.enqueue(enc.encode(": ping\n\n")); }, 15_000);
       const close = () => {
+        if (closed) return;
+        closed = true;
         clearInterval(ping);
+        signal?.removeEventListener("abort", close);
+        void iterator.return?.();
         try {
           controller.close();
         } catch {
           /* 已关闭 */
         }
       };
-      signal?.addEventListener("abort", close);
+      stop = close;
+      signal?.addEventListener("abort", close, { once: true });
       try {
-        for await (const ev of source) {
-          if (signal?.aborted) break;
+        if (signal?.aborted) return;
+        while (!closed) {
+          const result = await iterator.next();
+          if (result.done || closed) break;
+          const ev = result.value;
           controller.enqueue(enc.encode(`data: ${JSON.stringify(ev)}\n\n`));
           if (ev.type === "done" || ev.type === "error") break;
+        }
+      } catch (error) {
+        if (!closed) {
+          console.error("事件推送失败", error);
+          controller.enqueue(enc.encode(`data: ${JSON.stringify({ type: "error", code: "INTERNAL", message: "事件推送失败，请重新连接" })}\n\n`));
         }
       } finally {
         close();
       }
     },
+    cancel() { stop?.(); },
   });
   return new Response(stream, { headers: SSE_HEADERS });
 }

@@ -3,7 +3,7 @@
 > 版本 v1.1 · 2026-10-24 · 配套 [DESIGN.md](./DESIGN.md)（产品设计）· 强制约束见 [CLAUDE.md](./CLAUDE.md)
 > 读者：4 名开发者 + 可能参与编码的 AI 代理。本文档的目标是：**2 小时冻结契约后，4 条轨道可以完全并行开发，互不阻塞。**
 >
-> **当前状态：Phase 0 已完成**（第 4 节）。契约已冻结并由 `CONTRACTS.lock` 锁定，全部接口有桩，可以直接从第 6 节领卡开工。
+> **当前状态：Phase 0 已完成。后端主流程在分支 `b/backend-mainline`，尚未合并。** B0–B9 已接入 SQLite，B10 已提供 fixture 演示兜底，B13 已提供部署配置，尚未进行公网部署。前端在 `c/frontend-design-v3`。真实 AI、专用演示资产与 P1 功能仍按各轨道推进。
 
 ---
 
@@ -82,7 +82,7 @@ uworthbetter/
 │  ├─ page.tsx  layout.tsx  globals.css          # [C] 页面均为 Placeholder，标注了任务卡
 │  ├─ onboarding/ onboarding/generating/ reveal/ season/ today/ shelf/ future/
 │  ├─ chapter/[n]/page.tsx  chapter/[n]/interview/page.tsx
-│  └─ api/                                       # [B] 18 个路由，全部为桩（头部注释标注任务卡）
+│  └─ api/                                       # [B] 主流程已接入数据库；未来对话仍为 P1 桩
 ├─ components/layout/Placeholder.tsx             # [C] 占位组件，页面实现后删除引用
 ├─ hooks/                                        # [C]
 ├─ lib/
@@ -101,7 +101,7 @@ uworthbetter/
 │  │  ├─ sse.ts        # sseResponse(asyncIterable)
 │  │  ├─ stubs.ts      # 桩数据（全部路由替换为真实实现后删除）
 │  │  ├─ demoGuard.ts
-│  │  └─ pipeline/     # 空，B2/B7 在此新增
+│  │  └─ pipeline/     # B2 建档与 B7 章节生成编排
 │  └─ client/api.ts                              # [C] 类型化 API 客户端 + subscribeJob（已完成）
 ├─ fixtures/                                     # [D] onboarding.json chapter-plan.json chapter-body.md … + index.ts（带校验）
 ├─ seed/                                         # [D] 演示数据（B10 使用）
@@ -178,7 +178,9 @@ uworthbetter/
 | 17 | POST | `/api/demo/reset` | — | `OkResponse` | B10 |
 | 18 | POST | `/api/future/chat`（P1） | `ChatRequest` | SSE（delta/done） | A13 + B11 |
 
-**桩的行为**（C 开发时可依赖）：当前处于第 2 章（第 1 章 ready，可以打开 `/chapter/1`）；`stub-onboarding` / `stub-chapter-<n>` 两个 jobId 会按真实节奏回放 SSE，其中章节回放故意让 `panel3` 失败，用于验证占位渲染；日志中含"不想活"等词会返回 `crisis`。
+**当前接口行为**：普通接口读取当前匿名用户的数据库记录。首次使用需建档，或在 DEMO_MODE 下调用 seed，载入第 1–3 章 ready、第 4 章 in_progress 的演示季。`stub-onboarding` / `stub-chapter-<n>` 仅在 DEMO_MODE 下保留 SSE 回放，章节桩故意让 `panel3` 失败；普通生成不注入故障。危机记录返回 `crisis`，且不进入采访与章节生成的 AI 上下文。
+
+**后端验证**：39 项自动测试通过；生产构建与真实 HTTP 冒烟通过（含自拍建档、照片上传、章节生成、SSE 重连和用户隔离）。运行约束与部署步骤见 [DEPLOY.md](./DEPLOY.md)。
 
 ### 5.2 后端工具约定
 
@@ -775,10 +777,10 @@ gantt
 | A4 A5 A6 | A | ☐ | |
 | A7 A8 A9 | A | ☐ | |
 | A10 A11 A12 | A | ☐ | |
-| B0 B1 B3 B4 | B | ☐ | |
-| B2 B5 B6 | B | ☐ | |
-| B7 B8 B9 | B | ☐ | |
-| B10 B13 | B | ☐ | |
+| B0 B1 B3 B4 | B | ◐ | 实现与验证完成，待合并；包含任务持久化、会话隔离和视图 |
+| B2 B5 B6 | B | ◐ | 实现与验证完成，待合并；含上传压缩、自拍清理、采访缓存 |
+| B7 B8 B9 | B | ◐ | 实现与验证完成，待合并；含失败恢复、季终边界与图片降级 |
+| B10 B13 | B | ◐ | Demo 使用 fixtures/占位图，待 D2/D3 资产；部署配置完成，待公网验收 |
 | C1 C2 C3 | C | ☐ | |
 | C4 C5 C6 | C | ☐ | |
 | C7 C8 C9 | C | ☐ | |

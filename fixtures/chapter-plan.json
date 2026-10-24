@@ -1,0 +1,58 @@
+{
+  "title": "褪色的窗",
+  "chapterType": "highlight",
+  "realEventsMapping": [
+    { "real": "周一早上 7 点画了第一张速写", "story": "林夏第一次拿起修补笔，面包店的窗框亮了一角" },
+    { "real": "周三把手机放在客厅画了 40 分钟", "story": "灰雾的低语第一次没能穿过房门" },
+    { "real": "周五画完第五张人体速写", "story": "整扇窗户恢复了原本的天蓝色" }
+  ],
+  "beats": [
+    "雾港清晨，林夏注意到面包店的窗户已经褪成灰白",
+    "她第一次拿起铅笔，灰雾在耳边说“明天再画吧”",
+    "连续几个早晨的练习后，窗户一点点亮起来，阿婆送来热面包",
+    "周五傍晚，窗户完全恢复，港口尽头的灯塔闪了一下"
+  ],
+  "panels": [
+    {
+      "scene": "A quiet foggy seaside town at dawn, the protagonist stands in front of a faded grey bakery window, holding a sketchbook, looking determined",
+      "characters": ["protagonist"],
+      "shot": "wide",
+      "narration": "雾港的清晨，一切都是灰色的。",
+      "dialogues": []
+    },
+    {
+      "scene": "Close-up of the protagonist sketching at a small desk by the window, soft grey mist curling near her ear like a whisper, phone face-down on the table",
+      "characters": ["protagonist", "antagonist"],
+      "shot": "closeup",
+      "dialogues": [{ "speaker": "灰雾", "text": "明天再画吧……" }]
+    },
+    {
+      "scene": "The old baker woman hands the protagonist a warm loaf of bread, the bakery window behind them is half restored to bright sky blue",
+      "characters": ["protagonist", "ally"],
+      "shot": "medium",
+      "dialogues": [
+        { "speaker": "阿婆", "text": "窗户亮了，是你修的吧？" },
+        { "speaker": "林夏", "text": "才刚开始呢。" }
+      ]
+    },
+    {
+      "scene": "Sunset over the harbor, the fully restored blue window glowing, a distant old lighthouse at the end of the pier flashing once, the future self silhouette standing far away on the pier",
+      "characters": ["protagonist", "mentor"],
+      "shot": "wide",
+      "narration": "那一刻，灯塔闪了一下。",
+      "dialogues": []
+    }
+  ],
+  "coverPrompt": "A young woman holding a pencil in front of a faded bakery window in a foggy seaside town, first light of dawn",
+  "interviewQuote": "画第三张的时候手终于不抖了",
+  "cliffhanger": "港口尽头，有人朝她挥了挥手——那个人的围巾，是芥末黄色的。",
+  "foreshadowingAdd": [{ "id": "f3", "hint": "墨点总在林夏画画时出现在窗台", "resolveByChapter": 3 }],
+  "foreshadowingResolve": [],
+  "summary": "林夏在雾港醒来，发现面包店的窗户褪成灰白。她每天清晨练习作画，顶住灰雾的低语，用五个早晨让窗户恢复了天蓝色，获得阿婆的第一块热面包。章末灯塔闪了一下，远处出现一个系着芥末黄围巾的身影。",
+  "nextCoverPrompt": "A mysterious figure wearing a mustard yellow scarf standing at the end of a misty pier, lighthouse behind, seen from far away",
+  "nextWeekQuests": [
+    { "text": "完成第一张完整上色的作品", "difficulty": 3, "isKey": true, "storyHook": "完成后：第一抹颜色落在港口" },
+    { "text": "每天早上画 20 分钟速写，共 5 天", "difficulty": 2, "isKey": false, "storyHook": "完成后：又一扇窗亮起" },
+    { "text": "看完一节人体结构教程并做笔记", "difficulty": 1, "isKey": false, "storyHook": "完成后：修补工具箱多了一把刷子" }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "chapterNo": 1,
+  "act": 1,
+  "isActFinale": false,
+  "roadmapBeat": "平凡世界 + 召唤：未来的你第一次出现",
+  "chapterType": "highlight",
+  "completionRate": 1,
+  "style": "healing",
+  "previousSummaries": [],
+  "dueForeshadowing": [],
+  "quests": [
+    { "text": "每天早上 7 点画 20 分钟速写，共 5 天", "difficulty": 2, "isKey": true, "storyHook": "完成后：修复第一扇窗", "done": true },
+    { "text": "整理一个专门放练习稿的文件夹", "difficulty": 1, "isKey": false, "storyHook": "完成后：找到修补工具箱", "done": true },
+    { "text": "收集 10 张喜欢的插画作为参考", "difficulty": 1, "isKey": false, "storyHook": "完成后：镇上的颜色图鉴多了一页", "done": true },
+    { "text": "把手机放在另一个房间画一次画", "difficulty": 2, "isKey": false, "storyHook": "完成后：灰雾退后了一步", "done": true }
+  ],
+  "logs": [
+    { "date": "2026-10-26", "weekday": "周一", "note": "七点起床画了第一张，好丑但是画完了", "mood": 3 },
+    { "date": "2026-10-27", "weekday": "周二", "note": "画手好难，差点放弃", "mood": 2 },
+    { "date": "2026-10-28", "weekday": "周三", "note": "手机放客厅，画了四十分钟，好安静", "mood": 4, "photoCaption": "书桌上摊开的速写本和一支削短的铅笔" },
+    { "date": "2026-10-30", "weekday": "周五", "note": "第五张！楼下面包店的阿姨问我在画什么", "mood": 5 }
+  ],
+  "interview": [
+    { "q": "这周你画了五张速写，哪一张画的时候你最想放弃？", "a": "第二张，画手的时候怎么画都不对，差点就关掉了" },
+    { "q": "周三你把手机放在客厅画了四十分钟，那时候你在想什么？", "a": "其实什么都没想，就是很安静，画第三张的时候手终于不抖了" },
+    { "q": "如果这一周是一部电影，最后一个镜头是什么？", "a": "夕阳照在窗户上，我在收拾铅笔" }
+  ],
+  "timeBudget": "1h"
+}

@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* TODO(C1)：按 public/design/tokens.md 完善设计 token；三种文风通过 html[data-style] 切换 */
+:root {
+  --paper: #f7f1e6;
+  --ink: #2b2622;
+  --accent: #e0a43a;
+}
+html[data-style="wuxia"] {
+  --paper: #efeae0;
+  --ink: #1d1d1b;
+  --accent: #b23a2e;
+}
+html[data-style="cyber"] {
+  --paper: #12131a;
+  --ink: #e8e6f0;
+  --accent: #39d0ff;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}

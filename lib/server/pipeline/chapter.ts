@@ -88,7 +88,7 @@ export function startChapter(season: typeof schema.seasons.$inferSelect, n: numb
         if (n < 13) {
           const next = getChapter(season.id, n + 1);
           tx.update(schema.chapters).set({ status: "in_progress", coverUrl: images[4] }).where(eq(schema.chapters.id, next.id)).run();
-          insertQuests(season.id, n + 1, adaptQuests(plan.nextWeekQuests, context.completionRate), tx);
+          insertQuests(season.id, n + 1, adaptQuests(plan.nextWeekQuests, context.completionRate, context.questCount), tx);
         }
       });
       ctx.emit({ type: "step", step: "save", status: "done", data: {} });

@@ -21,6 +21,16 @@ export const Quest = z.object({
 });
 export type Quest = z.infer<typeof Quest>;
 
+/** 用户自选的每周任务条数上限（建档时可选，缺省 = 交给故事节奏）。 */
+export const QuestCount = z.number().int().min(1).max(5);
+
+/** AI 推荐的 90 天目标草稿：goal 可直接填入愿望栏，tagline 用于卡片标题。 */
+export const GoalSuggestion = z.object({
+  goal: z.string().min(5).max(500),
+  tagline: z.string().min(1).max(20),
+});
+export type GoalSuggestion = z.infer<typeof GoalSuggestion>;
+
 export const FutureSelfProfile = z.object({
   name: z.string(), // "2027年的林夏"
   title: z.string(), // 故事中的身份："颜色修补师"
@@ -129,6 +139,7 @@ export const OnboardingInput = z.object({
   timeBudget: TimeBudget,
   startingPoint: z.string().max(200),
   style: StyleId,
+  questCount: QuestCount.optional(), // 每周任务条数上限（用户自选，缺省 = AI 按节奏定 3–5）
   selfieUrl: z.string().optional(), // 内部存储地址，生成设定图后删除
 });
 export type OnboardingInput = z.infer<typeof OnboardingInput>;
@@ -161,5 +172,6 @@ export const ChapterContext = z.object({
   logs: z.array(LogForAI),
   interview: z.array(QA),
   timeBudget: TimeBudget,
+  questCount: QuestCount.optional(), // 建档时用户自选的每周任务条数上限
 });
 export type ChapterContext = z.infer<typeof ChapterContext>;

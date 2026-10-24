@@ -462,6 +462,13 @@ html[data-style="cyber"] .hero { background: linear-gradient(180deg, #0c1c28 0%,
   margin-top: 8px;
 }
 
+/* AI 目标建议卡：观感沿用 .persona-card（搭配 .persona-card 使用），改为上下排布 */
+.suggest-card { flex-direction: column; align-items: flex-start; gap: 5px; }
+.suggest-head { display: flex; width: 100%; align-items: center; justify-content: space-between; }
+.suggest-tag { font-size: 11px; font-weight: 700; color: var(--gold-deep); letter-spacing: 0.03em; }
+.suggest-use { font-size: 11px; font-weight: 700; color: var(--gold-deep); white-space: nowrap; }
+.suggest-goal { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+
 .gen-ring {
   width: 128px;
   height: 128px;

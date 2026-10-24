@@ -33,4 +33,44 @@ describe("adaptQuests", () => {
     expect(keys(r)).toBe(1);
     expect(r[0].isKey).toBe(true);
   });
+
+  it("未传 questCount 时与现状一致：低谷 3 条、中/高完成度最多 5 条", () => {
+    expect(adaptQuests(suggested, 0.2)).toHaveLength(3);
+    expect(adaptQuests(suggested, 0.5)).toHaveLength(5);
+    expect(adaptQuests(suggested, 0.9)).toHaveLength(5);
+  });
+
+  it("中/高完成度按 questCount 截断：AI 给 5 条、questCount=2 → 2 条", () => {
+    const mid = adaptQuests(suggested, 0.5, 2);
+    expect(mid).toHaveLength(2);
+    expect(mid.every((x) => x.difficulty <= 2)).toBe(true);
+    expect(keys(mid)).toBe(1);
+    const high = adaptQuests(suggested, 0.9, 2);
+    expect(high).toHaveLength(2);
+    expect(high.filter((x) => x.difficulty === 3)).toHaveLength(1);
+    expect(keys(high)).toBe(1);
+  });
+
+  it("低谷档全额尊重 questCount=5：启动任务 + 4 条全难度 1", () => {
+    const r = adaptQuests(suggested, 0.2, 5);
+    expect(r).toHaveLength(5);
+    expect(r[0].text).toBe(TINY_START_QUEST.text);
+    expect(r.every((x) => x.difficulty === 1)).toBe(true);
+    expect(keys(r)).toBe(1);
+  });
+
+  it("低谷档 questCount=2：启动任务 + 1 条", () => {
+    const r = adaptQuests(suggested, 0.2, 2);
+    expect(r).toHaveLength(2);
+    expect(r[0].text).toBe(TINY_START_QUEST.text);
+    expect(r.every((x) => x.difficulty === 1)).toBe(true);
+    expect(keys(r)).toBe(1);
+  });
+
+  it("低谷档 questCount=1：仅剩启动任务，它本身就是关键任务", () => {
+    const r = adaptQuests(suggested, 0.2, 1);
+    expect(r).toHaveLength(1);
+    expect(r[0].text).toBe(TINY_START_QUEST.text);
+    expect(keys(r)).toBe(1);
+  });
 });

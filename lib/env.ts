@@ -16,6 +16,9 @@ const Env = z.object({
   TEXT_MODEL_SMART: z.string().default("glm-5.3"),
   TEXT_MODEL_FAST: z.string().default("glm-5.3-flash"),
   TEXT_MODEL_VISION: z.string().default("glm-5.3-flash"),
+  // 目标推荐（suggestGoals）单独通道：auto=跟随 AI_TEXT_PROVIDER；real=全局 mock 时也走真实 API。
+  // 主流程真实实现仍是 TODO，切全局开关会弄坏建档，这个开关只影响 suggestGoals 一个方法。
+  AI_SUGGEST_PROVIDER: z.enum(["auto", "mock", "real"]).default("auto"),
 
   AI_IMAGE_PROVIDER: z.enum(["mock", "zhipu"]).default("mock"),
   IMAGE_BASE_URL: z.string().default("https://open.bigmodel.cn/api/paas/v4"),

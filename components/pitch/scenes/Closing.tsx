@@ -169,7 +169,7 @@ export function Scene17End({ data, beat }: SceneProps) {
       <Reveal show style={{ display: "flex", gap: 40 }}>
         {data.team.map((m, i) => (
           <div key={i} className="pitch-body" style={{ fontSize: 28 }}>
-            <span style={{ color: "var(--p-text)" }}>{m.name}</span> · {m.role}
+            <span style={{ color: "var(--p-text)" }}>{m.name}</span>{m.role ? ` · ${m.role}` : null}
           </div>
         ))}
       </Reveal>

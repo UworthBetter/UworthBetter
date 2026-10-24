@@ -2053,5 +2053,494 @@
       ],
       "nextCover": null
     }
+  ],
+  "portraitSnapshots": [
+    {
+      "chapterNo": 0,
+      "imageUrl": "/demo/portrait-0.jpg",
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔",
+          "笃定",
+          "有点倔"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "on_track",
+        "headline": "她还在远处，样子是你想象的那样",
+        "changedTraits": [],
+        "evidence": [
+          "她住在一间朝南的小工作室，桌上永远摊着速写本。"
+        ]
+      }
+    },
+    {
+      "chapterNo": 1,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔",
+          "笃定",
+          "有点倔"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "她拿笔的手，比预想中更早稳了",
+        "changedTraits": [],
+        "evidence": [
+          "画完了一张练习稿，手终于不抖了"
+        ]
+      }
+    },
+    {
+      "chapterNo": 2,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔",
+          "笃定",
+          "有点倔"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "她开始在街上收集颜色",
+        "changedTraits": [],
+        "evidence": [
+          "在街上捡到一组新的配色，记在了本子上"
+        ]
+      }
+    },
+    {
+      "chapterNo": 3,
+      "imageUrl": "/demo/portrait-3.jpg",
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔",
+          "笃定",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "drift",
+        "headline": "她学会了允许自己停一停",
+        "changedTraits": [
+          {
+            "from": "有点倔",
+            "to": "倔，但会心疼自己"
+          }
+        ],
+        "evidence": [
+          "好累，今天先让自己休息"
+        ]
+      }
+    },
+    {
+      "chapterNo": 4,
+      "imageUrl": "/demo/portrait-4.jpg",
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "她把画本抱在胸前，不再藏起来",
+        "changedTraits": [
+          {
+            "from": "温柔",
+            "to": "温柔，也敢被看见"
+          }
+        ],
+        "evidence": [
+          "画完了一张练习稿，手终于不抖了",
+          "今天提前半小时开始画，居然不难"
+        ]
+      }
+    },
+    {
+      "chapterNo": 5,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "提前半小时，成了她的默认",
+        "changedTraits": [],
+        "evidence": [
+          "今天提前半小时开始画，居然不难"
+        ]
+      }
+    },
+    {
+      "chapterNo": 6,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "on_track",
+        "headline": "卡住的时候，她会出门走一圈再回来",
+        "changedTraits": [],
+        "evidence": [
+          "画到一半卡住了，出去走了一圈",
+          "今天只画了二十分钟，但好歹画了"
+        ]
+      }
+    },
+    {
+      "chapterNo": 7,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "她的手，真的不再抖了",
+        "changedTraits": [],
+        "evidence": [
+          "画完了一张练习稿，手终于不抖了"
+        ]
+      }
+    },
+    {
+      "chapterNo": 8,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定，也接受不完美",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "on_track",
+        "headline": "画歪了，她只说一句：明天重来",
+        "changedTraits": [
+          {
+            "from": "笃定",
+            "to": "笃定，也接受不完美"
+          }
+        ],
+        "evidence": [
+          "人体结构又画歪了，明天重来"
+        ]
+      }
+    },
+    {
+      "chapterNo": 9,
+      "imageUrl": "/demo/portrait-9.jpg",
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定，也接受不完美",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "她比预想中更早迎来了黎明",
+        "changedTraits": [],
+        "evidence": [
+          "今天提前半小时开始画，居然不难",
+          "画完了一张练习稿，手终于不抖了"
+        ]
+      }
+    },
+    {
+      "chapterNo": 10,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定，也接受不完美",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "台灯下的她，节奏已经很稳",
+        "changedTraits": [],
+        "evidence": [
+          "今天提前半小时开始画，居然不难"
+        ]
+      }
+    },
+    {
+      "chapterNo": 11,
+      "imageUrl": null,
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定，也接受不完美",
+          "倔，但会心疼自己"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "drift",
+        "headline": "雾又来了，这一次她没有责怪自己",
+        "changedTraits": [],
+        "evidence": [
+          "坐在画本前半小时，一笔没动"
+        ]
+      }
+    },
+    {
+      "chapterNo": 12,
+      "imageUrl": "/demo/portrait-12.jpg",
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定，也接受不完美",
+          "松弛"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "drift",
+        "headline": "她发现，休息也是作画的一部分",
+        "changedTraits": [
+          {
+            "from": "倔，但会心疼自己",
+            "to": "松弛"
+          }
+        ],
+        "evidence": [
+          "睡到自然醒，去海边走了走",
+          "翻旧速写本，居然看到进步"
+        ]
+      }
+    },
+    {
+      "chapterNo": 13,
+      "imageUrl": "/demo/portrait-13.jpg",
+      "profile": {
+        "name": "2027年的林夏",
+        "title": "颜色修补师",
+        "realIdentity": "能稳定接单的自由插画师",
+        "personality": [
+          "温柔，也敢被看见",
+          "笃定，也接受不完美",
+          "松弛"
+        ],
+        "catchphrase": "先画，再说。",
+        "dailyRoutine": "六点起床，先画一小时速写再吃早饭；上午处理客户稿件，下午散步找灵感，晚上整理作品和回复消息，十一点前睡觉。",
+        "coreBeliefs": [
+          "每天一点点，比偶尔很多更可靠",
+          "作品会替你说话",
+          "被看见之前，先要允许自己被看见"
+        ],
+        "speakingStyle": "简短、温暖，偶尔开个小玩笑，叫你“小夏”",
+        "appearance": "二十七八岁的年轻女性，齐肩黑色短发，圆框眼镜，眼神安静，穿宽松的米白色亚麻衬衫，系一条芥末黄色围巾，右耳后别着一支铅笔，手指上常沾着一点颜料。",
+        "appearanceAnchor": "齐肩黑色短发、圆框眼镜、芥末黄色围巾",
+        "signatureItem": "一支总别在耳后的铅笔"
+      },
+      "shift": {
+        "direction": "ahead",
+        "headline": "她学会了画画，也学会了好好生活",
+        "changedTraits": [],
+        "evidence": [
+          "在街上捡到一组新的配色，记在了本子上",
+          "今天提前半小时开始画，居然不难"
+        ]
+      }
+    }
   ]
 }

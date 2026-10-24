@@ -1,0 +1,242 @@
+[
+  {
+    "id": "b1",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "drift",
+      "ahead",
+      "ahead",
+      "ahead",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b1.jpg",
+    "headline": "稿约排满的自由插画师"
+  },
+  {
+    "id": "b2",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "on_track",
+      "pivot",
+      "on_track",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b2.jpg",
+    "headline": "她成了绘本作者"
+  },
+  {
+    "id": "b3",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "pivot",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b3.jpg",
+    "headline": "她把颜色画上了港口的墙"
+  },
+  {
+    "id": "b4",
+    "path": [
+      "ahead",
+      "ahead",
+      "on_track",
+      "drift",
+      "drift",
+      "on_track",
+      "drift",
+      "on_track",
+      "drift",
+      "drift",
+      "on_track",
+      "drift",
+      "on_track"
+    ],
+    "imageUrl": "/demo/branches/b4.jpg",
+    "headline": "留在公司，周末依然画画"
+  },
+  {
+    "id": "b5",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "pivot",
+      "on_track",
+      "on_track",
+      "ahead",
+      "ahead",
+      "on_track"
+    ],
+    "imageUrl": "/demo/branches/b5.jpg",
+    "headline": "她开了间小画室，教孩子画画"
+  },
+  {
+    "id": "b6",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b6.jpg",
+    "headline": "她成了游戏概念设计师"
+  },
+  {
+    "id": "b7",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "pivot",
+      "drift",
+      "pivot",
+      "on_track",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b7.jpg",
+    "headline": "她爱上了泥土和釉色"
+  },
+  {
+    "id": "b8",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "on_track",
+      "pivot",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b8.jpg",
+    "headline": "她背着速写本去了远方"
+  },
+  {
+    "id": "b9",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "on_track",
+      "ahead",
+      "on_track"
+    ],
+    "imageUrl": "/demo/branches/b9.jpg",
+    "headline": "她带起了一支设计团队"
+  },
+  {
+    "id": "b10",
+    "path": [
+      "ahead",
+      "drift",
+      "pivot",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b10.jpg",
+    "headline": "她设计的纹样被织进了围巾"
+  },
+  {
+    "id": "b11",
+    "path": [
+      "ahead",
+      "ahead",
+      "drift",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "drift",
+      "pivot",
+      "on_track"
+    ],
+    "imageUrl": "/demo/branches/b11.jpg",
+    "headline": "她和阿婆开了一家挂满画的面包店"
+  },
+  {
+    "id": "b12",
+    "path": [
+      "on_track",
+      "ahead",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "ahead",
+      "ahead",
+      "on_track",
+      "ahead",
+      "ahead",
+      "ahead"
+    ],
+    "imageUrl": "/demo/branches/b12.jpg",
+    "headline": "她在连载自己的漫画"
+  }
+]

@@ -218,8 +218,14 @@ async function main() {
   // 断点续跑：读已有 JSON
   type Saved = DemoSeasonData["chapters"];
   let done: Saved = [];
-  if (!force && fs.existsSync(SEED_PATH)) {
-    try { done = (JSON.parse(fs.readFileSync(SEED_PATH, "utf8")) as { chapters: Saved }).chapters ?? []; } catch { done = []; }
+  // 路演用的画像快照（E7）是手工补的数据，重写 JSON 时原样保留
+  let portraitSnapshots: unknown;
+  if (fs.existsSync(SEED_PATH)) {
+    try {
+      const prev = JSON.parse(fs.readFileSync(SEED_PATH, "utf8")) as { chapters?: Saved; portraitSnapshots?: unknown };
+      portraitSnapshots = prev.portraitSnapshots;
+      if (!force) done = prev.chapters ?? [];
+    } catch { done = []; }
   }
   fs.mkdirSync(IMG_DIR, { recursive: true });
   fs.mkdirSync(path.dirname(SEED_PATH), { recursive: true });
@@ -381,7 +387,7 @@ async function main() {
     chapters.sort((a, b) => a.no - b.no);
     fs.writeFileSync(SEED_PATH, JSON.stringify({
       seasonTitle: fxOnboarding.bible.seasonTitle, logline: fxOnboarding.bible.logline,
-      sheets: { future: fs1, present: fs2 }, chapters,
+      sheets: { future: fs1, present: fs2 }, chapters, portraitSnapshots,
     }, null, 2));
     console.log(`第 ${n} 章完成：${plan.title}（正文 ${bodyMd.length} 字，图 ${[cover, ...panels, nextCover].filter(Boolean).length}/6）`);
   }

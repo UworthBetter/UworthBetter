@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import seed from "@/seed/demo-season.json";
+import branches from "@/seed/pitch-branches.json";
 import { directionOf, toPitchData } from "@/components/pitch/model/adapter";
 import type { Direction, PitchBranch } from "@/components/pitch/model/types";
 
@@ -40,7 +41,9 @@ describe("toPitchData", () => {
   });
 
   it("无 portraitSnapshots 时按 chapterType 映射 direction", () => {
-    const d = toPitchData(seed);
+    const s = clone();
+    delete s.portraitSnapshots;
+    const d = toPitchData(s);
     expect(d.snapshots[3].direction).toBe("drift");
     expect(d.snapshots[1].direction).toBe("ahead");
     expect(d.snapshots[0].imageUrl).toBe("/demo/sheet-future.jpg");
@@ -86,6 +89,23 @@ describe("toPitchData", () => {
     const many = Array.from({ length: 8 }, (_, i) => ({ ...ok, id: `ok${i}` }));
     const d = toPitchData(seed, [...bad, ...many]);
     expect(d.branches.map((b) => b.id)).toEqual(many.map((b) => b.id));
+  });
+
+  it("真实 E7 快照：第 0–13 章齐全，季初与幕终有画像，evidence 引自真实记录", () => {
+    expect(seed.portraitSnapshots.map((s) => s.chapterNo)).toEqual([...Array(14).keys()]);
+    const d = toPitchData(seed);
+    for (const n of [0, 4, 9, 13]) expect(d.snapshots[n].imageUrl).toBe(`/demo/portrait-${n}.jpg`);
+    d.snapshots.slice(1).forEach((s, i) => {
+      const notes = seed.chapters[i].logs.map((l) => l.note);
+      s.evidence.forEach((e) => expect(notes).toContain(e));
+    });
+  });
+
+  it("真实 E8 分支全部有效，且都从真实路径岔出", () => {
+    const d = toPitchData(seed, branches);
+    expect(d.branches.map((b) => b.id)).toEqual(branches.map((b) => b.id));
+    const real = d.snapshots.slice(1).map((s) => s.direction);
+    d.branches.forEach((b) => expect(b.path).not.toEqual(real));
   });
 
   it("完全非法输入（null）回落到占位而不抛错", () => {

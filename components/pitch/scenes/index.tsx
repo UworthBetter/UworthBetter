@@ -4,6 +4,7 @@ import type { ComponentType } from "react";
 import type { PitchData } from "@/components/pitch/model/types";
 import { Scene07Converge } from "@/components/pitch/scenes/Converge";
 import { Scene00Title, Scene01Question, Scene02Three } from "@/components/pitch/scenes/Opening";
+import { Scene11Evolution } from "@/components/pitch/scenes/Evolution";
 import { Scene08Linxia, Scene09Shelf } from "@/components/pitch/scenes/Story";
 import { Scene03Stranger, Scene04See, Scene05Borrowed, Scene06Rewrite } from "@/components/pitch/scenes/Research";
 
@@ -44,7 +45,7 @@ export const SCENES: SceneDef[] = [
   def("linxia", "认识林夏", 3, false, "", Scene08Linxia),
   def("shelf", "她的连载", 3, false, "", Scene09Shelf),
   def("live", "现场演示", 5, false, "", () => null), // 内容由 PitchDeck 常驻挂载的 LiveDemo 渲染
-  def("evolution", "画像演化", 8, true),
+  def("evolution", "画像演化", 8, true, "", Scene11Evolution),
   def("compare", "差异化", 3, true),
   def("tech", "技术实现", 3, true),
   def("rigor", "严谨与安全", 1, true),

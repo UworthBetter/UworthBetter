@@ -5,7 +5,8 @@
 export function Portrait({ src, alt, size, round = true, className = "", style }: {
   src: string | null; alt: string; size: number; round?: boolean; className?: string; style?: React.CSSProperties;
 }) {
-  const box: React.CSSProperties = { width: size, height: size, borderRadius: round ? "50%" : 16, ...style };
+  // maxWidth: none —— 覆盖预置样式 img { max-width: 100% }，否则贴近容器边缘时会被挤扁
+  const box: React.CSSProperties = { width: size, height: size, maxWidth: "none", flex: "none", borderRadius: round ? "50%" : 16, objectPosition: "50% 18%", ...style };
   if (!src) {
     return (
       <div aria-label={alt} className={`pitch-ph ${className}`} style={box}>

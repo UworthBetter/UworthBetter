@@ -1,6 +1,9 @@
 # 路演网页 `/pitch` 设计
 
-> 2026-10-25 · 状态：待用户确认 · 关联待办：`docs/todo/2026-10-25-portrait-evolution-and-reroute.md`
+> 2026-10-25 · 状态：已实现（分支 c/pitch-page）
+>
+> **仍为占位、需团队补齐**：场景 2 三种人原话（`components/pitch/scenes/Opening.tsx` 的 PEOPLE）· 竞品矩阵核实（`Closing.tsx` 的 ROWS）· 92% 出处 · 团队名单与网址（`components/pitch/model/placeholder.ts` 的 PLACEHOLDER_META）· `public/pitch/qr.svg` · `public/pitch/backup-demo.mp4` · E7 快照 / E8 分支画像（接入点：`app/pitch/page.tsx`）。
+> **部署**：服务器需设置 `DEMO_MODE=1`、`DEMO_CACHED_GENERATE=1`。 · 关联待办：`docs/todo/2026-10-25-portrait-evolution-and-reroute.md`
 
 ## 1. 意图
 

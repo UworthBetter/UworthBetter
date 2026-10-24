@@ -208,6 +208,8 @@ describe("持久化 API 契约", () => {
       const seeded = C.SeasonView.parse(await body(await (await import("@/app/api/season/route")).GET()));
       expect(seeded.current.no).toBe(1);
       expect(seeded.chapters[0].status).toBe("in_progress");
+      // roadmap 标题被预烘数据覆写：进行中一周的标题 = 该章生成后的标题，预告不失配
+      expect(seeded.current.title).toBe("预烘第1章");
       expect(seeded.current.quests.length).toBeGreaterThan(0);
       expect(seeded.current.quests.every((q) => !q.done)).toBe(true);
       expect(seeded.futureSelf.sheetFutureUrl).toBe("/stub/sheet-future.png");
@@ -215,6 +217,8 @@ describe("持久化 API 契约", () => {
       // ② 跳到第 5 周：1–4 章 ready 且标题来自预烘，第 5 章 in_progress + 采访预填 + 任务未完成
       const jumped = C.SeasonView.parse(await body(await ff.POST(json("POST", { chapter: 5 }))));
       expect(jumped.current.no).toBe(5);
+      // 跳章落点周显示预烘标题，与生成后的标题一致
+      expect(jumped.current.title).toBe("预烘第5章");
       expect(jumped.chapters.slice(0, 4).map((c) => `${c.status}:${c.title}`)).toEqual(
         Array.from({ length: 4 }, (_, i) => `ready:预烘第${i + 1}章`));
       expect(jumped.chapters[4].status).toBe("in_progress");

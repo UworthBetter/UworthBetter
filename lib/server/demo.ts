@@ -55,12 +55,18 @@ export function seedDemo(userId: string): string {
       sheetPresentUrl: demo && first ? demo.sheets.present : "/stub/sheet-present.png" }).returning().get();
     if (demo && first) {
       // 新流程：从第 1 周开局，游客亲手走周循环，可随时通过 demoJump 跳到第 N 周。
+      // roadmap 的章节标题用预烘数据覆写：进行中一周显示的标题必须与该章生成后的标题一致，
+      // 否则会出现「整周叫墨点来访、生成后变成空白页上的雾」的预告失配。
+      const demoTitles = new Map(demo.chapters.map((c) => [c.no, c.title]));
+      const roadmap = { ...fx.roadmap, acts: fx.roadmap.acts.map((a) => ({
+        ...a, chapters: a.chapters.map((c) => ({ ...c, title: demoTitles.get(c.no) ?? c.title })),
+      })) };
       const season = tx.insert(schema.seasons).values({ userId, futureSelfId: self.id, title: fx.bible.seasonTitle,
         style: fx.input.style, timeBudget: fx.input.timeBudget, onboardingInput: fx.input, bible: fx.bible,
-        roadmap: fx.roadmap, firstLetterMd: fx.firstLetterMd, startDate: toDateStr(new Date()),
+        roadmap, firstLetterMd: fx.firstLetterMd, startDate: toDateStr(new Date()),
         currentChapter: 1, status: "active" }).returning().get();
       tx.update(schema.users).set({ activeSeasonId: season.id, nickname: "林夏" }).where(eq(schema.users.id, userId)).run();
-      for (const road of fx.roadmap.acts.flatMap((a) => a.chapters)) {
+      for (const road of roadmap.acts.flatMap((a) => a.chapters)) {
         tx.insert(schema.chapters).values({ seasonId: season.id, chapterNo: road.no, title: road.title,
           status: road.no === 1 ? "in_progress" : "locked",
           coverUrl: road.no === 1 ? first.cover : null }).run();

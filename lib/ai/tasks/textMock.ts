@@ -33,6 +33,18 @@ export const mockTextTasks: TextTasks = {
       bible: fxOnboarding.bible,
     };
   },
+  async suggestGoals({ seed, timeBudget }) {
+    await sleep(env.MOCK_LATENCY_MS);
+    // 模板按关键词拼装，让 mock 模式下推荐也有"针对感"；不消耗额度。
+    const topic = seed.trim().slice(0, 12) || "想做的事";
+    const pace = timeBudget === "15m" || timeBudget === "30m" ? "每天 15 分钟" : "每天 1 小时";
+    return [
+      { tagline: "习惯养成", goal: `90 天后，${topic}成为每周都在发生的习惯：从 ${pace} 起步，累计拿出 3 件可以给别人看的作品。` },
+      { tagline: "拿到回音", goal: `90 天后，${topic}换来第一个外部认可——一次公开展示、一位愿意付费的人，或一条具体的正面反馈。` },
+      { tagline: "搭起系统", goal: `90 天后，为${topic}搭起一套自己的小系统：固定练习时段、素材库和每周复盘，不再靠情绪驱动。` },
+      { tagline: "身份转变", goal: `90 天后，朋友提起我时会想到「${topic}」——它不再只是兴趣，而是我身上看得见的部分。` },
+    ];
+  },
   async genRoadmap() {
     await sleep(env.MOCK_LATENCY_MS);
     return fxOnboarding.roadmap;

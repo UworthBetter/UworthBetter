@@ -12,10 +12,12 @@ import type {
   ChapterContext,
   ChapterPlan,
   FutureSelfProfile,
+  GoalSuggestion,
   OnboardingInput,
   SeasonRoadmap,
   StoryBible,
   StyleId,
+  TimeBudget,
 } from "./ai";
 
 export type ImageRef = { url: string };
@@ -30,6 +32,9 @@ export type SafetyResult = { crisis: boolean; reason?: string };
 export interface AITasks {
   /** 一次调用产出人格卡 + 故事圣经。 */
   genProfileAndBible(input: OnboardingInput): Promise<{ futureSelf: FutureSelfProfile; bible: StoryBible }>;
+
+  /** 建档前根据关键词推荐 90 天目标草稿（可选方法：装配层按 AI_SUGGEST_PROVIDER 决定 mock / 真实实现）。 */
+  suggestGoals?(args: { seed: string; timeBudget?: TimeBudget }): Promise<GoalSuggestion[]>;
 
   /** 角色设定图。which=present 为「现在的主角」，future 为「未来的你」。 */
   genCharacterSheet(args: {

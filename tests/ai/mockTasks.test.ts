@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { ChapterPlan, FutureSelfProfile, SeasonRoadmap, StoryBible } from "@/lib/contracts/ai";
+import { z } from "zod";
+import { ChapterPlan, FutureSelfProfile, GoalSuggestion, SeasonRoadmap, StoryBible } from "@/lib/contracts/ai";
 import { getAITasks } from "@/lib/ai/tasks";
 import { fxChapterContext, fxOnboarding } from "@/fixtures";
 import { extractJson } from "@/lib/ai/providers/openaiCompat";
@@ -16,6 +17,17 @@ describe("mock AITasks 符合契约", () => {
     let streamed = "";
     const letter = await ai.streamFirstLetter({ input: fxOnboarding.input, futureSelf, bible }, (t) => (streamed += t));
     expect(streamed).toBe(letter);
+  });
+
+  it("目标推荐", async () => {
+    expect(ai.suggestGoals).toBeDefined();
+    const suggest = ai.suggestGoals!;
+    const Suggestions = z.array(GoalSuggestion).min(3).max(4);
+    const first = await suggest({ seed: "学吉他", timeBudget: "1h" });
+    const second = await suggest({ seed: "学吉他", timeBudget: "1h" });
+    Suggestions.parse(first); // 条数 3–4；goal 5–500 字；tagline 1–20 字
+    expect(second).toEqual(first); // 同入参两次调用结果一致
+    expect(first.some((s) => s.goal.includes("学吉他"))).toBe(true); // 覆盖 seed 主题词
   });
 
   it("章节链路", async () => {

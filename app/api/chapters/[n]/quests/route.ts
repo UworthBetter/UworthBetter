@@ -2,6 +2,7 @@ import { and, eq } from "drizzle-orm";
 import { ReplaceQuestsRequest, ReplaceQuestsResponse } from "@/lib/contracts/api";
 import { adaptQuests } from "@/lib/domain/questRules";
 import { db, schema } from "@/lib/server/db/client";
+import { questCountOf } from "@/lib/server/context";
 import { fail, handle, ok, parseChapterNo, readJson } from "@/lib/server/http";
 import { getActiveSeason } from "@/lib/server/session";
 import { chapterQuests, getChapter, insertQuests, requireEditable } from "@/lib/server/records";
@@ -14,7 +15,7 @@ export const PUT = handle(async (req: Request, ctx: { params: Promise<{ n: strin
   const rate = n > 1 ? getChapter(season.id, n - 1).completionRate ?? 1 : 1;
   db.transaction((tx) => {
     tx.delete(schema.quests).where(and(eq(schema.quests.seasonId, season.id), eq(schema.quests.chapterNo, n))).run();
-    insertQuests(season.id, n, adaptQuests(quests, rate), tx);
+    insertQuests(season.id, n, adaptQuests(quests, rate, questCountOf(season)), tx);
   });
   return ok(ReplaceQuestsResponse, { quests: chapterQuests(season.id, n) });
 });

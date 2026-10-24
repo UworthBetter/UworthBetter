@@ -9,6 +9,7 @@ import {
   CreateLogResponse,
   FutureSelfView,
   GenerateResponse,
+  GoalSuggestResponse,
   InterviewQuestions,
   ListLogsResponse,
   MeResponse,
@@ -22,6 +23,7 @@ import {
   type CreateLogRequest,
   type ErrorCode,
   type FastForwardRequest,
+  type GoalSuggestRequest,
   type OnboardingRequest,
   type Quest,
 } from "@/lib/contracts";
@@ -73,6 +75,8 @@ export const api = {
   me: () => request(MeResponse, "/api/me"),
   season: () => request(SeasonView, "/api/season"),
   futureSelf: () => request(FutureSelfView, "/api/future-self"),
+
+  suggestGoals: (data: GoalSuggestRequest) => request(GoalSuggestResponse, "/api/goal-suggestions", json("POST", data)),
 
   onboarding: (data: OnboardingRequest, selfie?: File | Blob | null) =>
     request(OnboardingResponse, "/api/onboarding", multipart(data, "selfie", selfie)),

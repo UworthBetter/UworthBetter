@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { ApiClientError, api } from "@/lib/client/api";
 import { compressImage } from "@/lib/client/image";
-import type { StyleId, TimeBudget } from "@/lib/contracts";
+import type { GoalSuggestion, StyleId, TimeBudget } from "@/lib/contracts";
 import { DRAFT_KEY, PERSONAS, loadDraft, saveDraft, toRequest, type Draft } from "@/components/onboarding/draft";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
@@ -19,6 +19,7 @@ const BUDGETS: { id: TimeBudget; label: string }[] = [
   { id: "1h", label: "1 小时" },
   { id: "2h+", label: "2 小时以上" },
 ];
+const QUEST_COUNTS = [1, 2, 3, 4, 5];
 const STYLES: { id: StyleId; name: string; line: string; icon: IconName; cls: string }[] = [
   { id: "healing", name: "治愈绘本", line: "雾、灯塔、慢慢亮起来的颜色", icon: "leaf", cls: "style-healing-ic" },
   { id: "wuxia", name: "东方武侠", line: "山门、剑意、一招一式的功课", icon: "brush", cls: "style-wuxia-ic" },
@@ -72,6 +73,11 @@ export function OnboardingWizard() {
   const [custom, setCustom] = useState("");
   const [preview, setPreview] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // 「AI 帮我想」区块：关键词换目标草稿
+  const [seed, setSeed] = useState("");
+  const [suggesting, setSuggesting] = useState(false);
+  const [suggestions, setSuggestions] = useState<GoalSuggestion[]>([]);
+  const [suggestError, setSuggestError] = useState("");
   const selfieRef = useRef<File | null>(null);
 
   useEffect(() => {
@@ -107,6 +113,23 @@ export function OnboardingWizard() {
       return { ...base, obstacles };
     });
     setError("");
+  }
+
+  /** 第 0 步还没选时间预算，只带 seed 请求目标建议。 */
+  async function askSuggestions() {
+    const text = seed.trim();
+    if (!text || suggesting) return;
+    setSuggesting(true);
+    setSuggestError("");
+    setSuggestions([]);
+    try {
+      const res = await api.suggestGoals({ seed: text });
+      setSuggestions(res.suggestions);
+    } catch {
+      setSuggestError("这次没想出来，再试一次，或自己写也行");
+    } finally {
+      setSuggesting(false);
+    }
   }
 
   function next() {
@@ -155,6 +178,41 @@ export function OnboardingWizard() {
               </Chip>
             ))}
           </div>
+
+          {/* AI 帮我想：几个关键词换几条目标草稿，点选后填入上方愿望栏，仍可编辑 */}
+          <div className="row">
+            <input
+              className="input"
+              placeholder="几个词，比如：画画 转行 早起"
+              maxLength={200}
+              value={seed}
+              onChange={(e) => setSeed(e.target.value)}
+            />
+            <Button size="sm" variant="secondary" disabled={!seed.trim() || suggesting} onClick={() => void askSuggestions()}>
+              帮我想
+            </Button>
+          </div>
+          {suggesting ? <p className="muted">正在为你出主意…</p> : null}
+          {suggestError ? <p className="field-error">{suggestError}</p> : null}
+          {suggestions.length > 0 ? (
+            <div className="stack">
+              {suggestions.map((item, index) => (
+                <button
+                  key={`${item.tagline}-${index}`}
+                  type="button"
+                  className="persona-card suggest-card"
+                  onClick={() => patch({ goal: item.goal })}
+                >
+                  <span className="suggest-head">
+                    <span className="suggest-tag">{item.tagline}</span>
+                    <span className="suggest-use">用这个</span>
+                  </span>
+                  <span className="suggest-goal">{item.goal.length > 40 ? `${item.goal.slice(0, 40)}…` : item.goal}</span>
+                </button>
+              ))}
+            </div>
+          ) : null}
+
           <button type="button" className="unsure-entry" onClick={() => setUnsure((v) => !v)}>
             <Icon name="question" size="sm" />我还不太确定
           </button>
@@ -251,6 +309,14 @@ export function OnboardingWizard() {
               <Chip key={item.id} active={draft.timeBudget === item.id} onClick={() => patch({ timeBudget: item.id })}>{item.label}</Chip>
             ))}
           </div>
+          <label className="faint">每周想背几条任务</label>
+          <div className="chip-row">
+            <Chip active={draft.questCount === undefined} onClick={() => patch({ questCount: undefined })}>不限</Chip>
+            {QUEST_COUNTS.map((n) => (
+              <Chip key={n} active={draft.questCount === n} onClick={() => patch({ questCount: n })}>{n} 条</Chip>
+            ))}
+          </div>
+          <p className="faint" style={{ margin: 0 }}>不选就交给故事节奏（3–5 条）</p>
           <label className="faint">现在的起点，一句话</label>
           <textarea className="input" rows={3} maxLength={200} value={draft.startingPoint} onChange={(e) => patch({ startingPoint: e.target.value })} />
         </div>

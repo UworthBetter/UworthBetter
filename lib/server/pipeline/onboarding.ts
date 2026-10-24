@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import { OnboardingInput, SeasonRoadmap } from "@/lib/contracts/ai";
 import { getAITasks } from "@/lib/ai/tasks";
+import { adaptQuests } from "@/lib/domain/questRules";
 import { db, schema } from "@/lib/server/db/client";
 import { createJob } from "@/lib/server/jobs";
 import { insertQuests } from "@/lib/server/records";
@@ -47,7 +48,8 @@ export function startOnboarding(seasonId: string, input: OnboardingInput): strin
         tx.insert(schema.chapters).values(roadmap.acts.flatMap((a) => a.chapters).map((c) => ({
           seasonId, chapterNo: c.no, title: c.title, status: c.no === 1 ? "in_progress" as const : "locked" as const,
         }))).run();
-        insertQuests(seasonId, 1, roadmap.week1Quests, tx);
+        // 首周没有完成度数据，rate 传 1（不触发低谷规则），但仍受 questCount 上限约束。
+        insertQuests(seasonId, 1, adaptQuests(roadmap.week1Quests, 1, input.questCount), tx);
       });
       const url = await imageStep(ctx, "cover1", () => ai.genSceneImage({
         prompt: `${bible.world}. ${roadmap.acts[0].chapters[0].title}. no text`, style: input.style,

@@ -9,6 +9,12 @@ import { futureSelf } from "@/lib/server/views";
 import { fail } from "@/lib/server/http";
 import { getAITasks } from "@/lib/ai/tasks";
 
+/** 从建档输入里安全读出用户自选的每周任务条数（整数且 1–5 才有效，否则 undefined）。 */
+export function questCountOf(season: typeof schema.seasons.$inferSelect): number | undefined {
+  const raw = season.onboardingInput.questCount;
+  return typeof raw === "number" && Number.isInteger(raw) && raw >= 1 && raw <= 5 ? raw : undefined;
+}
+
 export function buildChapterContext(seasonId: string, n: number): ChapterContext {
   const season = db.select().from(schema.seasons).where(eq(schema.seasons.id, seasonId)).get();
   if (!season) throw fail("NO_SEASON", "季不存在", 404);
@@ -27,7 +33,7 @@ export function buildChapterContext(seasonId: string, n: number): ChapterContext
     logs: db.select().from(schema.dailyLogs).where(eq(schema.dailyLogs.seasonId, seasonId))
       .orderBy(asc(schema.dailyLogs.createdAt)).all().filter((l) => l.chapterNo === n)
       .map((l) => ({ ...l, weekday: weekdayOf(l.date), photoCaption: l.photoCaption ?? undefined })),
-    interview: chapter.interview ?? [], timeBudget: season.timeBudget,
+    interview: chapter.interview ?? [], timeBudget: season.timeBudget, questCount: questCountOf(season),
   });
 }
 

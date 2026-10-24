@@ -11,6 +11,8 @@ export type Draft = {
   startingPoint: string;
   style: StyleId;
   nickname: string;
+  /** 每周任务条数（1–5 的整数）；undefined = 不限，交给故事节奏。 */
+  questCount?: number;
 };
 
 /** 界面示例，不从 fixtures 导入。 */
@@ -59,6 +61,11 @@ export function emptyDraft(): Draft {
   return { ...SAMPLE, obstacles: [...SAMPLE.obstacles] };
 }
 
+/** questCount 只认 1–5 的整数；缺失、越界、非整数都视为 undefined（不限）。 */
+function validQuestCount(value: unknown): value is number {
+  return typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= 5;
+}
+
 export function loadDraft(): Draft {
   if (typeof window === "undefined") return emptyDraft();
   try {
@@ -72,6 +79,8 @@ export function loadDraft(): Draft {
       obstacles: Array.isArray(parsed.obstacles) ? parsed.obstacles.filter((item) => typeof item === "string") : base.obstacles,
       timeBudget: parsed.timeBudget === "15m" || parsed.timeBudget === "30m" || parsed.timeBudget === "1h" || parsed.timeBudget === "2h+" ? parsed.timeBudget : base.timeBudget,
       style: parsed.style === "healing" || parsed.style === "wuxia" || parsed.style === "cyber" ? parsed.style : base.style,
+      // questCount 没有默认值：不合法时回退为 undefined（不限），不取 base 的值。
+      questCount: validQuestCount(parsed.questCount) ? parsed.questCount : undefined,
     };
   } catch {
     return emptyDraft();
@@ -93,5 +102,6 @@ export function toRequest(draft: Draft): OnboardingRequest {
     startingPoint: draft.startingPoint.trim(),
     style: draft.style,
     ...(nickname ? { nickname } : {}),
+    ...(validQuestCount(draft.questCount) ? { questCount: draft.questCount } : {}),
   };
 }

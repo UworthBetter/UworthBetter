@@ -184,3 +184,13 @@ describe("持久化 API 契约", () => {
     await body(await (await import("@/app/api/chapters/[n]/generate/route")).POST(req(), params({ n: "13" })), 409);
   });
 });
+
+describe("目标推荐 API 契约", () => {
+  it("POST /api/goal-suggestions：建档前可调，返回 3–4 条推荐；空 seed 返回 400 VALIDATION", async () => {
+    const { POST } = await import("@/app/api/goal-suggestions/route");
+    const result = C.GoalSuggestResponse.parse(await body(await POST(json("POST", { seed: "画画 转行" }))));
+    expect(result.suggestions.length).toBeGreaterThanOrEqual(3);
+    expect(result.suggestions.length).toBeLessThanOrEqual(4);
+    expect((await body(await POST(json("POST", { seed: "" })), 400)).error.code).toBe("VALIDATION");
+  });
+});

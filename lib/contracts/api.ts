@@ -8,7 +8,7 @@
  * - 图片 URL 均为站内可访问路径（如 /generated/xxx.png）或公网 URL；null 表示生成失败/未生成，前端显示占位。
  */
 import { z } from "zod";
-import { ChapterType, FutureSelfProfile, Quest, QA, StyleId, TimeBudget } from "./ai";
+import { ChapterType, FutureSelfProfile, GoalSuggestion, Quest, QA, StyleId, TimeBudget } from "./ai";
 
 // ───────────── 错误 ─────────────
 
@@ -139,11 +139,24 @@ export const OnboardingRequest = z.object({
   startingPoint: z.string().max(200),
   style: StyleId,
   nickname: z.string().max(20).optional(),
+  questCount: z.number().int().min(1).max(5).optional(), // 每周任务条数上限（缺省 = AI 按节奏定 3–5）
 });
 export type OnboardingRequest = z.infer<typeof OnboardingRequest>;
 
 export const OnboardingResponse = z.object({ jobId: z.string(), seasonId: z.string() });
 export type OnboardingResponse = z.infer<typeof OnboardingResponse>;
+
+// ───────────── POST /api/goal-suggestions ─────────────
+// 建档前可调：用户给几个关键词，AI 推荐 90 天目标草稿（点选后填入愿望栏，仍可编辑）。
+
+export const GoalSuggestRequest = z.object({
+  seed: z.string().min(1).max(200), // 兴趣 / 现状碎片，如 "画画 转行"
+  timeBudget: TimeBudget.optional(), // 有助于 AI 把目标切到匹配的粒度
+});
+export type GoalSuggestRequest = z.infer<typeof GoalSuggestRequest>;
+
+export const GoalSuggestResponse = z.object({ suggestions: z.array(GoalSuggestion).min(3).max(4) });
+export type GoalSuggestResponse = z.infer<typeof GoalSuggestResponse>;
 
 // ───────────── PATCH /api/quests/:id ─────────────
 

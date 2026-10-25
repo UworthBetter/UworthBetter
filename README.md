@@ -15,7 +15,7 @@
 
 | 方式 Way | 步骤 Steps |
 |---|---|
-| **在线 Online** | 打开 <https://www.uworthbetter.top> → 点「载入演示账号」，载入林夏的故事，从揭晓页和第 1 周开始。右下角「演示」菜单可以快进本周或跳到任意一周，直接读到已解锁的章节 / Open the site → tap "载入演示账号" (Load demo account) to start Lin Xia's story at the reveal page and week 1. The "演示" (Demo) menu at the bottom right fast-forwards the week or jumps to any week, so you can read the unlocked chapters right away. |
+| **在线 Online** | 打开 <http://101.200.150.64> → 点「载入演示账号」，载入林夏的故事，从揭晓页和第 1 周开始。右下角「演示」菜单可以快进本周或跳到任意一周，直接读到已解锁的章节 / Open the site → tap "载入演示账号" (Load demo account) to start Lin Xia's story at the reveal page and week 1. The "演示" (Demo) menu at the bottom right fast-forwards the week or jumps to any week, so you can read the unlocked chapters right away. |
 | **自己的故事 Your own story** | 首页点「开始写你的故事」→ 5 步建档（可用 AI 推荐目标）→ 揭晓未来的你 → 进入第 1 周 / Tap "开始写你的故事" (Start your story) → 5-step onboarding (AI can suggest a goal) → future-self reveal → week 1. |
 | **本地 Local** | `pnpm install && cp .env.example .env.local && pnpm db:migrate && pnpm dev`。**无需任何 API Key**（默认 mock 模式）/ **No API key needed** (mock mode by default). |
 

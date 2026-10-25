@@ -6,7 +6,7 @@ export const PLACEHOLDER_META: Pick<PitchData, "persona" | "firstLetterQuote" | 
   persona: { name: "2027年的林夏", title: "颜色修补师", catchphrase: "先画，再说。" },
   firstLetterQuote: "我知道你现在还不信，但我就是你。",
   team: [{ name: "UworthBetter 团队", role: "" }],
-  siteUrl: "www.uworthbetter.top", // 二维码 public/pitch/qr.svg 编码的是 https://www.uworthbetter.top
+  siteUrl: "http://101.200.150.64", // 二维码 public/pitch/qr.svg 编码的是 http://101.200.150.64
 };
 
 // 固定种子的线性同余发生器：同一份占位每次渲染一致

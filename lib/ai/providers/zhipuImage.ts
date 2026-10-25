@@ -15,7 +15,7 @@ export function createZhipuImageProvider(): ImageProvider {
 
   return {
     supportsRefs: false,
-    async generate({ prompt, refs, aspect, label }) {
+    async generate({ prompt, refs, aspect, label, signal }) {
       if (refs.length) console.warn(`[ai:image] ${label}: zhipu provider 暂不支持参考图，已忽略 ${refs.length} 张`);
       const { w, h } = ASPECT_SIZE[aspect];
       const t0 = Date.now();
@@ -23,13 +23,14 @@ export function createZhipuImageProvider(): ImageProvider {
         method: "POST",
         headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
         body: JSON.stringify({ model: env.IMAGE_MODEL, prompt, size: `${w}x${h}` }),
-        signal: AbortSignal.timeout(90_000),
+        signal: signal ?? AbortSignal.timeout(env.AI_IMAGE_TIMEOUT_MS),
       });
-      const body = (await res.json()) as { data?: { url?: string }[]; error?: { message?: string } };
+      const body = (await res.json().catch(() => ({}))) as { data?: { url?: string }[]; error?: { message?: string } };
       if (!res.ok || !body.data?.[0]?.url) {
         throw new AIError(`图像生成失败: ${res.status} ${body.error?.message ?? ""}`, label);
       }
-      const img = await fetch(body.data[0].url);
+      const img = await fetch(body.data[0].url, { signal });
+      if (!img.ok) throw new AIError(`图像下载失败: ${img.status}`, label);
       const buffer = Buffer.from(await img.arrayBuffer());
       const mime = (img.headers.get("content-type") ?? "image/png") as ImageMime;
       console.log(`[ai:image] ${label} ${Date.now() - t0}ms`);

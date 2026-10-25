@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { OnboardingInput, SeasonRoadmap } from "@/lib/contracts/ai";
-import { getAITasks } from "@/lib/ai/tasks";
+import { firstCoverPrompt, getAITasks } from "@/lib/ai/tasks";
 import { adaptQuests } from "@/lib/domain/questRules";
 import { db, schema } from "@/lib/server/db/client";
 import { createJob } from "@/lib/server/jobs";
@@ -52,7 +52,7 @@ export function startOnboarding(seasonId: string, input: OnboardingInput): strin
         insertQuests(seasonId, 1, adaptQuests(roadmap.week1Quests, 1, input.questCount), tx);
       });
       const url = await imageStep(ctx, "cover1", () => ai.genSceneImage({
-        prompt: `${bible.world}. ${roadmap.acts[0].chapters[0].title}. no text`, style: input.style,
+        prompt: firstCoverPrompt(bible, roadmap.acts[0].chapters[0].title), style: input.style,
         refs: future.status === "fulfilled" && future.value ? [{ url: future.value }] : [], aspect: "portrait",
       }));
       const chapter = db.select().from(schema.chapters).all().find((c) => c.seasonId === seasonId && c.chapterNo === 1)!;

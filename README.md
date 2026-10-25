@@ -25,7 +25,7 @@
 
 | 评分维度 Dimension | 本文对应章节 Section | 关键证据 Key evidence |
 |---|---|---|
-| **完成度与可用性 Completeness & usability** | [§A](#a-完成度与可用性--completeness--usability) | 在线可用；演示账号一键载入；任意目标都能走完全流程；无 Key 也能本地运行；99 个自动化测试全部通过；真实界面截图 / Live site; one-click demo account; any goal runs the full flow; runs locally without keys; all 99 automated tests pass; real UI screenshots |
+| **完成度与可用性 Completeness & usability** | [§A](#a-完成度与可用性--completeness--usability) | 在线可用；演示账号一键载入；任意目标都能走完全流程；无 Key 也能本地运行；填 Key 即用真实模型；118 个自动化测试全部通过；真实界面截图 / Live site; one-click demo account; any goal runs the full flow; runs locally without keys; real models with just an API key; all 118 automated tests pass; real UI screenshots |
 | **创意 Creativity** | [§B](#b-创意--creativity) | 行动解锁剧情、迷雾封面、"没有失败，只有不同类型的章节"、真实记录映射成故事隐喻 / Actions unlock the story, fog cover, "no failure, only different chapter types", real logs mapped to story metaphors |
 | **场景价值 Scenario value** | [§C](#c-场景价值--scenario-value) | 具体用户画像与使用时刻、研究依据、竞品空白、安全护栏 / A concrete persona and moments of use, research basis, competitor gap, safety guardrails |
 | **展示 Presentation**（路演 / live pitch） | [§D](#d-展示--presentation) | 网页路演 `/pitch`、截图 / Web pitch deck `/pitch`, screenshots |
@@ -74,15 +74,16 @@
 - **修复重试 / Self-repair**：AI 输出校验失败时，把错误回传给模型重新生成（`lib/ai/providers/openaiCompat.ts`）。If AI output fails validation, the error goes back to the model for a corrected retry.
 - **图片失败有占位 / Image failure fallback**：图片 URL 可能为空，前端始终渲染占位。Image URLs may be null, and the frontend always renders a placeholder.
 - **无 Key 可运行 / Runs with no key**：默认 mock 模式可走完整流程；测试中禁止调用真实 AI。Mock mode runs the whole flow, and tests never call a real model.
-- **质量门禁 / Quality gate**：`pnpm check` = TypeScript strict + ESLint + Vitest。2026-10-25 在 Node 22 上：类型检查与 lint 无错误，15 个测试文件、99 个用例全部通过（覆盖领域规则、前后端契约、任务队列、存储与路演页）。
-  `pnpm check` runs TypeScript strict, ESLint, and Vitest. On 2026-10-25 with Node 22: no type or lint errors, and all 99 tests in 15 files pass (domain rules, API contracts, job queue, storage, pitch page).
+- **真实模型不拖垮演示 / Real models can't break the demo**：每次真实调用都有超时，失败自动重试 1 次，仍失败（或没填 Key）就回退到 mock，流程照常走完；回退会写入服务端日志（`lib/ai/resilient.ts`）。Every real call has a timeout and one automatic retry; if it still fails (or no key is set), that call falls back to mock and the flow carries on. Fallbacks are logged on the server.
+- **质量门禁 / Quality gate**：`pnpm check` = TypeScript strict + ESLint + Vitest。2026-10-25 在 Node 22 上：类型检查与 lint 无错误，17 个测试文件、118 个用例全部通过（覆盖领域规则、前后端契约、任务队列、存储、路演页，以及用本地模拟 HTTP 服务测试的真实模型路径：输出校验、超时、重试与回退）。
+  `pnpm check` runs TypeScript strict, ESLint, and Vitest. On 2026-10-25 with Node 22: no type or lint errors, and all 118 tests in 17 files pass (domain rules, API contracts, job queue, storage, pitch page, and the real-model path tested against a local mock HTTP server: output validation, timeouts, retry, and fallback).
 
 ### AI 与内容来源 · Where the AI content comes from
 
 - **演示季 Demo season**：林夏的 13 章（采访、ChapterPlan、正文、来信）由真实文本模型（智谱 GLM-5.3-flash）离线生成；13 张封面、52 格分镜与角色立绘由真实图像模型（gpt-image-2，经 OpenAI 兼容接口）生成。生成脚本见 `scripts/gen-demo-season.ts`，产物在 `seed/demo-season.json` 与 `public/demo/`。
   Lin Xia's 13 chapters (interviews, chapter plans, prose, letters) were generated offline with a real text model (Zhipu GLM-5.3-flash). The 13 covers, 52 panels, and character art came from a real image model (gpt-image-2 via an OpenAI-compatible API). Script: `scripts/gen-demo-season.ts`. Output: `seed/demo-season.json` and `public/demo/`.
-- **应用内实时调用 Live calls in the app**：AI 目标推荐、照片描述可调用真实文本模型；图像生成支持 mock / 智谱 / OpenAI 兼容三种 provider。新建档用户的人格卡、路线图与章节文本当前由模板（mock）生成，整条管线（建档 → 采访 → 章节 → 下周任务）可以完整跑通。所有 AI 调用只经过 `lib/ai/tasks` 一个出口。
-  Goal suggestions and photo captions can call a real text model, and image generation supports mock, Zhipu, and OpenAI-compatible providers. For newly onboarded users, the persona, roadmap, and chapter text currently come from templates (mock), and the whole pipeline (onboarding → interview → chapter → next week's quests) runs end to end. All AI calls go through one exit point, `lib/ai/tasks`.
+- **应用内实时调用 Live calls in the app**：配置 Key 后，新用户的每一步都由真实模型生成：AI 目标推荐、人格卡与故事设定（附自拍时先由视觉模型描述外貌）、13 章路线图与首周任务、第一封信、周末采访问题、章节规划（分镜、对白、下周任务）、流式正文与章末来信、照片描述；角色设定图、章节封面和 4 格分镜由图像模型生成。Prompt 在 `lib/ai/prompts/`，按 DESIGN.md 附录 C 编写，围绕「你值得更好」的定位：反派是内在阻力而不是用户本人、不承诺结果、不说教；用户输入一律放在 XML 标签里。不配置 Key 时同一条管线由模板（mock）生成。所有 AI 调用只经过 `lib/ai/tasks` 一个出口。
+  With keys set, every step for a new user comes from real models: goal suggestions, the persona and story bible (a vision model first describes the selfie, if one is uploaded), the 13-chapter roadmap and week-1 quests, the first letter, weekly interview questions, the chapter plan (panels, dialogue, next week's quests), streamed prose and the end-of-chapter letter, and photo captions. An image model draws the character sheets, chapter covers, and 4-panel comics. Prompts live in `lib/ai/prompts/`, follow DESIGN.md appendix C, and are built around the "you're worth better" idea: the antagonist is an inner obstacle, never the user; no promised outcomes; no lecturing. User input is always wrapped in XML tags. Without keys, the same pipeline runs on templates (mock). All AI calls go through one exit point, `lib/ai/tasks`.
 - **现场演示 Live demo**：章节生成可回放演示季内容（`DEMO_CACHED_GENERATE=1`），避免网络波动影响路演。Chapter generation can replay demo-season content (`DEMO_CACHED_GENERATE=1`) so network problems can't break the pitch.
 
 ### 演示季插画 · Demo season artwork
@@ -174,8 +175,35 @@ pnpm dev                     # http://localhost:3000 → 「载入演示账号�
 pnpm check                   # typecheck + lint + test
 ```
 
-需要 Node.js 22。真实模型配置（`AI_SUGGEST_PROVIDER` / `AI_IMAGE_PROVIDER` 与对应 Key）见 `.env.example`；部署见 [DEPLOY.md](./DEPLOY.md)。
-Requires Node.js 22. Real-model settings (`AI_SUGGEST_PROVIDER` / `AI_IMAGE_PROVIDER` and the matching keys) are in `.env.example`. Deployment steps are in [DEPLOY.md](./DEPLOY.md).
+需要 Node.js 22。部署见 [DEPLOY.md](./DEPLOY.md)。
+Requires Node.js 22. Deployment steps are in [DEPLOY.md](./DEPLOY.md).
+
+### 启用真实模型 · Enable real models
+
+在 `.env.local`（服务器上）填入以下变量后重启即可；文本和图像可以分别开启。Key 只放在服务器上，不要提交。
+Set these in `.env.local` on the server and restart. Text and images can be enabled independently. Keep keys on the server and never commit them.
+
+```dotenv
+# 文本 / Text（智谱 BigModel 或任意 OpenAI 兼容接口 / Zhipu BigModel or any OpenAI-compatible API）
+AI_TEXT_PROVIDER=openai-compat
+OPENAI_COMPAT_API_KEY=<你的 Key / your key>
+# OPENAI_COMPAT_BASE_URL=https://open.bigmodel.cn/api/paas/v4   # 默认值 / default
+# TEXT_MODEL_SMART=glm-5.3  TEXT_MODEL_FAST=glm-5.3-flash  TEXT_MODEL_VISION=glm-5.3-flash
+
+# 图像 / Images（OpenAI 兼容 /images/generations）
+AI_IMAGE_PROVIDER=openai
+IMAGE_BASE_URL=https://sidrune.ai/v1
+IMAGE_API_KEY=<你的 Key / your key>
+IMAGE_MODEL=gpt-image-2
+# 或智谱 / or Zhipu: AI_IMAGE_PROVIDER=zhipu, IMAGE_MODEL=cogview-4-250304（IMAGE_API_KEY 为空时复用文本 Key / falls back to the text key）
+
+DEMO_CACHED_GENERATE=0   # 为 1 时章节生成回放演示季，不调用模型 / when 1, chapter generation replays the demo season
+```
+
+- 超时可调（毫秒，单次尝试）：`AI_FAST_TIMEOUT_MS`（目标推荐 / 采访问题 / 照片描述，默认 25000）、`AI_TEXT_TIMEOUT_MS`（结构化生成，默认 90000）、`AI_STREAM_TIMEOUT_MS`（流式正文与来信，默认 120000）、`AI_IMAGE_TIMEOUT_MS`（默认 120000）。超时或出错会重试 1 次，再失败则这一次调用回退 mock。
+  Timeouts are configurable (ms, per attempt): `AI_FAST_TIMEOUT_MS` (goal suggestions, interview questions, photo captions; default 25000), `AI_TEXT_TIMEOUT_MS` (structured generation; default 90000), `AI_STREAM_TIMEOUT_MS` (streamed prose and letters; default 120000), `AI_IMAGE_TIMEOUT_MS` (default 120000). A timeout or error gets one retry; if that fails too, that one call falls back to mock.
+- 验证连通性 / Check connectivity：`pnpm ping:text`、`pnpm ping:image`（会消耗少量额度 / uses a little quota）。
+- 服务端日志里的 `[ai] … 回退 mock` 表示某次调用没有用上真实模型。`[ai] … 回退 mock` in the server log means a call fell back to mock.
 
 **技术栈 / Stack**：Next.js 16 (App Router) · React 19 · TypeScript strict · Tailwind v4 · zod v4 · Drizzle + SQLite · SSE · Vitest · pnpm
 

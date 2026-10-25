@@ -9,6 +9,8 @@ export interface ImageGenerateOptions {
   refs: ImageRef[]; // 参考图（不支持参考图的 provider 会忽略并打印警告）
   aspect: ImageAspect;
   label: string;
+  /** 取消/超时信号（由 lib/ai/resilient.ts 传入）。 */
+  signal?: AbortSignal;
 }
 
 export interface ImageProvider {

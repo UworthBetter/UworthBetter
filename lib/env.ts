@@ -10,14 +10,14 @@ const Env = z.object({
   STORAGE_DRIVER: z.enum(["local", "s3"]).default("local"),
   PUBLIC_BASE_URL: z.string().default("http://localhost:3000"),
 
+  // openai-compat 且填了 Key 时走真实模型；每次调用超时 → 重试 1 次 → 仍失败则回退 mock（见 lib/ai/resilient.ts）
   AI_TEXT_PROVIDER: z.enum(["mock", "openai-compat"]).default("mock"),
   OPENAI_COMPAT_BASE_URL: z.string().default("https://open.bigmodel.cn/api/paas/v4"),
   OPENAI_COMPAT_API_KEY: z.string().default(""),
   TEXT_MODEL_SMART: z.string().default("glm-5.3"),
   TEXT_MODEL_FAST: z.string().default("glm-5.3-flash"),
   TEXT_MODEL_VISION: z.string().default("glm-5.3-flash"),
-  // 目标推荐（suggestGoals）单独通道：auto=跟随 AI_TEXT_PROVIDER；real=全局 mock 时也走真实 API。
-  // 主流程真实实现仍是 TODO，切全局开关会弄坏建档，这个开关只影响 suggestGoals 一个方法。
+  // 目标推荐（suggestGoals）单独通道：auto=跟随 AI_TEXT_PROVIDER；real=全局 mock 时也走真实 API；mock=强制模板。
   AI_SUGGEST_PROVIDER: z.enum(["auto", "mock", "real"]).default("auto"),
 
   AI_IMAGE_PROVIDER: z.enum(["mock", "zhipu", "openai"]).default("mock"),
@@ -25,6 +25,13 @@ const Env = z.object({
   IMAGE_API_KEY: z.string().default(""),
   IMAGE_MODEL: z.string().default("cogview-4-250304"),
   IMAGE_CONCURRENCY: z.coerce.number().int().min(1).max(8).default(3),
+
+  // 单次尝试的超时（毫秒）。JSON/看图按整次调用计时（含一次格式修复），流式按整段输出计时。
+  // FAST 用于同步接口（目标推荐、采访问题、照片描述）：2 次尝试 + mock 回退要在反向代理默认的 60s 内返回。
+  AI_TEXT_TIMEOUT_MS: z.coerce.number().int().min(100).default(90_000),
+  AI_FAST_TIMEOUT_MS: z.coerce.number().int().min(100).default(25_000),
+  AI_STREAM_TIMEOUT_MS: z.coerce.number().int().min(100).default(120_000),
+  AI_IMAGE_TIMEOUT_MS: z.coerce.number().int().min(100).default(120_000),
 
   MOCK_LATENCY_MS: z.coerce.number().int().min(0).default(800),
   DEMO_MODE: z

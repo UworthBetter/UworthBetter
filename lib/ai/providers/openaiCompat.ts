@@ -12,8 +12,12 @@ import type { JsonCallOptions, StreamCallOptions, TextMessage, TextProvider, Tex
 
 const modelOf = (tier: TextTier = "smart") => (tier === "smart" ? env.TEXT_MODEL_SMART : env.TEXT_MODEL_FAST);
 
-// 智谱扩展参数：关闭深度思考以降低延迟（其他兼容服务会忽略未知字段）
-const EXTRA = { thinking: { type: "disabled" } } as Record<string, unknown>;
+// 智谱扩展参数：flash 模型强制开启思考（不可关闭），用 low budget 降延迟；
+// 非 flash 模型关闭思考；其他兼容服务会忽略未知字段。
+const thinkingFor = (model: string): Record<string, unknown> =>
+  model.includes("flash")
+    ? { thinking: { type: "enabled", budget_token: "low" } }
+    : { thinking: { type: "disabled" } };
 
 function toMessages(system: string, messages: TextMessage[]): ChatCompletionMessageParam[] {
   const out: ChatCompletionMessageParam[] = [{ role: "system", content: system }];
@@ -62,12 +66,13 @@ export function createOpenAICompatProvider(): TextProvider {
     let lastErr: unknown;
     for (let attempt = 0; attempt < 2; attempt++) {
       const t0 = Date.now();
+      const model = modelOf(opts.tier);
       const res = await client.chat.completions.create({
-        model: modelOf(opts.tier),
+        model,
         messages,
         temperature: opts.temperature ?? 0.8,
         response_format: { type: "json_object" },
-        ...EXTRA,
+        ...thinkingFor(model),
       }, { signal: opts.signal });
       log(opts.label, t0, res.usage);
       const raw = res.choices[0]?.message?.content ?? "";
@@ -88,12 +93,13 @@ export function createOpenAICompatProvider(): TextProvider {
 
   async function stream(opts: StreamCallOptions): Promise<string> {
     const t0 = Date.now();
+    const streamModel = modelOf(opts.tier);
     const s = await client.chat.completions.create({
-      model: modelOf(opts.tier),
+      model: streamModel,
       messages: toMessages(opts.system, opts.messages),
       temperature: opts.temperature ?? 0.9,
       stream: true,
-      ...EXTRA,
+      ...thinkingFor(streamModel),
     }, { signal: opts.signal });
     let full = "";
     for await (const chunk of s) {
@@ -109,10 +115,11 @@ export function createOpenAICompatProvider(): TextProvider {
 
   async function vision(opts: { prompt: string; imageUrl: string; label: string; signal?: AbortSignal }): Promise<string> {
     const t0 = Date.now();
+    const visionModel = env.TEXT_MODEL_VISION;
     const res = await client.chat.completions.create({
-      model: env.TEXT_MODEL_VISION,
+      model: visionModel,
       messages: toMessages("你是一个简洁的图片描述助手。", [{ role: "user", content: opts.prompt, images: [opts.imageUrl] }]),
-      ...EXTRA,
+      ...thinkingFor(visionModel),
     }, { signal: opts.signal });
     log(opts.label, t0, res.usage);
     return res.choices[0]?.message?.content?.trim() ?? "";

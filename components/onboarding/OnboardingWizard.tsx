@@ -260,7 +260,7 @@ export function OnboardingWizard() {
               onChange={(e) => chooseSelfie(e.target.files?.[0] ?? null)}
             />
           </label>
-          {preview ? <div className="thumb" role="img" aria-label="自拍预览" style={{ backgroundImage: `url(${preview})`, backgroundSize: "cover" }} /> : null}
+          {preview ? <div className="thumb" role="img" aria-label="自拍预览" style={{ backgroundImage: `url(${preview})` }} /> : null}
         </div>
       ) : null}
 

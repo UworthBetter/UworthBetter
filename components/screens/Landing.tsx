@@ -64,14 +64,14 @@ export function Landing() {
 
       <div className="hero" aria-hidden>
         <Image src="/landing/hero.jpg" alt="" fill sizes="480px" priority
-          style={{ objectFit: "cover", objectPosition: "50% 45%" }} />
+          style={{ objectFit: "contain" }} />
         <div className="fog-layer" />
         <div className="hero-fade" />
       </div>
 
       <div className="card slide-card">
         <div className="faint">示例章节</div>
-        <Image src={COVERS[slide]!} alt="" width={640} height={960} style={{ width: "100%", height: 148, objectFit: "cover", objectPosition: "50% 30%", borderRadius: 12, marginTop: 8 }} />
+        <Image src={COVERS[slide]!} alt="" width={640} height={960} sizes="360px" style={{ width: "100%", height: "auto", borderRadius: 12, marginTop: 8 }} />
         <div className="dots">
           {COVERS.map((src, index) => (
             <button key={src} type="button" className={index === slide ? "on" : ""} aria-label={`第 ${index + 1} 张`} onClick={() => setSlide(index)} />

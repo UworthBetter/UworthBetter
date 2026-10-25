@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ApiClientError, api } from "@/lib/client/api";
 import type { ChapterCard } from "@/lib/contracts";
@@ -9,6 +8,7 @@ import { ActProgress } from "@/components/story/ActProgress";
 import { Icon } from "@/components/ui/Icon";
 import { TypeBadge } from "@/components/ui/Badge";
 import { useSeason } from "@/hooks/useSeason";
+import { FitImage } from "@/components/ui/FitImage";
 
 const ACT_NAME = ["第一幕", "第二幕", "第三幕"];
 
@@ -46,7 +46,7 @@ export function ShelfScreen() {
                   disabled={locked}
                   onClick={() => router.push(`/chapter/${chapter.no}`)}
                 >
-                  {chapter.coverUrl && !locked ? <Image src={chapter.coverUrl} alt="" fill sizes="180px" style={{ objectFit: "cover" }} /> : <div className="cov" />}
+                  {chapter.coverUrl && !locked ? <FitImage className="cov" src={chapter.coverUrl} alt="" sizes="180px" /> : <div className="cov" />}
                   <div className="ov" />
                   <div className="no">第 {chapter.no} 章</div>
                   {chapter.status === "in_progress" ? <span className="badge badge-live">进行中</span> : <TypeBadge type={chapter.type} />}

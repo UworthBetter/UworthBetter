@@ -76,8 +76,8 @@ export function GeneratingScreen() {
 
       {futureUrl || presentUrl ? (
         <div className="row" style={{ marginTop: 12 }}>
-          {futureUrl ? <Image className="thumb" src={futureUrl} alt="未来的你" width={84} height={112} /> : null}
-          {presentUrl ? <Image className="thumb" src={presentUrl} alt="现在的你" width={84} height={112} /> : null}
+          {futureUrl ? <Image className="thumb" src={futureUrl} alt="未来的你" width={768} height={1152} /> : null}
+          {presentUrl ? <Image className="thumb" src={presentUrl} alt="现在的你" width={768} height={1152} /> : null}
         </div>
       ) : null}
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import type { ChapterType, PanelView, Quest, QuestView } from "@/lib/contracts";
 import { ComicPanel } from "@/components/story/ComicPanel";
@@ -10,6 +9,7 @@ import { NextChapterTeaser } from "@/components/story/NextChapterTeaser";
 import { RealEventsCard } from "@/components/story/RealEventsCard";
 import { firstParagraph, segmentBody } from "@/components/story/segment";
 import { TypeBadge } from "@/components/ui/Badge";
+import { FitImage } from "@/components/ui/FitImage";
 
 export type ReaderModel = {
   no: number;
@@ -51,7 +51,7 @@ export function ChapterReader({ model, onSaveQuests }: { model: ReaderModel; onS
       <div className="readbar" aria-hidden><i style={{ width: `${progress * 100}%` }} /></div>
       <div className="screen-pad">
         <div className="chapter-cover">
-          {model.coverUrl ? <Image src={model.coverUrl} alt="" fill sizes="390px" style={{ objectFit: "cover" }} priority /> : null}
+          {model.coverUrl ? <FitImage src={model.coverUrl} alt="" sizes="390px" priority /> : <div className="fit-frame" style={{ aspectRatio: "2 / 3" }} />}
           <div className="vignette" />
           <div className="meta">
             <div className="no">第 {model.no} 章</div>

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { FitImage } from "@/components/ui/FitImage";
 
 export function FogCover({
   coverUrl,
@@ -23,9 +23,7 @@ export function FogCover({
       className={`fog-box${tall ? " fog-core" : ""}${short ? " short" : ""}${pulse ? " clearing" : ""}`}
       style={{ ["--blur" as string]: `${blurPx}px`, ["--fog-opacity" as string]: String(opacity) }}
     >
-      <div className="fog-img">
-        {coverUrl ? <Image src={coverUrl} alt="" fill sizes="390px" style={{ objectFit: "cover" }} priority /> : null}
-      </div>
+      {coverUrl ? <FitImage className="fog-img" src={coverUrl} alt="" sizes="390px" priority /> : <div className="fog-img" />}
       <div className="fog-overlay" />
       {pulse ? (
         <>

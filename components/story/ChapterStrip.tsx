@@ -11,7 +11,7 @@ export function ChapterStrip({ chapters, current }: { chapters: ChapterCard[]; c
           </>
         );
         const cls = `strip-item${chapter.no === current ? " on" : ""}${chapter.status === "locked" ? " locked" : ""}${chapter.isActFinale ? " finale" : ""}`;
-        const style = chapter.coverUrl ? { background: `center/cover url(${chapter.coverUrl})` } : undefined;
+        const style = chapter.coverUrl ? { backgroundImage: `url(${chapter.coverUrl})` } : undefined;
         if (chapter.status === "locked") {
           return <div key={chapter.no} className={cls} style={style} aria-label={`第 ${chapter.no} 章未解锁`}>{inner}</div>;
         }

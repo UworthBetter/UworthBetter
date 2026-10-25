@@ -2,7 +2,7 @@ import pLimit from "p-limit";
 import { eq } from "drizzle-orm";
 import { ChapterPlan } from "@/lib/contracts/ai";
 import type { ImageRef } from "@/lib/contracts/aiTasks";
-import { getAITasks } from "@/lib/ai/tasks";
+import { coverPrompt, getAITasks, panelPrompt } from "@/lib/ai/tasks";
 import { env } from "@/lib/env";
 import { adaptQuests } from "@/lib/domain/questRules";
 import { db, schema } from "@/lib/server/db/client";
@@ -50,14 +50,13 @@ export function startChapter(season: typeof schema.seasons.$inferSelect, n: numb
       });
       const coverTask = chapter.coverUrl
         ? Promise.resolve(chapter.coverUrl).then((url) => { ctx.emit({ type: "step", step: "cover", status: "done", data: { url } }); return url; })
-        : scene("cover", plan.coverPrompt);
+        : scene("cover", coverPrompt(plan.coverPrompt, context.bible));
       const panelTasks = plan.panels.map((p, i) => {
         const panelRefs = [p.characters.includes("protagonist") ? self.sheetPresentUrl : null,
           p.characters.includes("mentor") ? self.sheetFutureUrl : null].flatMap((url) => url ? [{ url }] : []);
-        // A3 辅助构建器尚未提供时，仅组合已规划的画面、镜头和外貌锚点。
-        return scene(PANEL_STEPS[i], `${p.scene}. ${p.shot}. ${context.bible.protagonist.appearanceAnchor}. ${context.futureSelf.appearanceAnchor}. no text`, panelRefs);
+        return scene(PANEL_STEPS[i], panelPrompt(p, context.futureSelf, context.bible), panelRefs);
       });
-      const nextTask = n < 13 ? scene("next_cover", plan.nextCoverPrompt) : Promise.resolve(null);
+      const nextTask = n < 13 ? scene("next_cover", coverPrompt(plan.nextCoverPrompt, context.bible)) : Promise.resolve(null);
       const textTask = (async () => {
         ctx.emit({ type: "step", step: "body", status: "running" });
         const replay = async (target: "body" | "letter", full: string) => {

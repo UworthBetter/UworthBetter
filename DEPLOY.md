@@ -51,8 +51,11 @@ AI_IMAGE_PROVIDER=mock
 DEMO_MODE=1
 ```
 
-公开使用时可将 `DEMO_MODE=0`。真实 AI 配置见 `.env.example`；真实文本任务由
-AI 轨道负责，当前仍有未实现项，因此本次验证使用 mock。`STORAGE_DRIVER=s3`
+公开使用时可将 `DEMO_MODE=0`。启用真实模型：设置 `AI_TEXT_PROVIDER=openai-compat` +
+`OPENAI_COMPAT_API_KEY`（文本），`AI_IMAGE_PROVIDER=openai|zhipu` + `IMAGE_API_KEY`
+（图像，另见 `IMAGE_BASE_URL` / `IMAGE_MODEL`），并保持 `DEMO_CACHED_GENERATE=0`；
+完整说明见 `.env.example` 与 README「启用真实模型」。每次调用超时后重试 1 次，仍失败或
+Key 为空时回退 mock，日志中搜索 `回退 mock` 可发现问题。`STORAGE_DRIVER=s3`
 尚未实现，当前只支持本地文件存储。
 
 ## 构建与启动

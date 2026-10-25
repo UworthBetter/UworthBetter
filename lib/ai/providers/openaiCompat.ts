@@ -2,6 +2,7 @@
  * OpenAI 兼容接口的文本 Provider。默认对接智谱 BigModel（https://open.bigmodel.cn/api/paas/v4）。
  * 已验证（2026-10-24）：glm-5.3 / glm-5.3-flash 支持 response_format=json_object 与 thinking.disabled；
  * 部分模型会把 JSON 包在 ```json 代码块里，extractJson 负责兼容。
+ * SDK 自带重试关闭（maxRetries=0）：超时与重试统一由 lib/ai/resilient.ts 控制，避免重试次数相乘。
  */
 import OpenAI from "openai";
 import type { ChatCompletionContentPart, ChatCompletionMessageParam } from "openai/resources/chat/completions";
@@ -46,7 +47,12 @@ export function extractJson(raw: string): unknown {
 
 export function createOpenAICompatProvider(): TextProvider {
   if (!env.OPENAI_COMPAT_API_KEY) throw new Error("缺少 OPENAI_COMPAT_API_KEY（见 .env.example）");
-  const client = new OpenAI({ baseURL: env.OPENAI_COMPAT_BASE_URL, apiKey: env.OPENAI_COMPAT_API_KEY, timeout: 120_000 });
+  const client = new OpenAI({
+    baseURL: env.OPENAI_COMPAT_BASE_URL,
+    apiKey: env.OPENAI_COMPAT_API_KEY,
+    timeout: Math.max(env.AI_TEXT_TIMEOUT_MS, env.AI_STREAM_TIMEOUT_MS),
+    maxRetries: 0,
+  });
 
   const log = (label: string, t0: number, usage?: { prompt_tokens?: number; completion_tokens?: number } | null) =>
     console.log(`[ai:text] ${label} ${Date.now() - t0}ms in=${usage?.prompt_tokens ?? "?"} out=${usage?.completion_tokens ?? "?"}`);
@@ -62,7 +68,7 @@ export function createOpenAICompatProvider(): TextProvider {
         temperature: opts.temperature ?? 0.8,
         response_format: { type: "json_object" },
         ...EXTRA,
-      });
+      }, { signal: opts.signal });
       log(opts.label, t0, res.usage);
       const raw = res.choices[0]?.message?.content ?? "";
       try {
@@ -88,7 +94,7 @@ export function createOpenAICompatProvider(): TextProvider {
       temperature: opts.temperature ?? 0.9,
       stream: true,
       ...EXTRA,
-    });
+    }, { signal: opts.signal });
     let full = "";
     for await (const chunk of s) {
       const d = chunk.choices[0]?.delta?.content;
@@ -101,13 +107,13 @@ export function createOpenAICompatProvider(): TextProvider {
     return full;
   }
 
-  async function vision(opts: { prompt: string; imageUrl: string; label: string }): Promise<string> {
+  async function vision(opts: { prompt: string; imageUrl: string; label: string; signal?: AbortSignal }): Promise<string> {
     const t0 = Date.now();
     const res = await client.chat.completions.create({
       model: env.TEXT_MODEL_VISION,
       messages: toMessages("你是一个简洁的图片描述助手。", [{ role: "user", content: opts.prompt, images: [opts.imageUrl] }]),
       ...EXTRA,
-    });
+    }, { signal: opts.signal });
     log(opts.label, t0, res.usage);
     return res.choices[0]?.message?.content?.trim() ?? "";
   }

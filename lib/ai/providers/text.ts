@@ -18,6 +18,8 @@ export interface JsonCallOptions<T> {
   temperature?: number;
   /** 日志标签，例如 "genChapterPlan" */
   label: string;
+  /** 取消/超时信号（由 lib/ai/resilient.ts 传入）。 */
+  signal?: AbortSignal;
 }
 
 export interface StreamCallOptions {
@@ -27,6 +29,7 @@ export interface StreamCallOptions {
   temperature?: number;
   label: string;
   onDelta: (text: string) => void;
+  signal?: AbortSignal;
 }
 
 export interface TextProvider {
@@ -35,7 +38,7 @@ export interface TextProvider {
   /** 流式文本，返回完整文本。 */
   stream(opts: StreamCallOptions): Promise<string>;
   /** 视觉模型：图片 → 文本。 */
-  vision(opts: { prompt: string; imageUrl: string; label: string }): Promise<string>;
+  vision(opts: { prompt: string; imageUrl: string; label: string; signal?: AbortSignal }): Promise<string>;
 }
 
 let cached: TextProvider | undefined;

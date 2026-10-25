@@ -30,14 +30,14 @@ export function createOpenAIImageProvider(): ImageProvider {
 
   return {
     supportsRefs: false,
-    async generate({ prompt, refs, aspect, label }) {
+    async generate({ prompt, refs, aspect, label, signal }) {
       if (refs.length) console.warn(`[ai:image] ${label}: openai provider 暂不支持参考图，已忽略 ${refs.length} 张`);
       const t0 = Date.now();
       const res = await fetch(`${env.IMAGE_BASE_URL}/images/generations`, {
         method: "POST",
         headers: { Authorization: `Bearer ${env.IMAGE_API_KEY}`, "Content-Type": "application/json" },
         body: JSON.stringify({ model: env.IMAGE_MODEL, prompt, size: OPENAI_SIZES[aspect], n: 1 }),
-        signal: AbortSignal.timeout(120_000),
+        signal: signal ?? AbortSignal.timeout(env.AI_IMAGE_TIMEOUT_MS),
       });
       const body = (await res.json().catch(() => null)) as {
         data?: { b64_json?: string; url?: string }[];
@@ -53,7 +53,7 @@ export function createOpenAIImageProvider(): ImageProvider {
         buffer = Buffer.from(item.b64_json, "base64");
         mime = sniffMime(buffer);
       } else {
-        const img = await fetch(item.url!);
+        const img = await fetch(item.url!, { signal });
         if (!img.ok) throw new AIError(`图像下载失败: ${img.status}`, label);
         buffer = Buffer.from(await img.arrayBuffer());
         mime = (img.headers.get("content-type") ?? sniffMime(buffer)) as ImageMime;

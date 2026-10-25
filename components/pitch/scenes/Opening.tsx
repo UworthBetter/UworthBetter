@@ -1,16 +1,32 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useCachedSrc } from "@/components/pitch/ImageCache";
 import type { SceneProps } from "@/components/pitch/scenes";
 import { Reveal } from "@/components/pitch/ui/Reveal";
 
 // 场景 0–2：开场。不以「失败」开场——目标是静态的，人是动态的。
 
+// 封面图自带标题「UworthBetter 你值得更好」（右上），标语放在右下水面留白处
+export const COVER_URL = "/pitch/project-cover-reflection-titled.jpg";
+
 export function Scene00Title() {
+  const src = useCachedSrc(COVER_URL);
   return (
-    <div className="pitch-center">
-      <Reveal show className="pitch-kicker">◆ UWORTHBETTER</Reveal>
-      <Reveal show delay={0.3} className="pitch-claim">把你的 90 天，<br />写成一部你会追更的连载</Reveal>
-      <Reveal show delay={0.8} className="pitch-foot">未来自我叙事规划师</Reveal>
+    <div className="pitch-cover">
+      <motion.img
+        src={src ?? COVER_URL}
+        alt="UworthBetter 封面：码头上的她，与水中倒影里未来的她"
+        draggable={false}
+        initial={{ scale: 1.08 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 14, ease: "easeOut" }}
+      />
+      <div className="pitch-cover-shade" />
+      <div className="pitch-cover-copy">
+        <Reveal show delay={1.2} className="pitch-cover-claim">把你的 90 天，<br />写成一部你会追更的连载</Reveal>
+        <Reveal show delay={1.8} className="pitch-cover-foot">◆ 未来自我叙事规划师</Reveal>
+      </div>
     </div>
   );
 }

@@ -154,11 +154,18 @@ export function Scene16Roadmap() {
 }
 
 export const QR_URL = "/pitch/qr.svg"; // 网址定下来后离线生成放到这里；不存在时只显示网址文本
+// 与开场封面首尾呼应：同一画面去掉标题，淡化成底图
+export const END_COVER_URL = "/pitch/project-cover-reflection.jpg";
 
 export function Scene17End({ data, beat }: SceneProps) {
   const [qr, setQr] = useState(true);
   const qrSrc = useCachedSrc(QR_URL);
+  const coverSrc = useCachedSrc(END_COVER_URL);
   return (
+    <>
+    <div className="pitch-cover pitch-cover-end" aria-hidden>
+      <img src={coverSrc ?? END_COVER_URL} alt="" draggable={false} />
+    </div>
     <div className="pitch-center" style={{ gap: 48 }}>
       <motion.div initial={false} animate={{ y: beat >= 1 ? -30 : 0 }} style={{ display: "flex", gap: 48, alignItems: "center" }}>
         <Portrait src={data.sheets.present} alt="现在的林夏" size={300} style={{ border: "3px solid rgba(28,26,22,.2)" }} />
@@ -179,5 +186,6 @@ export function Scene17End({ data, beat }: SceneProps) {
         <div className="pitch-body">{data.siteUrl}</div>
       </Reveal>
     </div>
+    </>
   );
 }

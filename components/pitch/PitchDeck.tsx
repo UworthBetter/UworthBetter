@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore } from "react";
 import { Stage } from "@/components/pitch/Stage";
 import { applyDigit, formatHash, keyToCommand, navReducer, parseHash, shouldForwardKey, shouldSnap, type NavAction, type Pos } from "@/components/pitch/model/nav";
-import { QR_URL } from "@/components/pitch/scenes/Closing";
+import { END_COVER_URL, QR_URL } from "@/components/pitch/scenes/Closing";
+import { COVER_URL } from "@/components/pitch/scenes/Opening";
 import { BACKUP_VIDEO_URL, LiveDemo } from "@/components/pitch/scenes/Live";
 import { PITCH_CHANNEL, type PitchMessage } from "@/components/pitch/SpeakerNotes";
 import { ImageCacheProvider } from "@/components/pitch/ImageCache";
@@ -25,7 +26,7 @@ const DIGIT_TIMEOUT_MS = 1500;
 export function PitchDeck({ data }: { data: PitchData }) {
   const mounted = useSyncExternalStore(noop, () => true, () => false);
   // 加载时预取全部图片与备用视频到内存，现场断网时其余场景与备用视频仍可用
-  const urls = useMemo(() => [...imageUrlsOf(data), QR_URL, BACKUP_VIDEO_URL], [data]);
+  const urls = useMemo(() => [...imageUrlsOf(data), COVER_URL, END_COVER_URL, QR_URL, BACKUP_VIDEO_URL], [data]);
   return mounted ? <ImageCacheProvider urls={urls}><Deck data={data} /></ImageCacheProvider> : null;
 }
 

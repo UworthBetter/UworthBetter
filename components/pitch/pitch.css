@@ -69,3 +69,43 @@
 .pitch-reset:hover { opacity: 1; }
 .pitch-reset button { font-size: 20px; padding: 10px 18px; border-radius: 12px; background: #1c1a16; color: #f3eee2; }
 .pitch-reset span { font-size: 18px; color: var(--p-dim); }
+
+/* 场景 0 / 17：封面图铺满画布 */
+.pitch-cover { position: absolute; inset: 0; overflow: hidden; background: #1f1a14; }
+.pitch-cover > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; transform-origin: 62% 40%; }
+.pitch-cover-shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 1100px 620px at 100% 100%, rgba(20, 17, 13, 0.72), transparent 70%),
+    radial-gradient(ellipse 1500px 900px at 50% 50%, transparent 60%, rgba(20, 17, 13, 0.35));
+}
+.pitch-cover-copy { position: absolute; right: 96px; bottom: 96px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 24px; }
+.pitch-cover-claim { font-size: 60px; font-weight: 700; line-height: 1.35; color: #fbf5e8; letter-spacing: 0.03em; text-shadow: 0 2px 24px rgba(20, 17, 13, 0.6); }
+.pitch-cover-foot { font-size: 26px; letter-spacing: 0.3em; color: #f0cf86; text-shadow: 0 1px 12px rgba(20, 17, 13, 0.7); }
+.pitch-cover-end { background: var(--p-paper); }
+.pitch-cover-end > img { filter: blur(3px) saturate(1.1); transform: scale(1.03); }
+.pitch-cover-end::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 1100px 760px at 50% 50%, rgba(243, 238, 226, 0.94), rgba(243, 238, 226, 0.72));
+}
+.pitch-cover-dim { background: transparent; }
+.pitch-cover-dim > img { filter: blur(2px); }
+.pitch-cover-dim::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 1300px 800px at 50% 50%, rgba(20, 17, 13, 0.55), rgba(20, 17, 13, 0.9));
+}
+
+/* 全局底纹：深色页叠一层与封面同色调的暖光（右上灯塔光 + 左下水面反光），两种底色都叠一层细纸纹 */
+.pitch-canvas::before, .pitch-canvas::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.pitch-canvas::before {
+  background:
+    radial-gradient(ellipse 900px 520px at 88% 6%, rgba(240, 196, 110, 0.16), transparent 65%),
+    radial-gradient(ellipse 1100px 600px at 12% 104%, rgba(227, 184, 102, 0.10), transparent 60%),
+    radial-gradient(ellipse 700px 420px at 40% 110%, rgba(110, 150, 170, 0.08), transparent 60%);
+  opacity: 0; transition: opacity 0.6s;
+}
+.pitch-canvas[data-dark="1"]::before { opacity: 1; }
+.pitch-canvas::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .35 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1; mix-blend-mode: overlay; z-index: -1; /* 画布有 transform 自成层叠上下文，-1 只沉到内容之下 */
+}

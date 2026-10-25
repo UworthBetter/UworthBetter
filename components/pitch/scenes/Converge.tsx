@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element -- 路演页用本地静态图 */
 "use client";
 
 import { motion } from "framer-motion";
+import { useCachedSrc } from "@/components/pitch/ImageCache";
 import type { SceneProps } from "@/components/pitch/scenes";
+import { END_COVER_URL } from "@/components/pitch/scenes/Closing";
 import { Puzzle } from "@/components/pitch/ui/Puzzle";
 import { Reveal } from "@/components/pitch/ui/Reveal";
 
@@ -53,8 +56,19 @@ function LoopDiagram({ show }: { show: boolean }) {
 }
 
 export function Scene07Converge({ beat }: SceneProps) {
+  const coverSrc = useCachedSrc(END_COVER_URL);
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      {/* 拼图合拢、点出产品名时，封面画面从暗处浮现；讲核心循环时再压暗让位给图示 */}
+      <motion.div
+        className="pitch-cover pitch-cover-dim"
+        aria-hidden
+        initial={false}
+        animate={{ opacity: beat === 1 ? 0.55 : beat >= 2 ? 0.22 : 0 }}
+        transition={{ duration: 1.4, ease: "easeOut" }}
+      >
+        <img src={coverSrc ?? END_COVER_URL} alt="" draggable={false} />
+      </motion.div>
       <motion.div
         initial={false}
         animate={beat >= 2 ? { x: -470, scale: 0.56 } : { x: 0, scale: 1 }}

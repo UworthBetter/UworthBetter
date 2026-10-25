@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useJob } from "@/hooks/useJob";
 import { GeneratingStages, stagePercent } from "@/components/story/GeneratingStages";
 import { StreamingText } from "@/components/story/StreamingText";
 import { Button } from "@/components/ui/Button";
+import { FitImage } from "@/components/ui/FitImage";
 
 const LABELS = [
   { id: "profile", label: "听清你的愿望" },
@@ -76,8 +76,8 @@ export function GeneratingScreen() {
 
       {futureUrl || presentUrl ? (
         <div className="row" style={{ marginTop: 12 }}>
-          {futureUrl ? <Image className="thumb" src={futureUrl} alt="未来的你" width={768} height={1152} /> : null}
-          {presentUrl ? <Image className="thumb" src={presentUrl} alt="现在的你" width={768} height={1152} /> : null}
+          {futureUrl ? <div className="thumb-slot"><FitImage src={futureUrl} alt="未来的你" sizes="84px" /></div> : null}
+          {presentUrl ? <div className="thumb-slot"><FitImage src={presentUrl} alt="现在的你" sizes="84px" /></div> : null}
         </div>
       ) : null}
 

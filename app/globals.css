@@ -110,6 +110,8 @@ body {
 button, input, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
 img { max-width: 100%; display: block; }
+/* fill 插画自己撑满定位框；全局 max-width 会把它们挤扁、裁掉一边 */
+img[data-nimg="fill"] { max-width: none; }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -350,7 +352,7 @@ textarea.input { resize: none; font-family: var(--font-body); line-height: 1.7; 
 .badge-live { background: var(--paper); color: var(--gold-deep); }
 
 .hero {
-  height: 230px;
+  aspect-ratio: 3 / 2;
   border-radius: var(--radius-l);
   position: relative;
   overflow: hidden;
@@ -530,7 +532,8 @@ html[data-style="cyber"] .hero { background: linear-gradient(180deg, #0c1c28 0%,
 
 .flip-card {
   perspective: 1400px;
-  height: 250px;
+  aspect-ratio: 2 / 3;
+  height: auto;
   margin: 0 0 16px;
   width: 100%;
   border: none;
@@ -561,7 +564,7 @@ html[data-style="cyber"] .flip-front { background: linear-gradient(150deg, #0c12
 .diamond-mark { animation: spin-slow 7s linear infinite; color: var(--gold); width: 28px; height: 28px; }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 .flip-back { transform: rotateY(180deg); background: #1c1a16; }
-.flip-back img, .portrait-photo { width: 100%; height: 100%; object-fit: cover; }
+.flip-back img, .portrait-photo { width: 100%; height: 100%; object-fit: contain; max-width: none; }
 .portrait {
   height: 100%;
   display: flex;
@@ -631,24 +634,23 @@ html[data-style="cyber"] .flip-front { background: linear-gradient(150deg, #0c12
 .strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; margin: 4px 0 14px; }
 .strip::-webkit-scrollbar { display: none; }
 .strip-item {
-  flex: 0 0 72px;
-  height: 96px;
+  flex: 0 0 64px;
+  aspect-ratio: 2 / 3;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
   border: 1px solid var(--line);
-  background: var(--paper-2);
+  background: #2a2620 center / contain no-repeat;
 }
 .strip-item.on { outline: 2px solid var(--gold); outline-offset: 1px; }
 .strip-item.finale { box-shadow: inset 0 0 0 1.5px var(--gold); }
 .strip-item.locked { filter: grayscale(1) brightness(0.7); }
 .strip-item span { position: absolute; left: 6px; bottom: 5px; color: #fff; font-size: 10px; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); }
 
-.fog-box { position: relative; border-radius: var(--radius-m); overflow: hidden; height: 168px; box-shadow: var(--shadow-card); }
-.fog-box.fog-core { height: 196px; box-shadow: var(--shadow-pop); }
-.fog-box.short { height: 104px; }
-.fog-img { position: absolute; inset: 0; background: linear-gradient(155deg, #3a3326, #9a7a46 45%, #e4c791); }
-.fog-img img { width: 100%; height: 100%; object-fit: cover; }
+.fog-box { position: relative; border-radius: var(--radius-m); overflow: hidden; box-shadow: var(--shadow-card); }
+.fog-box.fog-core { box-shadow: var(--shadow-pop); }
+.fog-img { position: relative; width: 100%; aspect-ratio: 2 / 3; background: linear-gradient(155deg, #3a3326, #9a7a46 45%, #e4c791); }
+.fog-img img { width: 100%; height: 100%; object-fit: contain; max-width: none; }
 .fog-overlay {
   position: absolute;
   inset: 0;
@@ -754,14 +756,13 @@ img.chat-ava { object-fit: cover; display: block; }
 .composer { display: flex; gap: 8px; position: sticky; bottom: 8px; }
 
 .chapter-cover {
-  height: 210px;
   border-radius: var(--radius-m);
   position: relative;
   overflow: hidden;
   margin-bottom: 14px;
   background: linear-gradient(165deg, #5a6f79, #b89c73 60%, #e9d6ac);
 }
-.chapter-cover img { width: 100%; height: 100%; object-fit: cover; }
+.chapter-cover img { width: 100%; height: 100%; object-fit: contain; max-width: none; }
 .chapter-cover .vignette { position: absolute; inset: 0; box-shadow: inset 0 -54px 54px -10px rgba(0, 0, 0, 0.45); }
 .chapter-cover .meta { position: absolute; left: 14px; bottom: 12px; color: #fff; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); }
 .chapter-cover .no { font-size: 11px; letter-spacing: 0.06em; opacity: 0.9; }
@@ -776,7 +777,15 @@ img.chat-ava { object-fit: cover; display: block; }
   animation: pulse 1s steps(1) infinite;
   vertical-align: text-bottom;
 }
-.thumb { width: 84px; height: 112px; object-fit: cover; border-radius: 12px; background: var(--paper-2); }
+.thumb {
+  width: 84px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--paper-2) center / contain no-repeat;
+}
+.thumb-slot { width: 84px; flex: none; border-radius: 12px; overflow: hidden; }
 .chip-row { display: flex; flex-wrap: wrap; margin: 8px -3px; }
 .prose-p { font-family: var(--font-body); font-size: 15px; line-height: 1.95; animation: fadein 0.45s var(--ease); }
 .readbar { position: sticky; top: 0; height: 2px; background: transparent; z-index: 4; }
@@ -787,10 +796,9 @@ img.chat-ava { object-fit: cover; display: block; }
   position: relative;
   margin: 14px 0;
   box-shadow: var(--shadow-card);
-  height: 280px;
   background: #2c2824;
 }
-.panel .pimg { position: absolute; inset: 0; }
+.panel .pimg { position: relative; width: 100%; aspect-ratio: 3 / 2; }
 .panel .narr, .panel .bubble {
   position: absolute;
   z-index: 1;
@@ -852,15 +860,17 @@ button.shelf-card:disabled { cursor: default; }
   border-radius: var(--radius-m);
   overflow: hidden;
   position: relative;
-  height: 148px;
   box-shadow: var(--shadow-card);
   display: block;
   background: #2a2620;
   transition: transform 0.3s var(--ease);
 }
+.fit-frame { position: relative; width: 100%; }
+.fit-frame img { object-fit: contain; max-width: none; }
 .shelf-card:hover { transform: translateY(-3px); }
 .shelf-card.finale { box-shadow: 0 0 0 1.5px var(--gold), var(--shadow-card); }
-.shelf-card img, .shelf-card .cov { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.shelf-card .cov { position: relative; display: block; width: 100%; aspect-ratio: 2 / 3; background: #2a2620; }
+.shelf-card img { width: 100%; height: 100%; object-fit: contain; max-width: none; }
 .shelf-card .ov { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), transparent 58%); }
 .shelf-card .ti { position: absolute; left: 9px; right: 8px; bottom: 8px; color: #fff; font-size: 12px; }
 .shelf-card .no { position: absolute; left: 9px; top: 8px; color: #fff; font-size: 10px; opacity: 0.9; }

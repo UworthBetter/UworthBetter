@@ -234,6 +234,11 @@ a { color: inherit; text-decoration: none; }
   .device-screen { border-radius: 0; }
   .screen-pad { padding: 18px 16px 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
 }
+/* 路演手机框里封面要完整落在底栏上方，不要顶出可视区 */
+html[data-embed="1"] .screen-pad {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 
 .kicker {
   font-size: 11px;

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useSyncExternalStore, type ReactNode } from "react";
+import { useEffect, useSyncExternalStore, type ReactNode } from "react";
 import { DemoPanel } from "@/components/DemoPanel";
 import { SeasonProvider } from "@/components/layout/SeasonProvider";
 import { TabBar } from "@/components/layout/TabBar";
@@ -23,6 +23,11 @@ function Chrome({ children }: { children: ReactNode }) {
   const path = usePathname();
   const showTab = TAB_PATHS.some((p) => path === p);
   const embedded = useEmbedded();
+  useEffect(() => {
+    const root = document.documentElement;
+    if (embedded) root.dataset.embed = "1";
+    else delete root.dataset.embed;
+  }, [embedded]);
   return (
     <>
       <div className={`screen-scroll${showTab ? " has-tab" : ""}`}>{children}</div>
